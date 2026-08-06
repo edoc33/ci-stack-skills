@@ -1,0 +1,21 @@
+{
+  "name": "ci-stack",
+  "displayName": "CI Stack",
+  "version": "0.1.0",
+  "description": "Six competitive-intelligence skills for product marketers. Turns a competitor change into a decision you can defend, with the evidence attached.",
+  "author": {
+    "name": "edoc33",
+    "url": "https://github.com/edoc33"
+  },
+  "homepage": "https://github.com/edoc33/ci-stack-skills",
+  "repository": "https://github.com/edoc33/ci-stack-skills",
+  "license": "MIT",
+  "keywords": [
+    "competitive-intelligence",
+    "product-marketing",
+    "battlecards",
+    "monitoring",
+    "win-loss",
+    "positioning"
+  ]
+}

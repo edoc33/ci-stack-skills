@@ -1,0 +1,28 @@
+{
+  "name": "ci-stack",
+  "owner": {
+    "name": "edoc33",
+    "url": "https://github.com/edoc33"
+  },
+  "metadata": {
+    "description": "Competitive-intelligence skills that turn page changes into decisions you can defend.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "ci-stack",
+      "source": "./plugins/ci-stack",
+      "description": "Six skills that take a competitor change from signal to a decision with its receipt attached: scope a portfolio, triage materiality, corroborate claims, patch battlecards, separate patterns from anecdotes, and keep a weekly decision and ignore log.",
+      "version": "0.1.0",
+      "category": "research",
+      "keywords": [
+        "competitive-intelligence",
+        "product-marketing",
+        "battlecards",
+        "monitoring",
+        "win-loss",
+        "positioning"
+      ]
+    }
+  ]
+}

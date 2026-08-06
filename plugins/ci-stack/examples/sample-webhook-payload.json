@@ -1,0 +1,15 @@
+{
+  "_comment": "Illustrative change-monitoring webhook payload, shaped like Visualping's. Fictional competitor. Paste into /ci-stack:ci-triage to see the brief it produces.",
+  "job_id": "example-0001",
+  "url": "https://www.acmeflow.example/pricing",
+  "description": "AcmeFlow — pricing (commercial terms)",
+  "datetime": "2026-08-04T09:12:44Z",
+  "previous_datetime": "2026-08-03T09:11:02Z",
+  "change": 4.7,
+  "important": true,
+  "summarizer": "The Team plan price increased and a new usage limit was introduced. An enterprise-only SSO note was removed from the plan comparison.",
+  "added_text": "Team — $49 per user / month billed annually. Includes 5,000 automation runs per month. Additional runs billed at $0.002 each. SAML SSO available on all paid plans.",
+  "removed_text": "Team — $39 per user / month billed annually. Unlimited automation runs. SAML SSO available on Enterprise only.",
+  "screenshot_before": "https://example.invalid/before.png",
+  "screenshot_after": "https://example.invalid/after.png"
+}
