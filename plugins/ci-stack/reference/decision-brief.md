@@ -198,18 +198,26 @@ read and write under it:
 <CI root>/ci-outcomes.md       generated view
 ```
 
-Never scan unrelated files in the working directory looking for CI material, and never write outside
-the root. If the user has not set a root, ask before the first read or write — not after.
+Never scan unrelated files in the working directory looking for CI material. Never write canonical CI
+records or generated views outside the root. One exception: a collision-safe **proposal** for an
+artifact the user supplied from elsewhere — a battlecard, say — may be written beside that artifact,
+after showing its absolute path. If the user has not set a root, ask before the first read or
+write — not after.
 
 Show the planned absolute paths before writing. Warn if the root is inside a git repository — call
 transcripts, CRM extracts, and buyer quotes should not land in version control by accident.
 
-**Writing rules.** Canonical records in `briefs/`, `corroborations/`, and `patterns/` are never
-overwritten and never blind-appended: if a target exists, write a collision-safe filename. The four
-generated views are different — they are **regenerated** from the briefs, and because they carry
-fixed names, emit a proposed diff for the user to accept rather than silently replacing a file they
-may have edited. If writing is refused or fails, return the artifact inline and do not claim a file
-exists.
+**Writing rules.** Two categories, handled differently.
+
+*Canonical records* — everything in `briefs/`, `corroborations/`, `patterns/`, and `updates/` — are
+never overwritten and never blind-appended. If a target exists, write a collision-safe filename.
+
+*Fixed-name files* — the three brief-derived views `ci-decision-log.md`, `ci-ignore-log.md`, and
+`ci-outcomes.md`, plus the portfolio artifacts — are **regenerated** rather than accumulated. Because
+their names are fixed, emit a proposed diff against the existing file for the user to accept rather
+than silently replacing something they may have annotated.
+
+If writing is refused or fails, return the artifact inline and do not claim a file exists.
 
 ## Language policy
 

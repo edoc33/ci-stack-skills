@@ -92,13 +92,15 @@ Bad prompt: `price` · `enterprise` · `SSO`. Explain why when the user asks for
 
 ## Step 5 — Emit
 
-Per the file-safety rule: confirm the directory, show paths, never overwrite.
+Resolve the CI root per the shared contract and write all three artifacts under it, showing absolute
+paths first. These are fixed-name files: if one already exists, emit a proposed diff against it rather
+than replacing a portfolio the user may have edited by hand.
 
-1. `ci-portfolio.md` — the table plus the decisions it serves and whether it is provisional.
-2. `ci-portfolio-export.csv` — a generic UTF-8 `url,title` export, where the title encodes
+1. `<CI root>/ci-portfolio.md` — the table plus the decisions it serves and whether it is provisional.
+2. `<CI root>/ci-portfolio-export.csv` — a generic UTF-8 `url,title` export, where the title encodes
    competitor and layer, e.g. `Acme — pricing (commercial terms)`. Quote cells properly and
    neutralise leading `=`, `+`, `-`, and `@` so no cell is treated as a spreadsheet formula.
-3. `ci-alert-prompts.md` — the per-page prompts, ready to paste.
+3. `<CI root>/ci-alert-prompts.md` — the per-page prompts, ready to paste.
 
 **Do not call this import-ready for any specific tool.** Check the target tool's current import
 format and plan entitlement first, and tell the user what you found. For Visualping specifically:

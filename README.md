@@ -139,18 +139,19 @@ The design is a research-backed hypothesis pending primary validation, not a des
 product-marketing behaviour. Three sources shaped it, each with its limits stated:
 
 - [Forrester on market and competitive intelligence programs](https://www.forrester.com/blogs/five-findings-about-todays-market-and-competitive-intelligence-programs/)
-  — intelligence teams are shifting from information to implications. A published summary of an
-  analyst study; the underlying sample and method are not detailed in the post.
+  — a survey of **21 organizations**, reporting a shift from delivering information to providing
+  implications, and that 8 of 21 intelligence teams are just one or two people. The post does not
+  detail recruitment, respondent mix, or question wording.
 - [Clozd, State of Win-Loss](https://www.clozd.com/state-of-win-loss) — teams combining call
-  recordings with win/loss report better feedback quality. Vendor-sponsored research into the
-  category that vendor sells; treat as an association, not a causal finding.
+  recordings with win/loss report better feedback quality. Vendor-sponsored research into the category
+  that vendor sells; treat it as an association, not a causal finding.
 - [Product Marketing Alliance, State of Product Marketing 2025](https://www.productmarketingalliance.com/state-of-product-marketing-report-2025/)
   — **44.3% of *responding* product marketing teams are one or two people.** That figure is the real
-  design constraint here. It describes a self-selected survey population of PMA-affiliated
-  practitioners, not the global profession.
+  design constraint here. It describes PMA's survey respondents, not the global profession; the public
+  page does not detail recruitment, sampling, or the item denominator.
 
-None of the three is a random probability sample of product marketers. Two are published by
-organizations with a commercial interest in the finding. The evidence discipline in this plugin is an
-opinion about good practice, not a validated result.
+The public summaries do not establish that any of the three is a representative probability sample.
+Two are published by organizations with a commercial interest in the finding. The evidence discipline
+in this plugin is an opinion about good practice, not a validated result.
 
 MIT. See [LICENSE](LICENSE).
