@@ -136,10 +136,21 @@ one optional monitoring integration here — the skills are built to run without
 repository, MIT-licensed and unsupported.
 
 The design is a research-backed hypothesis pending primary validation, not a description of observed
-product-marketing behaviour. It draws on Forrester's 2026 work on intelligence teams moving from
-information to implications, Clozd's win/loss research on evidence convergence, and the Product
-Marketing Alliance's finding that 44.3% of product marketing teams are one or two people — which is
-the real design constraint. Some of those are vendor-sponsored surveys with the limitations that
-implies.
+product-marketing behaviour. Three sources shaped it, each with its limits stated:
+
+- [Forrester on market and competitive intelligence programs](https://www.forrester.com/blogs/five-findings-about-todays-market-and-competitive-intelligence-programs/)
+  — intelligence teams are shifting from information to implications. A published summary of an
+  analyst study; the underlying sample and method are not detailed in the post.
+- [Clozd, State of Win-Loss](https://www.clozd.com/state-of-win-loss) — teams combining call
+  recordings with win/loss report better feedback quality. Vendor-sponsored research into the
+  category that vendor sells; treat as an association, not a causal finding.
+- [Product Marketing Alliance, State of Product Marketing 2025](https://www.productmarketingalliance.com/state-of-product-marketing-report-2025/)
+  — **44.3% of *responding* product marketing teams are one or two people.** That figure is the real
+  design constraint here. It describes a self-selected survey population of PMA-affiliated
+  practitioners, not the global profession.
+
+None of the three is a random probability sample of product marketers. Two are published by
+organizations with a commercial interest in the finding. The evidence discipline in this plugin is an
+opinion about good practice, not a validated result.
 
 MIT. See [LICENSE](LICENSE).

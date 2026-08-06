@@ -21,10 +21,10 @@ and report the missing plugin resource.
 
 ## Step 1 — Gather the period's material
 
-Read what exists in the working directory: `briefs/`, `corroborations/`, `patterns/`,
-`ci-portfolio.md`, and any battlecard changelogs. If no briefs exist, ask the user to paste the
-period's changes and run `/ci-stack:ci-triage` on anything untriaged — do not write a brief on raw
-alerts.
+Resolve the CI root per the shared contract, then read only what lives under it: `briefs/`,
+`corroborations/`, `patterns/`, `ci-portfolio.md`, and any battlecard changelog the user points at.
+Do not scan unrelated working-directory files. If no briefs exist, ask the user to paste the period's
+changes and run `/ci-stack:ci-triage` on anything untriaged — do not write a brief on raw alerts.
 
 Confirm the period and hold to it. If a prior-period item is included because it resolved this week,
 mark it carried over rather than presenting it as new.
@@ -115,9 +115,13 @@ support.
 
 ## Step 5 — Emit
 
-Per the file-safety rule: confirm the directory, show paths, never overwrite. Write
-`updates/YYYY-MM-DD-competitive-update.md`, refresh the two views, and print only the headline, the
-decision count, the pending count, the ignore count, and the file paths.
+Write `<CI root>/updates/YYYY-MM-DD-competitive-update.md` as a new collision-safe record.
+
+Then **regenerate** `ci-ignore-log.md` and `ci-outcomes.md` from the briefs. Both carry fixed names,
+so emit a proposed diff against the existing file rather than replacing it — the user may have added
+notes you would destroy. Apply only what they accept.
+
+Print only the headline, the decision count, the pending count, the ignore count, and the file paths.
 
 Offer, but never perform, distribution. Ask before writing to Slack, email, a wiki, or a CRM. If the
 user wants a channel-ready version, produce the text for them to send.

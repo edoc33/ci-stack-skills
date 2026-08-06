@@ -71,7 +71,9 @@ contrary evidence — never missing evidence.
 Then state, in one line each:
 
 - **What would resolve it** — the specific evidence, and which layer would carry it
-- **What may be said now** — the strongest defensible phrasing, with its scope, ready to use
+- **Currently supportable draft wording** — the strongest phrasing the evidence carries, with its
+  scope. This is a draft, not an approval: it is not external-use, legal, compliance, brand, or policy
+  sign-off, and you must not describe it as approved
 - **What must not be said** — the overclaim someone will reach for
 
 Apply the high-risk-claims boundary from the shared contract: do not let this process convert a
@@ -91,18 +93,18 @@ The same applies to unreleased capability, private beta features, and anything b
 
 ## Step 4 — Emit
 
-Per the file-safety rule: confirm the directory, show paths, never overwrite.
+Resolve the CI root per the shared contract, show paths, never overwrite a canonical record.
 
-Write a collision-safe record to `corroborations/YYYY-MM-DD-<slug>.md` containing the exact
-proposition, the per-layer table, the verification status, the resolving evidence, the approved
-phrasing, and the canonical brief path it relates to.
+Write a collision-safe record to `<CI root>/corroborations/YYYY-MM-DD-<slug>.md` containing the exact
+proposition, the per-layer table, the verification status, the resolving evidence, the currently
+supportable draft wording, and the canonical brief path it relates to.
 
 **Do not silently mutate a source brief.** If the user wants the result integrated, emit a proposed
 diff and return that brief's `Review status` to `draft` so the change is reviewed rather than
 absorbed.
 
-Print only: the verification status, the two strongest sources with dates, the approved phrasing,
-and the file path.
+Print only: the verification status, the two strongest sources with dates, the supportable draft
+wording, and the file path.
 
 ## Refusals
 

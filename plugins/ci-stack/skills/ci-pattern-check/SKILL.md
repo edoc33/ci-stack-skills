@@ -55,9 +55,21 @@ failure this skill exists to prevent.
 
 ## Step 2 — Define the analysis rule before counting
 
-Commit before you look, so the result cannot bend the rule. Define one independent case, the
-eligible records and date range, the inclusion, exclusion and deduplication rules, the coverage, and
-the decision this evidence may affect. Then report one of:
+**Write the rule down and show it to the user before you read any result.** This is a hard sequence,
+not a suggestion — a threshold chosen after seeing the count is not a threshold. State, in the
+conversation:
+
+1. What counts as one independent case — normally one deal, account episode, or buyer interview
+2. The eligible records and the date range
+3. The inclusion, exclusion, and deduplication rules
+4. The coverage you expect
+5. The decision this evidence may affect
+6. **The evidence and coverage bar that would earn a scoped-pattern claim for that decision**
+
+Only then count. If you have already seen the counts when the user asks for analysis, say so and
+state the bar anyway — declaring it late is weaker than declaring it early, and better than never.
+
+Then report one of:
 
 - **`single case`** — one independent occurrence. Name it; do not generalise from it.
 - **`repeated signal`** — more than one independent occurrence, but coverage, sampling, missingness,
@@ -95,8 +107,9 @@ Report any of these traps you find:
 
 ## Step 4 — Report
 
-Per the file-safety rule: confirm the directory, show paths, never overwrite. Write to
-`patterns/YYYY-MM-DD-<slug>.md`:
+Resolve the CI root per the shared contract, show paths, never overwrite. Write to
+`<CI root>/patterns/YYYY-MM-DD-<slug>.md`, and record the canonical brief path if this analysis
+relates to one, so `/ci-stack:ci-weekly` can join it back to the decision:
 
 1. **Verdict** — with the raw fraction, the denominator, and the named cohort if scoped
 2. **Breakdown** by the dimensions above

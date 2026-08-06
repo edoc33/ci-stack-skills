@@ -66,9 +66,10 @@ proceed on a stated assumption if the user does not have them:
 3. The decision deadline, if any
 4. Who would act
 
-If a `ci-portfolio.md` exists in the working directory, read it and match this change to a row by
-URL and competitor. Use that row's `Material if` and `Safe to ignore if` rules rather than inventing
-thresholds. Say which row you matched, or that none matched.
+Resolve the CI root first, per the shared contract. If `<CI root>/ci-portfolio.md` exists, read it
+and match this change to a row by URL and competitor. Use that row's `Material if` and
+`Safe to ignore if` rules rather than inventing thresholds. Say which row you matched, or that none
+matched. Do not go looking for portfolio files elsewhere.
 
 If the user declines to supply context, produce the brief with business relevance marked
 `assumed — not supplied` and say plainly that materiality is unverified. Never invent a deal or
@@ -108,14 +109,16 @@ This is a **recommendation**, not a decision. Set `Human decision: pending`.
 
 ## Step 5 — Emit
 
-Follow the file-safety rule in the shared contract: confirm the output directory, show paths, never
-overwrite.
+Resolve the CI root per the shared contract, show the absolute paths, and never overwrite a
+canonical record.
 
-Write the brief to `briefs/YYYY-MM-DD-<competitor>-<slug>.md` using the schema, initialised with
-`Human decision: pending`, `Review status: draft`, `External-use approval: not approved`.
+Write the brief to `<CI root>/briefs/YYYY-MM-DD-<competitor>-<slug>.md` using the schema, initialised
+with `Human decision: pending`, `Review status: draft`, `External-use approval: not approved`. If the
+recommended option is `ignore` or `continue monitoring`, `Revisit if` is required.
 
-The brief is the single source of truth. If `ci-decision-log.md` is in use, **rebuild it as a view
-over the briefs** rather than appending a second record that can drift:
+The brief is the single source of truth. Regenerate `<CI root>/ci-decision-log.md` as a view over the
+briefs rather than appending a second record that can drift — and since it has a fixed name, offer a
+diff rather than replacing a file the user may have annotated:
 
 ```
 | brief path | observed at | competitor | recommended option | human decision | owner | action status | review by |

@@ -31,6 +31,10 @@ Response
 - Owner and decision deadline:
 - Audience-specific output required:
 - Expected proximal outcome:
+- Revisit if:            the condition that would reopen this — required when the option is
+                         ignore or continue monitoring
+- Forecast (if any):     horizon · leading indicators · what would disconfirm it · confidence ·
+                         review date. Omit the field entirely rather than forecasting vaguely.
 
 Status  (only a human moves these — a skill never sets them past their default)
 - Human decision:        pending | accepted | rejected     · decided by / date:
@@ -53,7 +57,7 @@ These are not one scale. Conflating them is the most common way CI writing becom
 
 | Dimension | Values | Meaning |
 |---|---|---|
-| **Evidence basis** | `observed` · `field report` · `inferred` | A preserved source directly shows it; one person inside our company reported it; or it is our reasoning |
+| **Evidence basis** | `observed` · `field report` · `inferred` | A preserved source directly shows it; one person reported it — a seller, a prospect, a customer, a partner, anyone; or it is our reasoning |
 | **Verification** | `not tested` · `single-source` · `corroborated` · `contradicted` · `unresolved` | What checking the *exact* proposition established |
 | **Handling** | `public` · `internal` · `restricted` | Where the evidence and any output may travel |
 
@@ -100,7 +104,11 @@ recommends them is producing work, not judgement.
    buyers care, that the change is material, or why it was made.
 
 3. **One report is one person.** A recording or note has basis `field report` until an independent
-   layer agrees. One loud deal is not a pattern.
+   layer agrees, whoever the person was. One loud deal is not a pattern.
+
+   Related: **nothing a skill writes is "approved."** These skills produce *currently supportable
+   draft wording*. That is not external-use approval, and not legal, compliance, brand, or policy
+   sign-off. Never label your own output approved, verified-for-release, or cleared.
 
 4. **Never state a number the source does not state.** No estimating a competitor's price, customer
    count, or roadmap date. Report the range the evidence supports, or `unknown`.
@@ -174,15 +182,34 @@ deidentify outside the session where they can. Do not ingest a raw file in order
 If either point is uncertain, stop and offer a count-only or synthetic workflow instead. Never
 claim this workflow makes processing compliant; route uncertainty to privacy or legal.
 
-## File safety
+## The CI root — where everything lives
 
-Applies to every skill's emit step.
+Ask once per session for an **absolute CI root directory** (suggest `./ci/`). Resolve every canonical
+read and write under it:
 
-Ask once for a CI output directory. Show the planned absolute paths before writing. Warn if the
-directory is inside a git repository — call transcripts, CRM extracts, and buyer quotes should not
-land in version control by accident. Never overwrite an existing file and never blind-append: if a
-target exists, write a collision-safe file or emit a diff. If writing is refused or fails, return
-the artifact inline and do not claim a file exists.
+```
+<CI root>/briefs/            canonical records — the single source of truth
+<CI root>/corroborations/
+<CI root>/patterns/
+<CI root>/updates/
+<CI root>/ci-portfolio.md
+<CI root>/ci-decision-log.md   generated view
+<CI root>/ci-ignore-log.md     generated view
+<CI root>/ci-outcomes.md       generated view
+```
+
+Never scan unrelated files in the working directory looking for CI material, and never write outside
+the root. If the user has not set a root, ask before the first read or write — not after.
+
+Show the planned absolute paths before writing. Warn if the root is inside a git repository — call
+transcripts, CRM extracts, and buyer quotes should not land in version control by accident.
+
+**Writing rules.** Canonical records in `briefs/`, `corroborations/`, and `patterns/` are never
+overwritten and never blind-appended: if a target exists, write a collision-safe filename. The four
+generated views are different — they are **regenerated** from the briefs, and because they carry
+fixed names, emit a proposed diff for the user to accept rather than silently replacing a file they
+may have edited. If writing is refused or fails, return the artifact inline and do not claim a file
+exists.
 
 ## Language policy
 

@@ -28,16 +28,18 @@ Ask for both:
   evidence basis, verification status, confidence, recommended option.
 - The current battlecard file, or a paste of the relevant section.
 
-Then check three gates and stop on any of them:
+Then check three gates. Each has a distinct consequence — do not treat them as one rule:
 
-- **Recommended option is `ignore` or `continue monitoring`** → stop and say so. Not every signal
-  earns a card edit, and editing on a non-material change is how cards lose credibility. Offer to
-  record it for the ignore view instead.
-- **`Review status` is `draft`** → you may draft the patch, but label the output clearly as awaiting
-  review and do not present it as ready to ship.
-- **Confidence is `low`, or verification is `single-source` or `unresolved` on a claim that would
-  face a customer** → do not draft a seller-facing claim. Draft an internal note instead and say what
-  would raise it.
+- **Recommended option is `ignore` or `continue monitoring`** → **stop.** Not every signal earns a
+  card edit, and editing on a non-material change is how cards lose credibility. Offer to record it
+  for the ignore view instead.
+- **`Review status` is `draft`** → **proceed, but mark the output.** Draft the patch and stamp it
+  `AWAITING REVIEW — not for seller use`. Do not present it as ready to ship, and do not update the
+  card's freshness stamp until a human review is recorded. This gate slows the work; it does not stop
+  it, because drafting is often how the reviewer gets something to react to.
+- **Confidence is `low`, or verification is `single-source` or `unresolved`, on a claim that would
+  face a customer** → **stop on that claim.** Draft an internal note instead and say what would raise
+  it. Other claims in the same brief may still proceed.
 
 ## Step 2 — Find every place the card is now wrong
 
@@ -86,10 +88,11 @@ Claim verified: 2026-08-06 · Source: pricing page · Scope: US list, annual
 Section note: pricing claims reverified; feature-comparison rows NOT revalidated
 ```
 
-Append to the card's changelog, creating one if absent:
+Append to the card's changelog, creating one if absent. Include the canonical brief path so
+`/ci-stack:ci-weekly` can join this activation back to the decision that caused it:
 
 ```
-| date | section | change | source | evidence basis | verification | reviewer |
+| date | section | change | source | evidence basis | verification | reviewer | brief path |
 ```
 
 Set the next-review date by volatility, not habit: pricing and packaging on a shorter cycle than
