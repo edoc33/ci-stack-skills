@@ -12,6 +12,11 @@ description: >
 
 # Claim vs. evidence triangulation
 
+> **What it does** — Restates a claim as something falsifiable, tests each evidence layer independently, then assigns a verification status.
+> **You give it** — One claim, restated as a falsifiable, scope-limited sentence, plus who said it and how it reached you.
+> **You get back** — `corroborated`, `contradicted`, `single-source`, or `unresolved`, never a forced verdict, plus the phrasing you may use and the overclaim to avoid.
+> **New here?** Start with the [README](../../../../README.md). This file is instructions for Claude, not documentation for you.
+
 One source establishes a narrow, source-scoped fact. This skill reports what the available evidence
 actually supports about the *exact* proposition — including, often, that it is unresolved.
 

@@ -12,6 +12,11 @@ description: >
 
 # Single case, repeated signal, or scoped pattern?
 
+> **What it does** — Measures whether something recurs across your records, or appears in only one of them.
+> **You give it** — Exported call transcripts, CRM competitor tags, notes, or win/loss records. Any subset of those.
+> **You get back** — `single case`, `repeated signal`, or `scoped pattern in <cohort>`, with the denominator and coverage stated up front and competing explanations named.
+> **New here?** Start with the [README](../../../../README.md). This file is instructions for Claude, not documentation for you.
+
 The fastest way to damage positioning is to rebuild it around the loudest recent deal. This skill
 exists to make that harder — without pretending small samples are worthless.
 

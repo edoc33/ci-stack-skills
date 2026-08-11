@@ -12,6 +12,11 @@ description: >
 
 # Signal → redlined battlecard edit
 
+> **What it does** — Converts a reviewed brief into a redline against the card you already have, rather than a new document.
+> **You give it** — A brief from `ci-triage` or its equivalent, plus the battlecard file or a paste of the relevant section.
+> **You get back** — A redlined diff with source and capture date per claim, a changelog entry, and a list of claims elsewhere in the card the new evidence just made stale. It never publishes and never sends.
+> **New here?** Start with the [README](../../../../README.md). This file is instructions for Claude, not documentation for you.
+
 Battlecards fail on trust and freshness, not on formatting. A card sellers do not believe is worse
 than no card. This skill makes one narrow, sourced, dated edit at a time and shows its work.
 

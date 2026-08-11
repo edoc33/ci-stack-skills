@@ -12,6 +12,11 @@ description: >
 
 # Materiality triage → decision-ready brief
 
+> **What it does** — Scores one change for materiality against a named decision, then fills the decision brief that carries the judgement.
+> **You give it** — A webhook payload, a pasted before/after diff, two screenshots, or just a URL and a claim. No monitoring account required.
+> **You get back** — A filled decision brief: evidence basis, verification status, counterevidence, confidence, affected deals, one of seven recommended actions, an owner, and a review date.
+> **New here?** Start with the [README](../../../../README.md). This file is instructions for Claude, not documentation for you.
+
 A detected change is not intelligence. This skill converts one change into a judgement someone can
 act on and defend, or into a documented decision to ignore it.
 

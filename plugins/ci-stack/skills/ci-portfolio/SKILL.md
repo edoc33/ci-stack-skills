@@ -11,6 +11,11 @@ description: >
 
 # Decision-linked signal portfolio
 
+> **What it does** — Works backwards from a decision you own to the shortest list of pages that could change it.
+> **You give it** — One live decision: a deal, a launch, a pricing or positioning review, an executive question. Nothing else is required.
+> **You get back** — The pages worth watching, the question each answers, a materiality threshold, an explicit safe-to-ignore rule, a per-page alert prompt, a tool-neutral export, and your named blind spots.
+> **New here?** Start with the [README](../../../../README.md). This file is instructions for Claude, not documentation for you.
+
 Most competitor monitoring starts from a competitor list and ends in noise. A page earns a slot here
 only when it answers a question tied to a decision someone owns.
 

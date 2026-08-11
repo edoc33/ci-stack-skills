@@ -12,6 +12,11 @@ description: >
 
 # Weekly decision brief and ignore log
 
+> **What it does** — Turns a pile of individual briefs into the one page an exec will actually read.
+> **You give it** — The period's briefs. It reads them as the source of truth rather than building a parallel record.
+> **You get back** — A one-page update separating recommendations from decisions, an ignore log, and a decision-and-outcome record, so the program can show it influenced decisions.
+> **New here?** Start with the [README](../../../../README.md). This file is instructions for Claude, not documentation for you.
+
 Two outputs, and the second is the unusual one. The brief says what happened. The **ignore log** says
 what you chose not to chase, and why — the honest measure of a working program.
 
