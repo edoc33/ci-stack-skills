@@ -1,0 +1,11 @@
+record_id,deal_id,date,fictional,source_type,sso_mentioned,quote
+N01,D01,2026-08-02,true,synthetic buyer note,true,We need Okta SSO on the Team plan.
+N02,D01,2026-08-03,true,synthetic buyer note,true,The same Okta requirement is still on our checklist.
+N03,D01,2026-08-04,true,synthetic buyer note,true,Please confirm Team-plan SAML before our review.
+N04,D02,2026-08-02,true,synthetic buyer note,true,Can our IT team keep its existing Okta sign-in?
+N05,D03,2026-08-03,true,synthetic buyer note,false,Our review is focused on automation limits.
+N06,D04,2026-08-03,true,synthetic buyer note,true,Our shortlist requires SAML sign-in.
+N07,D04,2026-08-05,true,synthetic buyer note,true,Please send the SAML setup requirements.
+N08,D05,2026-08-04,true,synthetic buyer note,false,Our next step is to confirm the migration owner.
+N09,D06,2026-08-06,true,synthetic buyer note,false,The decision is waiting on procurement timing.
+N10,D09,2026-08-05,true,synthetic buyer note,true,We need regional identity-provider controls.

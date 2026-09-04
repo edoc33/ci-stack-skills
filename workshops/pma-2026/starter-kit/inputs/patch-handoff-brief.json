@@ -1,0 +1,42 @@
+{
+  "id": "2026-08-06-acmeflow-team-okta-guidance",
+  "fixture_type": "synthetic_workshop",
+  "Event": {
+    "Competitor / alternative": "AcmeFlow (fictional)",
+    "Observed change": "The two independently authored synthetic test records show completed SAML browser sign-in in their US Team/Okta fixtures on 5 August 2026.",
+    "First observed / effective date": "2026-08-04T09:12:44Z; effective date unknown",
+    "Source locator and preserved evidence": "evidence/test-a.txt and evidence/test-b.txt; each dated 5 August 2026, synthetic US Team/Okta test scenario; pricing/docs supply vendor-published context only"
+  },
+  "Evidence": {
+    "Proposition (exact, scope-limited)": "The two independently authored synthetic test records show completed SAML browser sign-in in their US Team/Okta fixtures on 5 August 2026.",
+    "Evidence basis": "observed",
+    "Verification": "corroborated",
+    "Handling": "internal",
+    "Counterevidence / unknowns": "Two independent synthetic originals agree on this tested configuration. The original all-paid-plans capability question remains unresolved.",
+    "Confidence": "medium for the exact synthetic Team/Okta tests; other plans, identity providers and reliability are untested",
+    "Last verified / review-by date": "2026-08-06 / 2026-08-07 (scenario dates)"
+  },
+  "Business relevance": {
+    "Affected ICP, segment, region, product, use case": "US midmarket IT administrators considering Team with Okta",
+    "Affected active deals, renewals, claims, assets, assumptions": "The supplied AcmeFlow battlecard; no real deal or customer",
+    "Why it matters now": "Fictional seller review on 7 August",
+    "Consequence of ignoring": "The old plan comparison may be repeated without checking the new source"
+  },
+  "Response": {
+    "Recommended option": "reframe",
+    "Rationale": "Replace the obsolete Enterprise-only qualification with a question about the buyer’s identity provider and provisioning requirements.",
+    "Owner and decision deadline": "Alex Morgan, fictional PMM lead; 2026-08-07",
+    "Audience-specific output required": "An internal review note or a proposed sourced seller-answer edit",
+    "Expected proximal outcome": "Identify the next evidence needed before using revised wording",
+    "Revisit if": "Plan wording or scope-matched product evidence changes"
+  },
+  "Status": {
+    "Human decision": "pending",
+    "Review status": "draft",
+    "External-use approval": "not approved",
+    "Action status": "not started",
+    "Outcome observed": "",
+    "Attribution": "unknown"
+  },
+  "Artifact checks": "This handoff is an authored practice input carrying new independent synthetic test evidence. It is still draft, pending and not approved. It supersedes no canonical record."
+}

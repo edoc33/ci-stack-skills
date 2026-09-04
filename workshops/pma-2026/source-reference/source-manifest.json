@@ -1,0 +1,391 @@
+{
+  "captured": "2026-09-04",
+  "source_images": "Original Firecrawl screenshots or authenticated historical Visualping image bytes. Cropping is by HTML/PDF viewport only.",
+  "entries": [
+    {
+      "id": 1,
+      "name": "Product & feature pages",
+      "example": "Notion product",
+      "url": "https://www.notion.com/product",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-01.png",
+      "crop": [
+        410,
+        105,
+        1080,
+        810
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Blog, news & press pages",
+      "example": "GitHub Blog",
+      "url": "https://github.blog/",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-02.png",
+      "crop": [
+        338,
+        160,
+        1250,
+        700
+      ]
+    },
+    {
+      "id": 3,
+      "name": "About, team & leadership",
+      "example": "Microsoft leadership",
+      "url": "https://news.microsoft.com/leadership/",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-03.png",
+      "crop": [
+        710,
+        466,
+        500,
+        500
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Legal, terms & privacy",
+      "example": "Slack privacy policy",
+      "url": "https://slack.com/trust/privacy/privacy-policy",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-04.png",
+      "crop": [
+        799,
+        365,
+        746,
+        650
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Careers & hiring pages",
+      "example": "Notion careers",
+      "url": "https://www.notion.com/careers",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-05-full.png",
+      "crop": [
+        440,
+        7510,
+        1040,
+        680
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Conversion pages (signup/demo)",
+      "example": "HubSpot demo request",
+      "url": "https://www.hubspot.com/products/crm/demo",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-06.png",
+      "crop": [
+        415,
+        158,
+        1090,
+        535
+      ]
+    },
+    {
+      "id": 7,
+      "name": "API docs & changelogs",
+      "example": "Stripe changelog",
+      "url": "https://docs.stripe.com/changelog",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-07.png",
+      "crop": [
+        537,
+        592,
+        1128,
+        390
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Pricing & packaging",
+      "example": "Fluxguard pricing",
+      "url": "https://fluxguard.com/pricing",
+      "label": "Historical Visualping capture",
+      "capture": "6 Jan 2026, 06:19 UTC",
+      "asset": "assets/fluxguard-pricing-2026-01-06-authentic-diff.png",
+      "crop": [
+        252,
+        270,
+        936,
+        650
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Investor relations",
+      "example": "NVIDIA investor relations",
+      "url": "https://investor.nvidia.com/home/default.aspx",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-09.png",
+      "crop": [
+        325,
+        67,
+        1030,
+        640
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Events & webinars",
+      "example": "Snowflake events",
+      "url": "https://www.snowflake.com/en/webinars/",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-10.png",
+      "crop": [
+        640,
+        697,
+        1015,
+        380
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Homepage & core messaging",
+      "example": "Airtable product messaging",
+      "url": "https://airtable.com/product",
+      "label": "Historical Visualping capture",
+      "capture": "7 Aug 2026, 09:58 UTC",
+      "asset": "assets/airtable-positioning-2026-08-07-authentic-diff.jpg",
+      "crop": [
+        330,
+        172,
+        780,
+        385
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Navigation & site architecture",
+      "example": "Atlassian site navigation",
+      "url": "https://www.atlassian.com/",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-12.png",
+      "crop": [
+        250,
+        5,
+        1430,
+        400
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Sitemap files",
+      "example": "Notion sitemap",
+      "url": "https://www.notion.com/sitemap.xml",
+      "label": "Source excerpt",
+      "capture": "4 Sep 2026",
+      "asset": null,
+      "crop": null
+    },
+    {
+      "id": 14,
+      "name": "Partners & integrations",
+      "example": "Notion integrations",
+      "url": "https://www.notion.com/integrations",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-14.png",
+      "crop": [
+        263,
+        573,
+        308,
+        269
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Robots.txt",
+      "example": "GitHub robots.txt",
+      "url": "https://github.com/robots.txt",
+      "label": "Source excerpt",
+      "capture": "4 Sep 2026",
+      "asset": null,
+      "crop": null
+    },
+    {
+      "id": 16,
+      "name": "Technology stack",
+      "example": "GitHub Blog generator metadata",
+      "url": "https://github.blog/feed/",
+      "label": "Source excerpt",
+      "capture": "4 Sep 2026",
+      "asset": null,
+      "crop": null
+    },
+    {
+      "id": 17,
+      "name": "SEC & financial filings",
+      "example": "NVIDIA Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "label": "Source excerpt",
+      "capture": "4 Sep 2026",
+      "asset": null,
+      "crop": [
+        59,
+        18,
+        1134,
+        310
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Patent filings",
+      "example": "iHeartMedia patent US10063607B2",
+      "url": "https://patents.google.com/patent/US10063607B2/en",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-18.png",
+      "crop": [
+        15,
+        68,
+        1060,
+        685
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Press releases",
+      "example": "NVIDIA newsroom",
+      "url": "https://nvidianews.nvidia.com/news",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-19.png",
+      "crop": [
+        326,
+        124,
+        1270,
+        545
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Media coverage & mentions",
+      "example": "TechCrunch coverage of Notion",
+      "url": "https://techcrunch.com/tag/notion/",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-20.png",
+      "crop": [
+        274,
+        350,
+        1028,
+        437
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Social media profiles",
+      "example": "Notion on YouTube",
+      "url": "https://www.youtube.com/@Notion",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-21.png",
+      "crop": [
+        417,
+        273,
+        1317,
+        517
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Third-party review sites",
+      "example": "Notion reviews on G2",
+      "url": "https://www.g2.com/products/notion/reviews",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-22-full.png",
+      "crop": [
+        501,
+        3375,
+        1118,
+        591
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Job boards",
+      "example": "Notion on Ashby",
+      "url": "https://jobs.ashbyhq.com/notion",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-23.png",
+      "crop": [
+        617,
+        123,
+        682,
+        657
+      ]
+    },
+    {
+      "id": 24,
+      "name": "RSS feeds",
+      "example": "GitHub Blog RSS",
+      "url": "https://github.blog/feed/",
+      "label": "Source excerpt",
+      "capture": "4 Sep 2026",
+      "asset": null,
+      "crop": null
+    },
+    {
+      "id": 25,
+      "name": "App store listings",
+      "example": "Notion on the App Store",
+      "url": "https://apps.apple.com/us/app/notion-notes-tasks-ai/id1232780281",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-25.png",
+      "crop": [
+        293,
+        37,
+        1225,
+        360
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Wikipedia",
+      "example": "Notion on Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Notion_(productivity_software)",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-26.png",
+      "crop": [
+        479,
+        92,
+        955,
+        664
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Forums & communities",
+      "example": "Atlassian Community workflow question",
+      "url": "https://community.atlassian.com/forums/Jira-questions/Workflow-questions/qaq-p/775237",
+      "label": "Source example",
+      "capture": "4 Sep 2026",
+      "asset": "assets/source-27.png",
+      "crop": [
+        392,
+        271,
+        715,
+        555
+      ]
+    }
+  ]
+}

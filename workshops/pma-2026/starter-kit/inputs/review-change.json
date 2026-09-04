@@ -1,0 +1,8 @@
+{
+  "fixture_type": "synthetic_workshop",
+  "fictional": true,
+  "url": "https://reviews.example/acmeflow/review-demo",
+  "capture_time": "2026-08-06T12:00:00Z",
+  "quote": "Our team needs clearer SSO setup docs.",
+  "note": "Entirely invented review for the optional exercise. No actual review site or reviewer supplied this text."
+}

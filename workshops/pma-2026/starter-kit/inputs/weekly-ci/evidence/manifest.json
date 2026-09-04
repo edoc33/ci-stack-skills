@@ -1,0 +1,56 @@
+{
+  "fixture_type": "synthetic_workshop",
+  "fictional": true,
+  "source_commit": "cd2fc5e097a7a7f3e87a6cfa11acb0fc0e722653",
+  "date_policy": "All capture and test dates are staged exercise dates; none attest to a real capture or test. Current-event date and price text derive from the upstream fictional sample.",
+  "evidence": [
+    {
+      "path": "evidence/change-event.json",
+      "origin_id": "vendor-publication",
+      "synthetic": true,
+      "sha256": "8e89b3281310d59a05e1a1fb86a620de6a2f2ba6bb17229e69f1970af92f4aa0"
+    },
+    {
+      "path": "evidence/docs-sso.txt",
+      "origin_id": "vendor-publication",
+      "synthetic": true,
+      "sha256": "0415479d1db57ffa4446fdea97e21b1e90576ab517b0ecb948ae06eac9d8180f"
+    },
+    {
+      "path": "evidence/footer-change.txt",
+      "origin_id": "vendor-publication",
+      "synthetic": true,
+      "sha256": "a6afc5cd0c148f3fb14670b725cace1b106b0660b2a261b2a02827792583518f"
+    },
+    {
+      "path": "evidence/pricing-after.txt",
+      "origin_id": "vendor-publication",
+      "synthetic": true,
+      "sha256": "bb3a51ffb9f61e68776a28fed4469537b7dafc73c8370fd3afff57dda1d2f7aa"
+    },
+    {
+      "path": "evidence/pricing-before.txt",
+      "origin_id": "vendor-publication",
+      "synthetic": true,
+      "sha256": "eb0bebbfb938c326e859ff944abb15e1bd9900abb92ecb349ed1294234663f90"
+    },
+    {
+      "path": "evidence/pricing-change.patch",
+      "origin_id": "vendor-publication",
+      "synthetic": true,
+      "sha256": "f7a8947a2ff89f63012edfe86af64aee09c813cfa6fd9edcad106b3db64f6f01"
+    },
+    {
+      "path": "evidence/test-a.txt",
+      "origin_id": "independent-test-a",
+      "synthetic": true,
+      "sha256": "73daea0b2f72a2b5716477daa4baf0f2c71523b7b37f6f5c6a906c31bb334b8e"
+    },
+    {
+      "path": "evidence/test-b.txt",
+      "origin_id": "independent-test-b",
+      "synthetic": true,
+      "sha256": "0a3f0ba4857f70b66771ccd5de90c1a565c6c9bac30238bb56f1a1770e0272ca"
+    }
+  ]
+}

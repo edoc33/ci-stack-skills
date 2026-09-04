@@ -1,0 +1,4 @@
+session/
+.validation-tmp/
+__pycache__/
+*.zip

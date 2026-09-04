@@ -1,0 +1,634 @@
+{
+  "status": "pass",
+  "scope": "offline fixture validation",
+  "checks_passed": 125,
+  "model_runtime_executed": false,
+  "model_runtime_note": "No model call was made. The authorized smoke test stopped at auth status: loggedIn false, authMethod none. See validation/claude-smoke-status.json.",
+  "checks": [
+    {
+      "check": "JSON files parse",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Prompt fictional label: 04-weekly.md",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Prompt fictional label: 00-portfolio.md",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Prompt fictional label: 02-corroborate.md",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Prompt fictional label: 03-battlecard-patch.md",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Prompt fictional label: 01-triage.md",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Prompt fictional label: 05-pattern-check.md",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Prompt fictional label: manual-prompt.md",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Preserved evidence hash: change-event.json",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Synthetic evidence marker: change-event.json",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Preserved evidence hash: docs-sso.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Synthetic evidence marker: docs-sso.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Preserved evidence hash: footer-change.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Synthetic evidence marker: footer-change.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Preserved evidence hash: pricing-after.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Synthetic evidence marker: pricing-after.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Preserved evidence hash: pricing-before.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Synthetic evidence marker: pricing-before.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Preserved evidence hash: pricing-change.patch",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Synthetic evidence marker: pricing-change.patch",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Preserved evidence hash: test-a.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Synthetic evidence marker: test-a.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Preserved evidence hash: test-b.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Synthetic evidence marker: test-b.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Original sample text retained",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Payload text is in preserved added_text",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Payload text is in preserved removed_text",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Synthetic event scope explicit",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Local event evidence resolves: evidence/pricing-before.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Local event evidence resolves: evidence/pricing-after.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Local event evidence resolves: evidence/pricing-change.patch",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Three separate triage propositions",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Contract defaults and action: 2026-08-06-acmeflow-sso",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Contract defaults and action: 2026-08-06-acmeflow-team-price",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Contract defaults and action: 2026-08-06-acmeflow-team-usage",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Patch handoff contract/defaults",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Patch claim passes current evidence gate",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Original broad claim stays unresolved",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Vendor pages share one origin",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Two simulated independent origins explicit",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Corroboration cannot grant approval",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Unified patch applies to supplied card",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Proposed card holds draft approval",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Single-source price/usage held internally",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Unrelated onboarding preserved",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Independent-deal count and coverage",
+      "status": "pass",
+      "detail": "(3, 6, 8, 9)"
+    },
+    {
+      "check": "Independent cases match expected",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Pattern conclusion is limited",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Representative quote exact: N01",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Representative quote exact: N04",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Representative quote exact: N06",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Supplied weekly human history: 2026-08-05-validate-sso",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Supplied weekly human history: 2026-08-06-propose-sso-guidance",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Supplied weekly human history: 2026-08-06-ignore-footer-year",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Supplied weekly human history: 2026-08-06-rejected-price-match",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Weekly decisions, pending and ignore counts",
+      "status": "pass",
+      "detail": "{'accepted': 2, 'rejected': 1, 'pending': 1, 'accepted_ignore': 1}"
+    },
+    {
+      "check": "Unobserved outcomes remain blank",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "No external approval in fixture history",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/candidate-pages.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/candidate-pages.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/candidate-pages.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: worked/00-portfolio/ci-portfolio-export.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: worked/00-portfolio/ci-portfolio-export.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: worked/00-portfolio/ci-portfolio-export.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/deals.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/deals.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/deals.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/deals.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/deals.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/deals.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/deals.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/deals.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/deals.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/deals.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/notes.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/notes.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/notes.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/notes.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/notes.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/notes.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/notes.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/notes.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/notes.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "CSV formula neutralization: inputs/pattern/notes.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "All requested slide excerpts present",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source/context boundaries: 24",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: worked/00-portfolio/ci-portfolio.md",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source/context boundaries: 25",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: worked/01-triage/briefs/2026-08-06-acmeflow-sso.md",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source/context boundaries: 26",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: worked/02-corroboration/record.json",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source/context boundaries: 27",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: worked/03-battlecard/battlecard.patch",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source/context boundaries: 28",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: worked/04-pattern/counts.json",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source/context boundaries: 29",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: worked/05-weekly/2026-08-07-competitive-update.md",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source/context boundaries: 30",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: evidence/pricing-after.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: worked/03-battlecard/review-note.md",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source/context boundaries: 31",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: inputs/pattern/deals.csv",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: worked/03-battlecard/review-note.md",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source/context boundaries: 32",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: evidence/pricing-after.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source/context boundaries: 33",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: evidence/manifest.json",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: worked/01-triage/briefs/2026-08-06-acmeflow-sso.md",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source/context boundaries: 34",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: inputs/patch-handoff-brief.md",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: worked/03-battlecard/battlecard.patch",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source/context boundaries: 35",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: evidence/pricing-after.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: evidence/docs-sso.txt",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source/context boundaries: 36",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Excerpt source resolves: inputs/review-change.json",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Negative probe rejects auto-approval",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Negative probe rejects missing revisit rule",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Duplicate-note probe leaves deal fraction unchanged",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Hash probe detects changed source bytes",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Session setup executes locally",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "All generated paths confined to kit",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Six exact invocation files generated",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Original card copy is identical",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Setup rerun protects existing session",
+      "status": "pass",
+      "detail": ""
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "fixture_type": "synthetic_workshop",
+  "case_id": "acmeflow-synthetic",
+  "verdict": "repeated signal",
+  "independent_occurrences": 3,
+  "recorded_eligible_deals": 6,
+  "eligible_universe": 8,
+  "eligible_note_records": 9,
+  "duplicate_records_beyond_one_per_deal": 3,
+  "covered_deal_ids": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06"
+  ],
+  "occurrence_deal_ids": [
+    "D01",
+    "D02",
+    "D04"
+  ],
+  "missing_deal_ids": [
+    "D07",
+    "D08"
+  ],
+  "excluded_deal_ids": [
+    "D09",
+    "D10"
+  ],
+  "rep_breakdown": {
+    "A": "1 of 2 recorded eligible deals",
+    "B": "2 of 2 recorded eligible deals",
+    "C": "0 of 2 recorded eligible deals"
+  },
+  "outcome_breakdown": {
+    "lost": "2 of 3",
+    "won": "1 of 2",
+    "open": "0 of 1"
+  },
+  "cohort": "US midmarket AcmeFlow evaluations, 1–6 August 2026",
+  "coverage": "6 of 8 eligible deals have supplied notes; the other 2 are unknown",
+  "Recommended option": "validate",
+  "Handling": "internal",
+  "Human decision": "pending",
+  "Review status": "draft",
+  "External-use approval": "not approved"
+}

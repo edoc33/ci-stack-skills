@@ -1,0 +1,35 @@
+[
+  {
+    "file": "notion-role-source-panel.png",
+    "original": "notion-2026-08-09-after-original.png",
+    "viewport": {
+      "x": 208,
+      "y": 7563,
+      "width": 330,
+      "height": 132
+    },
+    "method": "Browser rendering of a document viewport. Original file unchanged; no retouching."
+  },
+  {
+    "file": "martin-investors-source-panel.png",
+    "original": "martin-marietta-2026-06-19-after-original.png",
+    "viewport": {
+      "x": 120,
+      "y": 2200,
+      "width": 1200,
+      "height": 350
+    },
+    "method": "Browser rendering of a document viewport. Original file unchanged; no retouching."
+  },
+  {
+    "file": "clickup-guarantee-source-panel.png",
+    "original": "clickup-2026-08-15-after-original.png",
+    "viewport": {
+      "x": 155,
+      "y": 355,
+      "width": 345,
+      "height": 80
+    },
+    "method": "Browser rendering of a document viewport. Original file unchanged; no retouching."
+  }
+]

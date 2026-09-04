@@ -1,0 +1,15 @@
+ILLUSTRATIVE WORKSHOP FIXTURE. All organizations, people, deals, events and test results in this case are fictional.
+SIMULATED PRODUCT TEST LOG. No actual product test was run.
+Synthetic observation time: 2026-08-05T10:00:00Z
+Origin: Workshop tester A, an independently authored fictional test record.
+Context: US Team workspace fictional-team-a; Okta; SAML browser sign-in; synthetic test user; permitted trial assumed for this exercise.
+
+09:00 Open Team plan settings: plan label displayed Team.
+09:01 Enable SAML sign-in and load Okta identity-provider metadata.
+09:03 Assign a synthetic test user to the Okta application.
+09:04 Start a new browser session and select Sign in with SSO.
+09:05 Complete the Okta challenge; the AcmeFlow workspace opens as the assigned user.
+Result: SAML browser sign-in completed in this simulated Team/Okta test.
+
+Untested: all other paid plans, other identity providers, SCIM, failure recovery, performance, reliability and existing contract entitlements.
+The relative step times are invented for teaching. They do not describe real elapsed test duration.

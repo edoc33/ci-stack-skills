@@ -1,0 +1,18 @@
+{
+  "checked_at_utc": "2026-09-04T23:13:08.747780+00:00",
+  "cli_version": "2.1.259",
+  "auth_probe_command": "claude auth status",
+  "auth_probe_exit_code": 1,
+  "auth_status": {
+    "loggedIn": false,
+    "authMethod": "none",
+    "apiProvider": "firstParty"
+  },
+  "configured_token_environment": "No ANTHROPIC_API_KEY, ANTHROPIC_AUTH_TOKEN, or CLAUDE_CODE_OAUTH_TOKEN set in the process.",
+  "alternate_provider_modes": "Bedrock, Vertex and Foundry modes were not set.",
+  "model_provider_use_authorized": true,
+  "model_invocations": 0,
+  "status": "blocked_authentication",
+  "blocker": "Claude CLI has no authenticated configured account in this execution environment.",
+  "actions": "Inspected help, version and auth status only. No credentials were printed, searched for or copied. No model inference or plugin run occurred."
+}

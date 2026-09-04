@@ -1,0 +1,9 @@
+ILLUSTRATIVE WORKSHOP FIXTURE. All organizations, people, deals, events and test results in this case are fictional.
+Source: https://www.acmeflow.example/
+Synthetic capture time: 2026-08-06T09:00:00Z
+Context: public US English homepage, logged out.
+
+Before: © 2025 AcmeFlow
+After: © 2026 AcmeFlow
+
+Only the copyright-year text differs in this supplied fixture. The fictional decision concerns Team-plan SSO seller guidance.

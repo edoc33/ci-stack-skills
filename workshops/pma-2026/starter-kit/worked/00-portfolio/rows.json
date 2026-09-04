@@ -1,0 +1,35 @@
+[
+  {
+    "URL": "https://www.acmeflow.example/pricing",
+    "Competitor": "AcmeFlow (fictional)",
+    "Layer": "Commercial terms",
+    "Decision served": "Team/Okta SSO seller guidance",
+    "Question it answers": "Which paid plans does the page say include SAML?",
+    "Material if": "Team inclusion or an Enterprise restriction changes",
+    "Safe to ignore if": "Only layout or unrelated marketing text changes",
+    "Check interval": "Daily (chosen workshop assumption)",
+    "Reviewer": "Alex Morgan (fictional)"
+  },
+  {
+    "URL": "https://www.acmeflow.example/docs/saml",
+    "Competitor": "AcmeFlow (fictional)",
+    "Layer": "Product truth",
+    "Decision served": "Team/Okta SSO seller guidance",
+    "Question it answers": "Which prerequisites does the documentation state?",
+    "Material if": "Team/Okta prerequisites or setup instructions change",
+    "Safe to ignore if": "A typo changes while prerequisites stay the same",
+    "Check interval": "Daily (chosen workshop assumption)",
+    "Reviewer": "Alex Morgan (fictional)"
+  },
+  {
+    "URL": "https://www.acmeflow.example/changelog",
+    "Competitor": "AcmeFlow (fictional)",
+    "Layer": "Product truth",
+    "Decision served": "Team/Okta SSO seller guidance",
+    "Question it answers": "What SSO releases does AcmeFlow announce?",
+    "Material if": "An announcement changes supported plans or identity providers",
+    "Safe to ignore if": "The entry concerns an unrelated feature",
+    "Check interval": "Daily (chosen workshop assumption)",
+    "Reviewer": "Alex Morgan (fictional)"
+  }
+]

@@ -1,0 +1,4 @@
+url,title,layer,decision,material_if,safe_to_ignore_if
+https://www.acmeflow.example/pricing,AcmeFlow pricing,Commercial terms,Team SSO seller guidance,Team SAML inclusion or plan restrictions change,"Layout, testimonial or navigation changes without a plan claim change"
+https://www.acmeflow.example/docs/saml,AcmeFlow SAML docs,Product truth,Team SSO seller guidance,Team or Okta setup requirements change,Typographic fixes that leave prerequisites unchanged
+https://www.acmeflow.example/changelog,AcmeFlow changelog,Product truth,Team SSO seller guidance,An SSO release changes supported plans or identity providers,Unrelated feature announcements

@@ -1,0 +1,349 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Short, editable document excerpts. Each artifact carries its own evidence and context label.",
+  "extension_rule": "Add a new case_id for authentic historical source evidence. Set evidence_kind to authentic_capture and business_context_label to Illustrative PMM context for invented downstream uses. Never copy synthetic AcmeFlow fields into an authentic source record. Preserve source dates, exact captured values and approval status.",
+  "allowed_evidence_kinds": [
+    "synthetic",
+    "authentic_capture",
+    "source_summary_only"
+  ],
+  "cases": [
+    {
+      "case_id": "acmeflow-synthetic",
+      "case_title": "AcmeFlow Team SSO",
+      "evidence_label": "Illustrative synthetic evidence",
+      "evidence_kind": "synthetic",
+      "business_context_label": "Illustrative PMM context",
+      "scenario_date": "2026-08-06",
+      "source_commit": "cd2fc5e097a7a7f3e87a6cfa11acb0fc0e722653",
+      "source_files": [
+        "evidence/pricing-before.txt",
+        "evidence/pricing-after.txt",
+        "evidence/test-a.txt",
+        "evidence/test-b.txt"
+      ],
+      "warning": "All facts, people, quotes and test results in this case are fictional. Dates are scenario dates."
+    }
+  ],
+  "excerpts": [
+    {
+      "slide": 24,
+      "case_id": "acmeflow-synthetic",
+      "artifact_type": "watchlist",
+      "title": "A source earns a place through a decision",
+      "label": "ILLUSTRATIVE WORKSHOP EXAMPLE",
+      "evidence_kind": "synthetic",
+      "business_context_label": "Illustrative PMM context",
+      "review_status": "draft",
+      "external_use_approval": "not approved",
+      "source_files": [
+        "worked/00-portfolio/ci-portfolio.md"
+      ],
+      "data": {
+        "decision": "Review Team/Okta seller guidance",
+        "columns": [
+          "Page",
+          "Material if",
+          "Ignore if",
+          "Owner"
+        ],
+        "rows": [
+          [
+            "Pricing",
+            "Team SAML inclusion changes",
+            "Only layout changes",
+            "Alex, fictional"
+          ],
+          [
+            "SAML docs",
+            "Okta prerequisites change",
+            "Only typos change",
+            "Alex, fictional"
+          ],
+          [
+            "Changelog",
+            "SSO plans or providers change",
+            "Unrelated release",
+            "Alex, fictional"
+          ]
+        ],
+        "footer": "Chosen exercise cadence: daily. 3 pages × 30 days = 90 checks. No monitors created."
+      }
+    },
+    {
+      "slide": 25,
+      "case_id": "acmeflow-synthetic",
+      "artifact_type": "decision_brief",
+      "title": "One claim, one next action",
+      "label": "ILLUSTRATIVE WORKSHOP EXAMPLE",
+      "evidence_kind": "synthetic",
+      "business_context_label": "Illustrative PMM context",
+      "review_status": "draft",
+      "external_use_approval": "not approved",
+      "source_files": [
+        "worked/01-triage/briefs/2026-08-06-acmeflow-sso.md"
+      ],
+      "data": {
+        "Observed change": "Page now says SAML SSO is available on all paid plans.",
+        "Evidence basis": "observed publication",
+        "Verification": "single-source",
+        "Handling": "internal",
+        "Business relevance": "Existing card says Enterprise only.",
+        "Recommended option": "validate",
+        "Owner and decision deadline": "Alex Morgan, 7 Aug (fictional)",
+        "Unknown": "Actual Team/Okta behavior; account variants"
+      }
+    },
+    {
+      "slide": 26,
+      "case_id": "acmeflow-synthetic",
+      "artifact_type": "verification_record",
+      "title": "Preserve the original question",
+      "label": "ILLUSTRATIVE WORKSHOP EXAMPLE",
+      "evidence_kind": "synthetic",
+      "business_context_label": "Illustrative PMM context",
+      "review_status": "draft",
+      "external_use_approval": "not approved",
+      "source_files": [
+        "worked/02-corroboration/record.json"
+      ],
+      "data": {
+        "Original claim": "Working SAML SSO on all paid plans",
+        "Answer to original claim": "unresolved",
+        "Narrow proposition": "The two simulated US Team/Okta tests completed SAML sign-in.",
+        "Verification": "corroborated in the fictional case",
+        "Sources": [
+          "Vendor pricing + docs: one origin",
+          "Test A: independent original",
+          "Test B: independent original"
+        ],
+        "Unknown": "Other plans, SCIM and reliability"
+      }
+    },
+    {
+      "slide": 27,
+      "case_id": "acmeflow-synthetic",
+      "artifact_type": "battlecard_redline",
+      "title": "Change the answer a seller will use",
+      "label": "ILLUSTRATIVE WORKSHOP EXAMPLE",
+      "evidence_kind": "synthetic",
+      "business_context_label": "Illustrative PMM context",
+      "review_status": "draft",
+      "external_use_approval": "not approved",
+      "source_files": [
+        "worked/03-battlecard/battlecard.patch"
+      ],
+      "data": {
+        "removed": "AcmeFlow restricts SAML SSO to Enterprise.",
+        "added": "The fictional 5 Aug tests completed SAML sign-in in two US Team workspaces using Okta.",
+        "seller_question": "Which identity provider and provisioning requirements must this plan support?",
+        "source_note": "Simulated test A + test B, 5 Aug 2026. Other configurations remain untested.",
+        "status": "Awaiting review; not for seller use"
+      }
+    },
+    {
+      "slide": 28,
+      "case_id": "acmeflow-synthetic",
+      "artifact_type": "cohort_counts",
+      "title": "Nine notes, six independent deals",
+      "label": "ILLUSTRATIVE WORKSHOP EXAMPLE",
+      "evidence_kind": "synthetic",
+      "business_context_label": "Illustrative PMM context",
+      "review_status": "draft",
+      "external_use_approval": "not approved",
+      "source_files": [
+        "worked/04-pattern/counts.json"
+      ],
+      "data": {
+        "finding": "3 of 6 recorded eligible deals mention SSO",
+        "coverage": "6 of 8 eligible deals have notes",
+        "unit": "One deal/account episode",
+        "duplicate_example": "D01 has 3 notes; it counts once.",
+        "verdict": "repeated signal",
+        "cohort": "US midmarket AcmeFlow evaluations, 1–6 Aug 2026",
+        "next_action": "Validate a reversible discovery question"
+      }
+    },
+    {
+      "slide": 29,
+      "case_id": "acmeflow-synthetic",
+      "artifact_type": "weekly_digest",
+      "title": "Show what a person decided",
+      "label": "ILLUSTRATIVE WORKSHOP EXAMPLE",
+      "evidence_kind": "synthetic",
+      "business_context_label": "Illustrative PMM context",
+      "review_status": "draft",
+      "external_use_approval": "not approved",
+      "source_files": [
+        "worked/05-weekly/2026-08-07-competitive-update.md"
+      ],
+      "data": {
+        "Accepted": "Validate Team/Okta: simulated test logs supplied",
+        "Pending": "Reframe SSO seller guidance; review still pending",
+        "Ignored": "Copyright-year-only change; reopen on legal/plan change",
+        "Rejected": "Price match; no alternative price decision recorded",
+        "Outcome": "Seller use and deal impact remain unknown"
+      }
+    },
+    {
+      "slide": 30,
+      "case_id": "acmeflow-synthetic",
+      "artifact_type": "newsletter_draft",
+      "title": "A sourced update for review",
+      "label": "ILLUSTRATIVE WORKSHOP EXAMPLE",
+      "evidence_kind": "synthetic",
+      "business_context_label": "Illustrative PMM context",
+      "review_status": "draft",
+      "external_use_approval": "not approved",
+      "source_files": [
+        "evidence/pricing-after.txt",
+        "worked/03-battlecard/review-note.md"
+      ],
+      "data": {
+        "subject": "Draft: Team SSO comparison needs review",
+        "lead": "The synthetic price page added an all-paid-plans SAML statement on 4 Aug.",
+        "interpretation": "The supplied Team/Okta tests support narrower draft wording.",
+        "action": "Alex reviews the proposed card before seller use.",
+        "unresolved": "Other plans and provisioning requirements.",
+        "delivery_status": "Example copy only; no distribution configured"
+      }
+    },
+    {
+      "slide": 31,
+      "case_id": "acmeflow-synthetic",
+      "artifact_type": "proposed_crm_note",
+      "title": "Confirm the match before posting",
+      "label": "ILLUSTRATIVE WORKSHOP EXAMPLE",
+      "evidence_kind": "synthetic",
+      "business_context_label": "Illustrative PMM context",
+      "review_status": "draft",
+      "external_use_approval": "not approved",
+      "source_files": [
+        "inputs/pattern/deals.csv",
+        "worked/03-battlecard/review-note.md"
+      ],
+      "data": {
+        "candidate_deal": "D07, fictional open US midmarket AcmeFlow evaluation",
+        "known_match": "Competitor and segment match",
+        "missing_match": "Team plan, Okta requirement and buyer relevance are unconfirmed",
+        "proposed_note": "Review whether the Team/Okta SSO change affects this evaluation. The draft comparison is awaiting PMM review.",
+        "routing_status": "Hold until fit and approval are confirmed; not posted"
+      }
+    },
+    {
+      "slide": 32,
+      "case_id": "acmeflow-synthetic",
+      "artifact_type": "channel_message",
+      "title": "Label an unreviewed signal",
+      "label": "ILLUSTRATIVE WORKSHOP EXAMPLE",
+      "evidence_kind": "synthetic",
+      "business_context_label": "Illustrative PMM context",
+      "review_status": "draft",
+      "external_use_approval": "not approved",
+      "source_files": [
+        "evidence/pricing-after.txt"
+      ],
+      "data": {
+        "channel": "#competitor-monitoring (illustrative)",
+        "status": "Unreviewed signal",
+        "observed": "The synthetic pricing capture added “SAML SSO available on all paid plans.”",
+        "captured": "4 Aug 2026, 09:12:44 UTC (scenario)",
+        "next_step": "PMM checks Team/Okta scope before briefing sellers.",
+        "delivery_status": "Proposed message; not sent"
+      }
+    },
+    {
+      "slide": 33,
+      "case_id": "acmeflow-synthetic",
+      "artifact_type": "evidence_log_row",
+      "title": "Keep the source with the observation",
+      "label": "ILLUSTRATIVE WORKSHOP EXAMPLE",
+      "evidence_kind": "synthetic",
+      "business_context_label": "Illustrative PMM context",
+      "review_status": "draft",
+      "external_use_approval": "not approved",
+      "source_files": [
+        "evidence/manifest.json",
+        "worked/01-triage/briefs/2026-08-06-acmeflow-sso.md"
+      ],
+      "data": {
+        "event_id": "acmeflow-sso-20260804-demo",
+        "observed_at": "2026-08-04T09:12:44Z (synthetic)",
+        "observation": "New all-paid-plans SAML statement",
+        "preserved_evidence": "pricing-before.txt + pricing-after.txt + manifest hash",
+        "processing_status": "Triage drafted; human decision pending",
+        "reviewed_decision": "None recorded in this draft"
+      }
+    },
+    {
+      "slide": 34,
+      "case_id": "acmeflow-synthetic",
+      "artifact_type": "review_task",
+      "title": "Approve the exact proposed wording",
+      "label": "ILLUSTRATIVE WORKSHOP EXAMPLE",
+      "evidence_kind": "synthetic",
+      "business_context_label": "Illustrative PMM context",
+      "review_status": "draft",
+      "external_use_approval": "not approved",
+      "source_files": [
+        "inputs/patch-handoff-brief.md",
+        "worked/03-battlecard/battlecard.patch"
+      ],
+      "data": {
+        "task": "Review the Team/Okta SSO patch",
+        "reviewer": "Alex Morgan, fictional PMM",
+        "input": "Current battlecard + scoped corroborated handoff",
+        "check": [
+          "Claim matches both simulated test logs",
+          "Other plans and SCIM stay unresolved",
+          "Price/usage claims held for review"
+        ],
+        "due": "7 Aug 2026 (scenario)",
+        "approval": "Pending; proposed patch remains a draft"
+      }
+    },
+    {
+      "slide": 35,
+      "case_id": "acmeflow-synthetic",
+      "artifact_type": "hypothesis_record",
+      "title": "Choose the next evidence",
+      "label": "ILLUSTRATIVE WORKSHOP EXAMPLE",
+      "evidence_kind": "synthetic",
+      "business_context_label": "Illustrative PMM context",
+      "review_status": "draft",
+      "external_use_approval": "not approved",
+      "source_files": [
+        "evidence/pricing-after.txt",
+        "evidence/docs-sso.txt"
+      ],
+      "data": {
+        "observation": "Synthetic pricing and docs now describe Team SAML.",
+        "hypothesis": "AcmeFlow may be widening its Team-plan message.",
+        "alternative": "Routine documentation alignment after an earlier change.",
+        "next_check": "Seek a dated original announcement and scope-matched buyer evidence.",
+        "state": "Inferred research idea; launch timing unknown"
+      }
+    },
+    {
+      "slide": 36,
+      "case_id": "acmeflow-synthetic",
+      "artifact_type": "buyer_research_question",
+      "title": "Turn a review into a question",
+      "label": "ILLUSTRATIVE WORKSHOP EXAMPLE",
+      "evidence_kind": "synthetic",
+      "business_context_label": "Illustrative PMM context",
+      "review_status": "draft",
+      "external_use_approval": "not approved",
+      "source_files": [
+        "inputs/review-change.json"
+      ],
+      "data": {
+        "synthetic_review": "“Our team needs clearer SSO setup docs.”",
+        "captured": "6 Aug 2026 (invented scenario date)",
+        "question": "Where did SSO setup become unclear in your evaluation?",
+        "alternative": "An outdated article or an account-specific prerequisite.",
+        "boundary": "One fictional review establishes no prevalence or deal impact."
+      }
+    }
+  ]
+}

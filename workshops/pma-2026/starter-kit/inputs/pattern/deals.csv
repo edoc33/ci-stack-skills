@@ -1,0 +1,11 @@
+deal_id,fictional,account_episode,opened_date,segment,region,competitor,rep,stage,outcome,amount_band
+D01,true,EP01,2026-08-01,midmarket,US,AcmeFlow,A,evaluation,lost,not supplied
+D02,true,EP02,2026-08-01,midmarket,US,AcmeFlow,B,evaluation,won,not supplied
+D03,true,EP03,2026-08-01,midmarket,US,AcmeFlow,C,evaluation,open,not supplied
+D04,true,EP04,2026-08-01,midmarket,US,AcmeFlow,B,evaluation,lost,not supplied
+D05,true,EP05,2026-08-01,midmarket,US,AcmeFlow,A,evaluation,won,not supplied
+D06,true,EP06,2026-08-01,midmarket,US,AcmeFlow,C,evaluation,lost,not supplied
+D07,true,EP07,2026-08-01,midmarket,US,AcmeFlow,A,evaluation,open,not supplied
+D08,true,EP08,2026-08-01,midmarket,US,AcmeFlow,B,evaluation,lost,not supplied
+D09,true,EP09,2026-08-01,enterprise,EU,AcmeFlow,C,evaluation,open,not supplied
+D10,true,EP10,2026-08-01,midmarket,US,OtherExample,A,evaluation,open,not supplied

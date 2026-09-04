@@ -1,0 +1,9 @@
+ILLUSTRATIVE WORKSHOP FIXTURE. All organizations, people, deals, events and test results in this case are fictional.
+Source: https://www.acmeflow.example/pricing
+Context: synthetic US public page, USD, Team plan, annual billing, logged out.
+Synthetic capture time: 2026-08-04T09:12:44Z
+
+Team — $49 per user / month billed annually.
+Includes 5,000 automation runs per month.
+Additional runs billed at $0.002 each.
+SAML SSO available on all paid plans.

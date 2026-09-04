@@ -1,0 +1,9 @@
+ILLUSTRATIVE WORKSHOP FIXTURE. All organizations, people, deals, events and test results in this case are fictional.
+Source: https://www.acmeflow.example/docs/saml
+Synthetic capture time: 2026-08-04T10:00:00Z
+Origin: AcmeFlow documentation team. Same vendor origin as the pricing page.
+Context: US English public documentation; Team plan; Okta.
+
+SAML SSO is available on the Team plan. Administrators can configure an Okta application and upload its identity-provider metadata. Existing users can sign in through their assigned Okta application.
+
+This synthetic documentation excerpt contains no statement about SCIM provisioning, other identity providers or service reliability.
