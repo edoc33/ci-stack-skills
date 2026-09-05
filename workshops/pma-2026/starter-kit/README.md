@@ -34,6 +34,7 @@ Installation needs an internet connection and a configured Claude Code account. 
 | `worked/` | Authored reference answers, labeled illustrative; these are not model execution logs |
 | `output-excerpts.json` | Short editable artifact excerpts for presentation design |
 | `VALIDATION.md` | What was checked, what ran, and what remains untested |
+| `validation/runtime-output/` | Actual model drafts from the completed triage test |
 
 ## The exercise
 

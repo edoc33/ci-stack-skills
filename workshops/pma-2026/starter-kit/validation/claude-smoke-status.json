@@ -1,18 +1,126 @@
 {
-  "checked_at_utc": "2026-09-04T23:13:08.747780+00:00",
-  "cli_version": "2.1.259",
-  "auth_probe_command": "claude auth status",
-  "auth_probe_exit_code": 1,
-  "auth_status": {
-    "loggedIn": false,
-    "authMethod": "none",
-    "apiProvider": "firstParty"
+  "status": "completed_with_review_findings",
+  "scope": "one real ci-triage invocation on the synthetic workshop case",
+  "checked_at_utc": "2026-09-05T05:15:59.670Z",
+  "model": "claude-opus-5[1m]",
+  "plugin_version": "0.1.0",
+  "num_turns": 16,
+  "duration_ms": 163282,
+  "tool_names_used": [
+    "Glob",
+    "Read",
+    "Skill",
+    "Write"
+  ],
+  "tool_call_count": 14,
+  "checks": {
+    "process_exit_zero": true,
+    "model_result_success": true,
+    "plugin_loaded": true,
+    "triage_skill_invoked": true,
+    "allowed_tool_inventory": true,
+    "no_tool_errors": true,
+    "no_permission_denials": true,
+    "three_named_briefs": true,
+    "decision_log_saved": true,
+    "write_inside_ci_root:2026-08-06-acmeflow-sso.md": true,
+    "write_inside_ci_root:2026-08-06-acmeflow-team-price.md": true,
+    "write_inside_ci_root:2026-08-06-acmeflow-team-usage.md": true,
+    "write_inside_ci_root:ci-decision-log.md": true,
+    "source_bytes_unchanged": true,
+    "no_worked_examples_read": true,
+    "fictional_label:2026-08-06-acmeflow-sso.md": true,
+    "human decision:2026-08-06-acmeflow-sso.md": true,
+    "review status:2026-08-06-acmeflow-sso.md": true,
+    "external-use approval:2026-08-06-acmeflow-sso.md": true,
+    "fictional_label:2026-08-06-acmeflow-team-price.md": true,
+    "human decision:2026-08-06-acmeflow-team-price.md": true,
+    "review status:2026-08-06-acmeflow-team-price.md": true,
+    "external-use approval:2026-08-06-acmeflow-team-price.md": true,
+    "fictional_label:2026-08-06-acmeflow-team-usage.md": true,
+    "human decision:2026-08-06-acmeflow-team-usage.md": true,
+    "review status:2026-08-06-acmeflow-team-usage.md": true,
+    "external-use approval:2026-08-06-acmeflow-team-usage.md": true
   },
-  "configured_token_environment": "No ANTHROPIC_API_KEY, ANTHROPIC_AUTH_TOKEN, or CLAUDE_CODE_OAUTH_TOKEN set in the process.",
-  "alternate_provider_modes": "Bedrock, Vertex and Foundry modes were not set.",
-  "model_provider_use_authorized": true,
-  "model_invocations": 0,
-  "status": "blocked_authentication",
-  "blocker": "Claude CLI has no authenticated configured account in this execution environment.",
-  "actions": "Inspected help, version and auth status only. No credentials were printed, searched for or copied. No model inference or plugin run occurred."
+  "generated_files": [
+    {
+      "path": "briefs/2026-08-06-acmeflow-sso.md",
+      "original_sha256": "577c3b06a9d7be0b909fb0446d5110b09c0a28c699497096905f8d5837151138",
+      "portable_copy_sha256": "577c3b06a9d7be0b909fb0446d5110b09c0a28c699497096905f8d5837151138"
+    },
+    {
+      "path": "briefs/2026-08-06-acmeflow-team-price.md",
+      "original_sha256": "53ccbc181f883868086c068ed852dc88f1f795a62bf8ae0ee4ce116c27953aea",
+      "portable_copy_sha256": "53ccbc181f883868086c068ed852dc88f1f795a62bf8ae0ee4ce116c27953aea"
+    },
+    {
+      "path": "briefs/2026-08-06-acmeflow-team-usage.md",
+      "original_sha256": "8df3352ab31cb88290363a2079dd385e1ac99b89b9865e4ed464c43877d56599",
+      "portable_copy_sha256": "8df3352ab31cb88290363a2079dd385e1ac99b89b9865e4ed464c43877d56599"
+    },
+    {
+      "path": "ci-decision-log.md",
+      "original_sha256": "2c247abbb6e04022f5484f010ada461313a2a55fb50fc4a32a103ee52279a185",
+      "portable_copy_sha256": "2c247abbb6e04022f5484f010ada461313a2a55fb50fc4a32a103ee52279a185"
+    }
+  ],
+  "runtime_limits": "Local file tools only. No live monitor, connector, shell tool, marketplace installation or external delivery tested. Other five skills were not model-executed.",
+  "normalization": "Only the temporary kit root in portable output copies is replaced by <kit-root>. Private raw logs remain local.",
+  "test_date": "2026-09-05",
+  "cli_version": "2.1.259",
+  "reasoning_effort": "medium",
+  "elapsed_seconds": 164.25,
+  "total_attempts": 2,
+  "first_attempt": {
+    "status": "incomplete_timeout",
+    "elapsed_seconds": 300.02,
+    "saved_briefs": 2,
+    "missing_outputs": [
+      "usage brief",
+      "decision-log view"
+    ],
+    "factual_error": "SSO draft said two days later for captures exactly one day apart."
+  },
+  "prompt_revision": "Added a concise-output target and an exact-capture-date instruction to prompts/01-triage.md before attempt 02.",
+  "manual_review": {
+    "status": "review_required",
+    "review_date": "2026-09-05",
+    "verified": [
+      "All seven primary before/after source strings match the preserved pricing captures.",
+      "Both capture timestamps are correct in every brief; no incorrect elapsed-time claim was found.",
+      "The three briefs keep single-source page publication separate from untested product behavior.",
+      "All briefs retain pending, draft and not approved defaults.",
+      "The decision-log rows match the three saved briefs."
+    ],
+    "findings": [
+      {
+        "file": "briefs/2026-08-06-acmeflow-sso.md",
+        "field": "Affected ICP, segment, region, product, use case",
+        "issue": "Names a TaskBridge Team-plan deployment, although the Team/Okta proposition concerns AcmeFlow.",
+        "required_edit": "Name AcmeFlow explicitly in the evaluation scope."
+      },
+      {
+        "files": [
+          "briefs/2026-08-06-acmeflow-sso.md",
+          "briefs/2026-08-06-acmeflow-team-price.md",
+          "briefs/2026-08-06-acmeflow-team-usage.md"
+        ],
+        "field": "Capture alternatives",
+        "issue": "Template-change wording says not the explanation, which is stronger than the capture evidence establishes.",
+        "required_edit": "State that the text changed substantively while its cause remains untested."
+      },
+      {
+        "files": [
+          "briefs/2026-08-06-acmeflow-team-price.md",
+          "briefs/2026-08-06-acmeflow-team-usage.md"
+        ],
+        "field": "Forecast",
+        "issue": "Retains a Forecast: omitted placeholder; the shared contract asks to omit this field when there is no forecast.",
+        "required_edit": "Delete the placeholder field."
+      }
+    ],
+    "copy_limit": "Drafts remain longer than the 650-word target and contain unedited model punctuation. This run verifies execution and records review findings; it does not certify presentation-ready prose.",
+    "approval": "No generated draft was approved or promoted. Raw output copies remain unchanged except normalized local root paths."
+  },
+  "authentication_correction": "The host was authenticated. The earlier signed-out result came from the sandbox and did not describe host authentication."
 }

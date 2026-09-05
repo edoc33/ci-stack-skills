@@ -2,8 +2,8 @@
   "status": "pass",
   "scope": "offline fixture validation",
   "checks_passed": 125,
-  "model_runtime_executed": false,
-  "model_runtime_note": "No model call was made. The authorized smoke test stopped at auth status: loggedIn false, authMethod none. See validation/claude-smoke-status.json.",
+  "model_runtime_executed_by_this_validator": false,
+  "model_runtime_note": "This validator makes no model calls. See VALIDATION.md and validation/claude-smoke-status.json for the separate runtime test.",
   "checks": [
     {
       "check": "JSON files parse",

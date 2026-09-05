@@ -13,7 +13,7 @@ Extract the pack and open `starter-kit/README.md`. The first exercise creates a 
 
 The synthetic AcmeFlow case is separate from the presentation’s historical competitor evidence. All people, deals, quotes and product behavior in that practice case are fictional. The source guide labels historical captures and current page examples individually.
 
-The skills produce local drafts. Monitor creation, scheduled execution, CRM writes and message delivery require their own setup. The offline file and patch checks pass. A model run has not been verified because Claude Code is signed out in the preparation environment.
+The skills produce local drafts. Monitor creation, scheduled execution, CRM writes and message delivery require their own setup. The 125 offline checks pass. One Claude Code triage test also completed, saving three claim briefs and a decision-log view. The other five skills have not been model-executed. Read the validation report for the test conditions and the incomplete first attempt.
 
 ## Install the skills
 

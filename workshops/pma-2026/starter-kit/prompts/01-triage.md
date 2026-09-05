@@ -13,3 +13,5 @@ For this fictional exercise use these canonical filenames, with collision-safe s
 {{CI_ROOT}}/briefs/2026-08-06-acmeflow-team-usage.md
 
 Recommend one shared-contract option per brief. Add a revisit condition for ignore or continue monitoring. Produce the decision-log view as a proposed diff if its fixed-name file already exists.
+
+Keep each brief concise, aiming for 650 words or fewer while retaining every required contract field. Use short field values and avoid repeating the same explanation across sections. Cite exact capture dates; omit elapsed-time wording unless you have checked the calculation. Save all three briefs and the decision-log view before writing a short completion message.

@@ -1,6 +1,6 @@
 # Validation report
 
-Validation date: 4 September 2026. This report describes the authored synthetic workshop kit.
+Validation date: 5 September 2026. This report describes the authored synthetic workshop kit.
 
 ## Result
 
@@ -23,18 +23,26 @@ Reviewed source: `edoc33/ci-stack-skills`, commit `cd2fc5e097a7a7f3e87a6cfa11acb
 - The weekly corpus is a separate supplied-fictional-history branch. It records 2 accepted decisions, 1 rejected recommendation and 1 pending recommendation. Its accepted ignore decision has a revisit rule. Approval and outcomes are never inferred from artifact presence.
 - The synthetic workflow avoids actual personal/customer data. All source locators use reserved example domains. No live API payload compatibility or vendor import entitlement is claimed.
 
-## Runtime smoke-test attempt
+## Runtime test
 
-Installed Claude Code version `2.1.259` was inspected using `--version`, `--help` and `auth status`. Model-provider use of this fully synthetic fixture was explicitly authorized for one restricted first-triage test.
+One `ci-stack:ci-triage` run completed on 5 September 2026 using Claude Code 2.1.259, `claude-opus-5[1m]`, and medium reasoning effort. It took 164.25 seconds and saved all three claim briefs plus the decision-log view.
 
-**Blocked by authentication before model execution.** `claude auth status` exited 1 and reported `loggedIn: false`, `authMethod: none`, and `apiProvider: firstParty`. No Anthropic API key/auth token, Claude OAuth token, or alternate-provider mode was set in the process. The relevant diagnostic is saved in `validation/claude-smoke-status.json`.
+The test loaded the public plugin’s files locally with `--plugin-dir`. It invoked the skill, read its shared reference, and used a fresh copy of the fictional kit. The revised first prompt asks for concise briefs and exact capture dates. Marketplace installation was not exercised.
 
-No credentials were printed, searched for or copied. No model invocation, plugin invocation or end-to-end skill execution occurred. Callable-tool restriction and isolated output paths therefore remain untested at runtime.
+The tool inventory was limited to Read, Write, Edit, Glob, Grep and Skill. The trace contains no tool errors or permission denials. All generated writes stayed under the stated CI root. The 42 hashed evidence, input and plugin files were unchanged. Authored worked answers were not read.
 
-Worked outputs are authored reference answers. Deterministic tests establish fixture consistency and exercise mechanics; they do not prove that a model will follow every instruction.
+File checks confirmed separate SSO, price and automation-usage briefs and the defaults `Human decision: pending`, `Review status: draft`, and `External-use approval: not approved`. Manual source review confirmed the primary quotations and capture dates. Published-page evidence remained distinct from working Team/Okta behavior. The decision-log view matched the saved briefs. See `validation/claude-smoke-status.json` for the checks and `validation/runtime-output/` for the actual files, with only local root paths normalized.
+
+The first attempt timed out after 300.02 seconds with two briefs saved. Its SSO draft also described captures one day apart as “two days later.” That attempt is incomplete. The second attempt followed the revised prompt and passed the execution checks, with content findings that still need review. This result supports testing each generated answer against its evidence; it does not establish that future runs will be error-free.
+
+Review found three issues in the saved drafts: the SSO brief attributes the Team-plan evaluation to TaskBridge instead of AcmeFlow; template-change language is more conclusive than the captures support; and price/usage briefs retain a `Forecast: omitted` field that the contract says to leave out. The drafts also exceed the 650-word target. The model output is preserved unchanged so readers can inspect these findings. Correct them in a reviewed working copy before using the language.
+
+The earlier report that Claude Code was signed out came from a sandbox authentication check. The host was authenticated, and the actual model runs used that host session.
+
+Worked outputs remain authored reference answers. The 125 offline checks test fixture consistency and exercise mechanics; they make no model calls.
 
 ## Remaining checks before presenting
 
-Run the complete triage/corroboration/patch sequence in a fresh Claude Code session with an authorized model-provider connection. Confirm that the current plugin loads, can read its shared reference, respects the synthetic scenario and root, preserves uncertainty, returns separate claim records, and writes the expected artifact types. Review generated language against the rubric; accept equivalent defensible answers rather than demanding exact prose.
+Only triage was model-executed. Corroboration, battlecard patching, portfolio, pattern checking and weekly reporting have static contract and fixture checks. Run the full sequence in a fresh Claude Code session before using it as a live demonstration, and review the generated language against the evidence and rubric.
 
-The kit's generated session files contain local absolute paths and stay outside the portable ZIP. No live monitor, product test, CRM route, Slack message, wiki entry, scheduled task or publication was executed.
+No live monitor, product test, CRM route, Slack message, wiki entry or scheduled task was executed. The kit’s generated session files contain local absolute paths and stay outside the portable ZIP.

@@ -169,7 +169,7 @@ with tempfile.TemporaryDirectory(dir=work) as temp:
     check('Setup rerun protects existing session',second.returncode!=0 and 'already exists' in second.stderr)
 work.rmdir()
 
-out={'status':'pass','scope':'offline fixture validation','checks_passed':len(RESULTS),'model_runtime_executed':False,'model_runtime_note':'No model call was made. The authorized smoke test stopped at auth status: loggedIn false, authMethod none. See validation/claude-smoke-status.json.','checks':RESULTS}
+out={'status':'pass','scope':'offline fixture validation','checks_passed':len(RESULTS),'model_runtime_executed_by_this_validator':False,'model_runtime_note':'This validator makes no model calls. See VALIDATION.md and validation/claude-smoke-status.json for the separate runtime test.','checks':RESULTS}
 (ROOT/'validation').mkdir(exist_ok=True)
 (ROOT/'validation/results.json').write_text(json.dumps(out,indent=2)+'\n')
-print(str(len(RESULTS))+' offline checks passed. Model runtime was not executed.')
+print(str(len(RESULTS))+' offline checks passed. This validator makes no model calls.')
