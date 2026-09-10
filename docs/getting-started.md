@@ -7,6 +7,28 @@ run. When you want files, give an absolute CI directory or let the agent show it
 Claude Code names skills `/ci-stack:ci-portfolio`; Codex names them `$ci-portfolio`. The same pattern
 applies to every name below. A skill's own first-run example is included in its installed folder.
 
+## Update an existing installation
+
+For a Claude Code user-scope installation, run these commands in your terminal:
+
+```sh
+claude plugin marketplace update ci-stack
+claude plugin update ci-stack@ci-stack
+claude plugin list
+```
+
+Check that the listed version is `0.3.0`, then start a new session or run `/reload-plugins` in an
+existing session when prompted. If you installed in project or local scope, add `--scope project`
+or `--scope local` to the update command and run it from that project. See the
+[official update reference](https://code.claude.com/docs/en/plugins-reference#plugin-update).
+
+For Codex, download the latest `main` checkout before running the installer. If you already have
+CI Stack skill folders in your destination, compare and back up those seven folders outside every
+skill-discovery directory, then move the old copies out of the destination. Keep unrelated skills
+and your CI output directory in place. Rerun the two installer commands in the README. The script
+copies a fresh set and refuses collisions; it does not merge local edits or fetch future updates.
+Review your customizations before applying them to the new version. Restart Codex if needed.
+
 ## Build a watchlist with ci-portfolio
 
 ```text

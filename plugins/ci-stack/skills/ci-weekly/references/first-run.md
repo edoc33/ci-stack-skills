@@ -59,6 +59,8 @@ The update should separate the pending validation recommendation from the accept
 decision. The headline change is a carried-over observation with an in-period decision. Missing
 outcomes stay unknown, and two supplied briefs do not establish complete monitoring coverage.
 
-To save files, supply an absolute CI root and request local output. The update and proposed view
-snapshots go under `updates/`. A later run can use a monthly or custom date interval without changing
-skills. Scheduling collection and delivery requires a separate configured workflow.
+To save files, supply an absolute CI root and request local output. Save the newsletter under
+`<CI root>/updates/`. Save proposed view snapshots and diffs beside the final views at the CI root
+so relative links still work when the proposals are applied. Follow the [skill's file-output rules](../SKILL.md)
+for filenames and collision handling. A later run can use a monthly or custom date interval without
+changing skills. Scheduling collection and delivery requires a separate configured workflow.

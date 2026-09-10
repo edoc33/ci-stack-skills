@@ -32,6 +32,9 @@ replace an existing skill. Restart Codex if the new skills do not appear. Codex 
 [user skill location](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills).
 Python 3.10 or later is required only for the installer and repository checks.
 
+Already installed? Follow [the upgrade instructions](docs/getting-started.md#update-an-existing-installation)
+to get version 0.3.0 and preserve any local customizations.
+
 ## Run your first skill
 
 In Claude Code, use `/ci-stack:ci-triage`. In Codex, use `$ci-triage`. Then paste:
@@ -71,6 +74,9 @@ all seven. For a new CI program, the usual loop is portfolio → triage → peri
 - [Evidence and file contract](plugins/ci-stack/reference/decision-brief.md)
 - [Validation and known limits](docs/validation.md)
 - [PMA workshop materials](https://github.com/edoc33/ci-stack-skills/tree/pma-workshop-2026/workshops/pma-2026)
+
+The workshop branch retains dated exercises and reference outputs. Install from this repository's
+`main` branch for the current skills and use the first-run guide above for current setup.
 
 ## Add your own context
 

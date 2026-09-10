@@ -37,8 +37,11 @@ The [regression cases](../tests/behavioral/README.md) contain the portable input
 
 The initial weekly run exposed a link-location issue: proposed views were saved in `updates/`,
 while the final views belong at the CI root. The skill now places proposals beside their final
-targets so relative source links retain their meaning when applied. The corrected follow-up run passed: both proposal diffs target the fixed-name views, reconstruct
-the proposed content exactly, and retain resolving source links from the final destination.
+targets so relative source links retain their meaning when applied. The corrected follow-up run
+passed: both proposal diffs target the fixed-name views, reconstruct the proposed content exactly,
+and retain resolving source links from the final destination.
+The final release review also aligned the bundled first-run example with those output paths and
+checked the updated references in a fresh portable installation.
 
 The model-generated research records were sometimes verbose. Shared guidance now asks for a
 concise leading verdict, each limitation stated once, and linked detail instead of a repeated brief.

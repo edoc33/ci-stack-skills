@@ -22,7 +22,7 @@ Evidence
 - Verification:          not tested | single-source | corroborated | contradicted | unresolved
 - Handling:              public | internal | restricted
 - Counterevidence / unknowns:
-- Confidence:            high | medium | low : and the reason
+- Confidence:            high | medium | low, followed by the reason
 - Last verified / review-by date:
 
 Business relevance
@@ -52,7 +52,8 @@ Status  (only a human moves these: a skill never sets them past their default)
 ```
 
 A skill initialises `Human decision: pending`, `Review status: draft`, and
-`External-use approval: not approved`. It may never advance them on its own or infer approval from chronology or file presence.
+`External-use approval: not approved`. It may never advance them on its own or infer approval from
+chronology or file presence.
 Preserve a human decision explicitly supplied by the user, with its attribution and date. A request
 to draft or continue work does not approve a CI conclusion. If evidence changes, the proposed
 revision returns to draft; preserve the historical approved version and its decision record.
@@ -65,7 +66,7 @@ These are not one scale. Conflating them is the most common way CI writing becom
 
 | Dimension | Values | Meaning |
 |---|---|---|
-| **Evidence basis** | `observed` · `field report` · `inferred` | A preserved source directly shows it; one person reported it: a seller, a prospect, a customer, a partner, anyone; or it is our reasoning |
+| **Evidence basis** | `observed` · `field report` · `inferred` | A preserved source directly shows it; a person reported it; or it is our reasoning |
 | **Verification** | `not tested` · `single-source` · `corroborated` · `contradicted` · `unresolved` | What checking the *exact* proposition established |
 | **Handling** | `public` · `internal` · `restricted` | Where the evidence and any output may travel |
 
@@ -78,7 +79,7 @@ Repeating a claim upgrades nothing on any dimension.
 
 ### Confidence
 
-Confidence attaches to the exact, scope-limited proposition: never to a vague summary of it.
+Attach confidence to the exact, scope-limited proposition and explain the basis for that rating.
 
 - **`high`**: current preserved direct evidence supports it and no material conflict remains.
 - **`medium`**: credible evidence exists but one material limitation remains: scope, freshness,
@@ -96,8 +97,8 @@ A brief that recommends nothing is not finished. Recommend exactly one:
 
 `ignore` · `continue monitoring` · `validate` · `reframe` · `respond` · `match` · `diverge`
 
-`ignore` and `continue monitoring` are real, frequently correct answers. A system that never
-recommends them is producing work, not judgement.
+`ignore` and `continue monitoring` are valid answers. Record why the change needs no further
+action now and what would reopen the decision.
 
 ---
 
@@ -170,8 +171,8 @@ pricing and terms questions with any of that flavour to counsel.
 **High-risk comparative claims.** Do not turn rumours, reviews, field reports, or inferences into
 allegations that a competitor lies, breaks the law, is insecure or unsafe, harms customers, is
 financially distressed, or lacks a capability. Any seller-, customer-, or public-facing claim needs
-current, scope-matched support: plan, region, version, date, test conditions: and legal or
-compliance review where it is material or regulated.
+current support that matches the plan, region, version, date, and test conditions. Material or
+regulated claims also need the applicable legal or compliance review.
 
 ---
 
@@ -261,8 +262,8 @@ A skill creates no background schedule, CRM integration, or delivery connector b
 
 ## Language policy
 
-- Write `the pricing page showed $X on 2026-08-04`: not `they raised prices`.
-- Write `one enterprise prospect reported Y`: not `buyers are saying Y`.
-- Write `this suggests, though we have not confirmed`: not `they are planning to`.
+- Attribute a published price to its capture: `the pricing page showed $X on 2026-08-04`.
+- Keep a field report scoped to its source: `one enterprise prospect reported Y`.
+- Label reasoning as inference: `this suggests, though we have not confirmed`.
 - Attribute every quantity to its source in the same sentence.
 - Name the scope: which plan, region, version, and date the claim covers.
