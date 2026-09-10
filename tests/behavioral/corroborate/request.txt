@@ -1,0 +1,2 @@
+Use ci-corroborate on a fictional seller claim: "AcmeFlow does not support SAML SSO on any plan." We want to know whether to keep that comparison. Available evidence is a captured section of https://acmeflow.example/docs/team on 2026-08-04: "Team includes shared projects, custom fields, and email support." A news article repeats that exact list and credits AcmeFlow's docs as its source. No test or other source is available; do not browse. Assess the claim and save your research record in the provided CI root.
+CI root: <CI_ROOT>

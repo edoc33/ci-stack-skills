@@ -1,0 +1,4 @@
+interface:
+  display_name: "Call mentions for Slack"
+  short_description: "Draft context from competitor mentions in calls"
+  default_prompt: "Use $ci-call-mentions to draft a contextual Slack briefing from this transcript."

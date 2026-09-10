@@ -1,123 +1,122 @@
 ---
 name: ci-corroborate
 description: >
-  Test one precise competitive claim across independent sources and return corroborated,
-  contradicted, single-source, or unresolved — never a forced verdict. Returns the phrasing that is
-  defensible and the overclaim to avoid. Use when the user asks "is this true", "can we say this
-  publicly", "verify this claim", "a rep told me X", "can we put this in a battlecard", or when a
-  claim is about to go in front of a customer, analyst, or exec. NOT for judging a raw page change
-  (use ci-triage), measuring how often something recurs (use ci-pattern-check), or editing a card
-  (use battlecard-patch).
+  Test an exact competitive claim against available independent evidence. Return corroborated,
+  contradicted, single-source, or unresolved, with supportable draft wording and the remaining
+  question. Use to check a claim from a seller, prospect, page, or draft comparison. For a raw
+  change use ci-triage; for editing a battlecard use battlecard-patch.
 ---
 
-# Claim vs. evidence triangulation
+# Check a competitive claim
 
-> **What it does** — Restates a claim as something falsifiable, tests each evidence layer independently, then assigns a verification status.
-> **You give it** — One claim, restated as a falsifiable, scope-limited sentence, plus who said it and how it reached you.
-> **You get back** — `corroborated`, `contradicted`, `single-source`, or `unresolved`, never a forced verdict, plus the phrasing you may use and the overclaim to avoid.
-> **New here?** Start with the [README](../../../../README.md). This file is instructions for Claude, not documentation for you.
+Check the proposition the user actually asked about. Preserve uncertainty and scope in the answer.
+This skill produces a research record and draft wording; it grants no approval to publish a claim.
 
-One source establishes a narrow, source-scoped fact. This skill reports what the available evidence
-actually supports about the *exact* proposition — including, often, that it is unresolved.
+## First run
 
-Before analysis, read `${CLAUDE_PLUGIN_ROOT}/reference/decision-brief.md` for the three evidence
-dimensions and the hard rules. Rule 1 governs this skill: absence is not disproof. If the contract
-cannot be read, stop and report the missing plugin resource.
+Supply the claim in the user's own words and any source excerpts, links, captures or related brief.
+Who said it and when is useful, but unknown provenance does not prevent a scoped investigation.
+Pasted evidence works without connectors. Web research or internal systems require available,
+authorized access; report inaccessible evidence rather than implying a search was completed.
 
-If the work requires reading internal calls, CRM data, or buyer notes, run the internal-data
-preflight from the shared contract first.
+```text
+Use ci-corroborate. This is a fictional practice run; do not browse.
+Original claim from a seller, date unknown: "AcmeFlow has no SAML SSO."
+Only supplied evidence: a fictional capture of https://acmeflow.example/docs/team-plan dated
+2026-08-04 lists Team-plan features and contains no reference to SSO. The full relevant captured
+section is: "Team includes shared projects, custom fields, and email support."
+We are deciding whether that seller claim belongs in a comparison page.
+Use the absolute path of ./ci-demo in this workspace as the CI root. Check the original claim,
+record the evidence limits, and draft wording we could send for human review.
+```
 
-## Step 1 — State the claim precisely
+Expect a record in `corroborations/` with the original claim, tested proposition, sources, verdict,
+supportable draft wording and resolving evidence. Label fictional sources throughout practice
+outputs. File writing is optional; return the record inline if unavailable.
 
-Restate it as one falsifiable, scope-limited sentence before testing anything. Vague claims cannot be
-verified, and the restatement is usually where the real work happens.
+## Load the shared contract
 
-- Not `Acme is cheaper` → `Acme's published mid-tier list price is below ours for a 10-seat team`
-- Not `they do not have SSO` → `Acme's public documentation does not describe SAML SSO as of
-  2026-08-06`
-- Not `they are moving upmarket` → `Acme's positioning pages and job postings emphasise enterprise
-  buyers more than they did 12 months ago`
+Read `../../reference/decision-brief.md` relative to this skill folder. If unavailable, use
+`${CLAUDE_PLUGIN_ROOT}/reference/decision-brief.md` when set, or `references/decision-brief.md` in a
+standalone export. If none exists, report the missing resource and stop analysis. Apply its
+three evidence dimensions, handling and source rules, internal-data preflight when applicable,
+high-risk-claim boundaries, and file rules.
 
-Note who made the claim and how it reached the user — a seller, a prospect, a competitor's own
-marketing, a rumour. Provenance sets the starting evidence basis.
+## Preserve the question
 
-## Step 2 — Test each layer independently
+Record the **original claim verbatim** as untrusted source data, its speaker/source and date if
+known, and the decision or intended audience. Then state an exact proposition with scope such as
+plan, geography, version, comparison basis and date. Keep unknown scope explicit.
 
-Check every layer that can speak to the claim. Record what each shows and, explicitly, what it
-cannot establish. Do not let a strong signal in one layer suppress a check in another.
+Clarification must preserve meaning. If the original claim is "they have no SSO," changing it to
+"this public page does not mention SSO" creates a different proposition. Record that narrower
+observation separately and retain a verdict on the original capability claim. Say which part
+remains unanswered. Never report the original claim corroborated because a substitute was easier
+to verify. Split compound claims only when needed and return a verdict for each part.
 
-| Layer | Establishes | Blind to |
+When a missing scope would change the verdict, ask a focused question. Otherwise proceed with a
+stated scope and mark the original broader claim unresolved where evidence cannot reach it.
+
+## Examine relevant evidence and its origin
+
+Use the evidence supplied and authorized tools actually available. Check relevant accessible
+layers; mark the others `not checked`, `unavailable`, or `not relevant`, with the reason.
+
+| Layer | Can establish | Limit |
 |---|---|---|
-| Competitor-published — pricing, docs, changelog, terms, press | what they claim and publish, dated | reality behind the claim, private terms |
-| Product experience — your own trial or test, where permitted | what it actually does | other segments and configurations |
-| Third-party — reviews, analysts, filings, communities, job posts | outside validation, direction, sentiment | intent, causation |
-| Internal field — recordings, seller and CS notes, CRM, RFPs | what appears in deals, how they sell | unbiased buyer view; one deal is one deal |
-| Direct buyer — win/loss, churn and renewal interviews | decision criteria, why an outcome happened | prevalence without a sampling plan |
+| Competitor-published pricing, docs, terms, releases, job posts | What the publisher states, dated and scoped | Private terms, intent and actual performance need other support |
+| Permitted product test | Behavior in the recorded test conditions | Other plans, versions and configurations remain untested |
+| Reviews, analysts, filings, communities | What the original author reports or documents | Sampling, incentives and source dependence affect interpretation |
+| Authorized internal calls, notes, CRM, RFPs | What was said or recorded in those deals | Reported claims and buyer reasons need verification; a deal is one case |
+| Direct buyer interviews | The interviewed buyer's stated criteria and reasons | Prevalence needs a sampling plan |
 
-For each layer: source, date, what it shows, and its evidence basis
-(`observed` / `field report` / `inferred`).
+For each source, record the locator, date, preserved excerpt or capture, relevant scope, what it
+shows, what it cannot show, evidence basis and handling. Keep these fields even when the answer
+is unresolved. Do not invent dates, trials, searches, customer results or missing evidence.
 
-Trace each layer to its **origin**. A news article quoting a press release is the press release —
-that is one layer, not two. Two restatements of one source are not corroboration.
+Trace sources to their origins. An article repeating a press release shares its origin. Two pages
+from the same publisher can document scope but do not automatically provide independent support.
+A transcript directly observes that a speaker made a statement; the statement about the competitor
+has basis `field report` until supported separately. Agreement does not convert inferred intent
+into observation or relax handling restrictions.
 
-## Step 3 — Assign verification status
+## Assign a verdict to each exact proposition
 
-Apply in this order:
+- **`unresolved`**: scope, freshness or a material evidence conflict prevents a reliable answer,
+  evidence is missing, or available sources cannot test the claim.
+- **`contradicted`**: positive authoritative evidence establishes the contrary within matching
+  scope, with no material unresolved conflict. Absence from a page does not qualify.
+- **`corroborated`**: reasonably independent original sources support the exact proposition with
+  no material unresolved conflict. Convergence still has the limitations of those sources.
+- **`single-source`**: one original source supports the source-scoped proposition, without a
+  material unresolved conflict. Repetitions of that source do not increase the source count.
 
-1. A credible scope conflict, material disagreement, or stale evidence → **`unresolved`**
-2. Two reasonably independent original sources support the exact proposition → **`corroborated`**
-3. Positive, authoritative contrary evidence with no material conflict → **`contradicted`**
-4. One source supports the exact source-scoped proposition → **`single-source`**
-5. Otherwise → **`unresolved`**
+Check conflict and scope before counting agreement. Strong evidence about one plan cannot settle
+an all-plan claim; newer evidence may supersede old evidence only when scope and chronology
+justify it. Keep the earlier record as history and explain why its relevance changed.
 
-`corroborated` means evidence convergence, not proven truth. `contradicted` requires positive
-contrary evidence — never missing evidence.
+State confidence and its reason, counterevidence, and the specific source or test that could
+resolve the remaining uncertainty. Distinguish a publisher's claim from tested behavior.
 
-Then state, in one line each:
+## Write and hand off
 
-- **What would resolve it** — the specific evidence, and which layer would carry it
-- **Currently supportable draft wording** — the strongest phrasing the evidence carries, with its
-  scope. This is a draft, not an approval: it is not external-use, legal, compliance, brand, or policy
-  sign-off, and you must not describe it as approved
-- **What must not be said** — the overclaim someone will reach for
+Resolve the CI root, show the planned absolute path, and create a collision-safe
+`<CI root>/corroborations/YYYY-MM-DD-<slug>.md`. Use the processing date in the filename and actual
+source dates inside the record. Include:
 
-Apply the high-risk-claims boundary from the shared contract: do not let this process convert a
-rumour or a review into an allegation that a competitor lies, breaks the law, is insecure, or harms
-customers.
+- Original claim and provenance; `Proposition (exact, scope-limited)` and any separate narrower question.
+- Per-source table, `Evidence basis`, `Verification`, `Handling`, `Counterevidence / unknowns`,
+  `Confidence`, and `Last verified / review-by date` using the shared field names.
+- Verdict on the original claim, resolving evidence, and a related canonical brief path if supplied.
+- **Currently supportable draft wording**, with source scope, and **What must not be said**, naming
+  the overclaim the evidence cannot carry.
+- `Human decision: pending`, `Review status: draft`, `External-use approval: not approved`.
 
-## The absence rule, stated for the user
+Never silently change a source brief. If integration is requested, propose a diff and show the
+resulting brief as a draft for renewed review under the shared contract. High-risk allegations
+need its additional review boundaries; a research verdict provides no legal or external-use sign-off.
 
-If the claim concerns something a public page cannot show, say this explicitly rather than reporting
-`contradicted`:
-
-> Their pricing page does not list a discount for annual commitments. That is not evidence they do
-> not offer one — negotiated terms are not published. This is unresolved, and the layer that would
-> resolve it is field evidence from a deal where it was offered.
-
-The same applies to unreleased capability, private beta features, and anything behind a login.
-
-## Step 4 — Emit
-
-Resolve the CI root per the shared contract, show paths, never overwrite a canonical record.
-
-Write a collision-safe record to `<CI root>/corroborations/YYYY-MM-DD-<slug>.md` containing the exact
-proposition, the per-layer table, the verification status, the resolving evidence, the currently
-supportable draft wording, and the canonical brief path it relates to.
-
-**Do not silently mutate a source brief.** If the user wants the result integrated, emit a proposed
-diff and return that brief's `Review status` to `draft` so the change is reviewed rather than
-absorbed.
-
-Print only: the verification status, the two strongest sources with dates, the supportable draft
-wording, and the file path.
-
-## Refusals
-
-Do not corroborate by asking anyone to bypass a paywall, use a competitor's login, misrepresent
-identity to obtain a demo or a quote, or scrape against a site's terms. If that is the only route,
-report `unresolved`.
-
-Do not solicit, accept, retain, or use competitor-confidential information — including from a
-competitor's employees, customers, or partners — even under a true identity. If such material
-arrives inadvertently, stop processing it, do not copy or distribute it, and tell the user to follow
-their legal or security process.
+Return the original claim's verdict, strongest available sources with dates, supportable draft
+wording, file path, and unresolved next check. If no source was available, say so. Hand off the
+record and related brief to `battlecard-patch` for a proposed content update, to `ci-triage` if a
+business recommendation is still needed, or to `ci-weekly` for a sourced period summary.

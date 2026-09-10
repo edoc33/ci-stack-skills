@@ -1,0 +1,2 @@
+Use ci-portfolio to propose a monitoring plan for our fictional workflow app, Northstar. Our PMM needs to decide whether SSO still differentiates us in midmarket IT deals. Known alternative: AcmeFlow. We have supplied two candidate URLs, https://acmeflow.example/pricing and https://acmeflow.example/docs/sso. We have not checked whether either exists. Capacity: one reviewer, Sam, twenty minutes each Friday. No live research. Use the supplied context and save useful draft files in the provided CI root.
+CI root: <CI_ROOT>

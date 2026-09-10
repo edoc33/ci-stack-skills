@@ -1,128 +1,99 @@
 ---
 name: battlecard-patch
 description: >
-  Turn a reviewed competitive brief into a redlined edit to an existing battlecard, with the source
-  and capture date attached per claim. Produces a reviewable diff and a changelog entry — never
-  publishes, never sends. Also flags claims elsewhere in the card the new evidence has made stale.
-  Use when the user says "update the battlecard", "patch the battlecard", "this needs to go in the
-  card", "redline this", or wants to know which card claims are now out of date. Requires an
-  existing card plus a reviewed brief — raw evidence routes to ci-triage or ci-corroborate first,
-  and creating a card from scratch is out of scope.
+  Propose a sourced edit to an existing competitive battlecard from a decision brief and related
+  change history. Checks for reversals and stale claims, then produces a redline and review notes.
+  Use for battlecard updates or urgent sourced seller answers. Creating a card from scratch and
+  publishing approved changes are separate workflows.
 ---
 
-# Signal → redlined battlecard edit
+# Propose a battlecard update
 
-> **What it does** — Converts a reviewed brief into a redline against the card you already have, rather than a new document.
-> **You give it** — A brief from `ci-triage` or its equivalent, plus the battlecard file or a paste of the relevant section.
-> **You get back** — A redlined diff with source and capture date per claim, a changelog entry, and a list of claims elsewhere in the card the new evidence just made stale. It never publishes and never sends.
-> **New here?** Start with the [README](../../../../README.md). This file is instructions for Claude, not documentation for you.
+Produce a small, reviewable edit to the card the team uses. Keep the original file intact.
 
-Battlecards fail on trust and freshness, not on formatting. A card sellers do not believe is worse
-than no card. This skill makes one narrow, sourced, dated edit at a time and shows its work.
+Read the shared contract from the first available location: `${CLAUDE_PLUGIN_ROOT}/reference/decision-brief.md`,
+`../../reference/decision-brief.md` relative to this skill directory, or `references/decision-brief.md`
+in a standalone installation. If none exists, report the missing resource and stop analysis. Reuse the established CI
+root and applicable internal-data authorization from the session. Supplied files may be outside the
+root. For local output without a chosen root, resolve and show `./ci/` per the contract; inline work
+needs no output directory.
 
-Before drafting, read `${CLAUDE_PLUGIN_ROOT}/reference/decision-brief.md`. Rule 6 governs this
-skill: drafts are not approvals. Also apply the high-risk comparative claims boundary — this is the
-skill where an inference is most likely to become a seller-facing allegation. If the contract cannot
-be read, stop and report the missing plugin resource.
+## Start with these inputs
 
-## Step 1 — Require a reviewed brief and the current card
+Required: the current card (file or pasted section) and a decision brief containing the exact claim,
+source receipts, capture dates, scope, verification, confidence, and recommended option. A draft
+brief is enough to draft a proposal; record its actual review status. For raw alerts, use
+`ci-triage` or `ci-corroborate` if available, or request the missing brief fields.
 
-Ask for both:
+Also use the related change history through the requested cutoff, the intended audience, and any
+style rules the user supplies. Resolve the reviewer from existing context; otherwise write
+`reviewer: unassigned`. Do not block drafting to obtain a name.
 
-- The brief from `/ci-stack:ci-triage` or its equivalent: what changed, source, capture date,
-  evidence basis, verification status, confidence, recommended option.
-- The current battlecard file, or a paste of the relevant section.
+For a complete fictional first run, read [references/first-run.md](references/first-run.md).
+No live connector is needed for files or pasted inputs.
 
-Then check three gates. Each has a distinct consequence — do not treat them as one rule:
+## Reconstruct the current claim
 
-- **Recommended option is `ignore` or `continue monitoring`** → **stop.** Not every signal earns a
-  card edit, and editing on a non-material change is how cards lose credibility. Offer to record it
-  for the ignore view instead.
-- **`Review status` is `draft`** → **proceed, but mark the output.** Draft the patch and stamp it
-  `AWAITING REVIEW — not for seller use`. Do not present it as ready to ship, and do not update the
-  card's freshness stamp until a human review is recorded. This gate slows the work; it does not stop
-  it, because drafting is often how the reviewer gets something to react to.
-- **Confidence is `low`, or verification is `single-source` or `unresolved`, on a claim that would
-  face a customer** → **stop on that claim.** Draft an internal note instead and say what would raise
-  it. Other claims in the same brief may still proceed.
+Read all supplied, authorized changes about this claim in chronological order before drafting.
+Use linked local receipts and the current card. Fetch additional history only through a connected,
+authorized source within the requested scope. Record the history's start, cutoff, and gaps.
 
-## Step 2 — Find every place the card is now wrong
+Distinguish capture dates from announced effective dates. Compare the same plan, locale, billing
+term, version, and access state. A later capture in a different scope does not establish a reversal.
+If wording disappeared and returned, retain both events in the review notes and draft against the
+latest supported state. A removed webpage claim does not establish a removed capability.
 
-Do not only add. Search the whole card for claims the new evidence affects:
+With incomplete history, describe the supplied snapshot and what remains unknown. Never call the
+result a complete history or a verified current state beyond the evidence's cutoff.
 
-- Direct contradictions — a price, limit, or capability the card states that has changed
-- Now-stale comparisons — a gap they have closed, or one you have
-- Claims that were always weak and this change exposes — absolutes, unsourced numbers, undated
-  statements
-- Undated claims generally — anything a seller could repeat that has no capture date
+## Decide what can change
 
-Report these before proposing any edit. Often the valuable output is a deletion.
+- When the brief recommends `ignore` or `continue monitoring`, return a no-change recommendation
+  with its reason and revisit condition. Do not manufacture a card edit to fill the output.
+- Draft inputs produce `AWAITING REVIEW: not for seller use`. A reviewed source brief also leaves
+  newly drafted wording awaiting review and external-use approval.
+- Hold a seller-facing claim with low confidence, `single-source` or `unresolved` verification,
+  or an `inferred` basis. Draft an internal note naming the missing support instead. Independently
+  supported edits elsewhere may proceed, including removal of unsupported existing wording.
 
-## Step 3 — Draft the redline
+Search the entire supplied card for affected claims, contradictions, and undated assertions. If
+only a section was provided, state that the rest of the card was not checked. Separate issues caused
+by this evidence from pre-existing unsupported claims. Preserve unrelated content and structure.
 
-Produce a unified diff against the file so the reviewer sees exactly what changes. Match the card's
-existing voice, structure, and heading conventions — do not restructure the card.
+## Draft the patch and review record
 
-Every added or edited seller-facing claim carries, inline: the claim phrased to the language policy,
-the source, the date observed, and its scope.
+Show a unified diff against the supplied text. Attach a source locator, preserved receipt, capture
+date, scope, evidence basis, and verification to each changed factual claim. Keep quoted page
+wording distinct from claims about product behavior. Do not add inferred motives, unsupported
+numbers, customer identities, or allegations about security, legality, quality, or financial health.
 
-```
-- Their published mid-tier list price rose from $X to $Y
-  (pricing page, observed 2026-08-04; US list, annual billing).
-  Applies to list only — we have no evidence on negotiated terms.
-```
+Stamp only the claims actually rechecked. A section's `Last fully reviewed` date can advance only
+when every material claim in that section was reverified and human review is recorded. Suggest a
+next-review date with a volatility-based reason; leave approval and review fields pending.
 
-Rules for the drafted copy:
+Include a proposed changelog row with date, section, change, source, evidence basis, verification,
+reviewer, and canonical brief path. Use `unknown` for unavailable fields. Explain the latest state,
+reversals, stale claims, held claims, and the specific decision required from the reviewer.
 
-- No superlatives or absolutes the evidence does not carry — no `always`, `never`, `the only`
-- No estimated numbers. A range with its basis, or `unknown`
-- No claim that a competitor lies, breaks the law, is insecure, is failing, or harms customers
-- Do not name the competitor's customers, and do not name yours without documented permission
-- Nothing that requires a seller to assert something whose basis is `inferred`
-- Give sellers the honest boundary too — what we do *not* know, so they do not overreach on a call
+## Save and hand off
 
-## Step 4 — Freshness and changelog
+For requested local files, show absolute output paths before writing. Under the CI root, write the
+diff and review record to `updates/YYYY-MM-DD-<competitor>-battlecard-patch.md`. Save a proposed card
+beside a supplied file as `<cardstem>.proposed.YYYY-MM-DD.md`; for pasted text, use
+`<CI root>/updates/YYYY-MM-DD-<competitor>-battlecard.proposed.md`. Choose collision-safe suffixes.
+Never overwrite the original card, an existing proposal, or the source brief's status fields.
 
-**Stamp edited claims individually.** Use a section-level `Last fully reviewed` only if every
-material claim in that section was reverified in this pass; otherwise name what was checked and state
-that the section was not fully revalidated. A blanket freshness stamp over unchecked claims is worse
-than none — it launders staleness as currency.
+New proposal status: `Review status: draft`, `External-use approval: not approved`, and
+`Human decision: pending`. Carry source handling restrictions into every output. Preserve approved
+source status separately; it does not approve revised wording. If a write fails, return the proposed
+artifact inline and say that it was not saved.
 
-```
-Claim verified: 2026-08-06 · Source: pricing page · Scope: US list, annual
-Section note: pricing claims reverified; feature-comparison rows NOT revalidated
-```
+Return the proposed change or no-change reason, the most consequential held claim, the reviewer,
+and file paths when saved. A PMM reviews the wording before a separate authorized workflow applies
+it to the second brain or distributes a seller note. This skill does not publish, send, commit, or
+update a CRM. A scheduler or connector must be configured separately for recurring runs.
 
-Append to the card's changelog, creating one if absent. Include the canonical brief path so
-`/ci-stack:ci-weekly` can join this activation back to the decision that caused it:
+## Urgent seller answer
 
-```
-| date | section | change | source | evidence basis | verification | reviewer | brief path |
-```
-
-Set the next-review date by volatility, not habit: pricing and packaging on a shorter cycle than
-positioning.
-
-## Step 5 — Hand off for approval
-
-Per the file-safety rule: confirm the directory, show paths, never overwrite. Write the proposed
-version to a collision-safe `<cardname>.proposed.md` alongside the original. **Never overwrite the
-original.** Print:
-
-1. The stale claims found in step 2
-2. The diff
-3. The one-line rationale with its source and date
-4. The named reviewer, and what you need from them
-5. A suggested seller-facing note, two sentences maximum
-
-Then stop. Do not post to Slack, send email, update a CMS or wiki, or commit. Record
-`External-use approval: not approved` on the source brief until a human approver and date exist. If
-the user asks you to publish, ask them to confirm the approver and prefer that they apply the change
-themselves.
-
-## Sales-question mode
-
-If the ask is an urgent answer for a seller rather than a card edit, give the answer first in three
-lines — claim with scope, source with date, what we cannot say — then offer the card patch as a
-follow-up. A rep before a call needs the answer, not a process. Say plainly if the answer is not
-approved for customer use.
+For a specific seller question, answer it first with the scope-limited claim, dated receipt, and
+known limit. Apply the same evidence and approval gates. Then offer the relevant card patch.

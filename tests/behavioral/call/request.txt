@@ -1,0 +1,2 @@
+Use ci-call-mentions with the fictional normalized transcript.json in this case folder. Draft a contextual Slack briefing for the product marketing team and account for each competitor mention. Use the provided CI root. We have no live call or Slack connector. Do not send anything.
+CI root: <CI_ROOT>

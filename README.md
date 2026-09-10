@@ -1,162 +1,111 @@
 # CI Stack
 
-Seven Claude Code skills for product marketers who own competitive intelligence.
+Seven skills for product marketers who need to turn competitor evidence into useful decisions.
+Start with a page change, a sales-call excerpt, or a question about a competitor. Get a sourced
+brief, a proposed battlecard edit, a pattern check, or an internal update.
 
-They take a competitor change from signal to a decision you can defend, with the evidence attached.
-The premise is that detection was never the hard part — deciding what matters, saying only what the
-evidence supports, and being able to show your work is the hard part.
+Each skill works from supplied evidence. You can try the examples without a monitoring account,
+CRM, or Slack connection. The skills run in Claude Code or Codex; connectors and scheduling are
+optional additions.
 
 ## Install
 
-```
+In Claude Code:
+
+```text
 /plugin marketplace add edoc33/ci-stack-skills
 /plugin install ci-stack@ci-stack
 ```
 
-Then `/reload-plugins` if prompted. Skills are namespaced: `/ci-stack:ci-triage`.
+Follow the install summary. Run `/reload-plugins` if it asks you to.
+The commands follow [Claude Code's plugin installation](https://code.claude.com/docs/en/discover-plugins).
 
-## Start here
+For Codex, download or clone this repository, then run from its root:
 
-**`ci-portfolio` → `ci-triage` → `ci-weekly`** is the whole loop. Learn those three.
+```sh
+python3 scripts/install_codex.py --dest "$HOME/.agents/skills" --dry-run
+python3 scripts/install_codex.py --dest "$HOME/.agents/skills"
+```
 
-The other skills handle specific work:
+The local installer copies all seven skills and their required reference files. It refuses to
+replace an existing skill. Restart Codex if the new skills do not appear. Codex supports this
+[user skill location](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills).
+Python 3.10 or later is required only for the installer and repository checks.
 
-| Branch | Reach for it when |
-|---|---|
-| `ci-corroborate` | One claim needs deeper verification before it faces a customer or an exec |
-| `ci-pattern-check` | You need to know whether something recurs across records, or is one loud deal |
-| `battlecard-patch` | A reviewed finding has to change seller guidance |
-| `ci-call-mentions` | A competitor comes up in Gong or tl;dv and the team needs the conversation context in Slack |
+Already installed? Follow [the upgrade instructions](docs/getting-started.md#update-an-existing-installation)
+to get version 0.3.0 and preserve any local customizations.
 
-## The skills
+## Run your first skill
 
-| Skill | Use it when | Gives you |
+In Claude Code, use `/ci-stack:ci-triage`. In Codex, use `$ci-triage`. Then paste:
+
+```text
+This is a fictional example. Return the brief here; no files or live tools needed.
+We sell to IT teams that require SSO. Our current comparison says AcmeFlow only
+includes SSO on Enterprise. We need to review that claim before a sales call.
+Source: https://acmeflow.example/pricing, US page, signed out.
+Before, captured 2026-08-04: "Team: SSO available on Enterprise only."
+After, captured 2026-08-06: "Team: SSO included."
+These pasted extracts are the preserved evidence. We have no product test.
+Does this change our seller guidance? Leave unknown owners and deadlines unknown.
+```
+
+You should get a draft that distinguishes the published change from proof that SSO works.
+It should name the evidence, uncertainty, and recommended next action. It should leave approval
+pending. A usable result may recommend checking the claim before editing the battlecard.
+
+## Choose a skill
+
+| Your question | Skill | What you get |
 |---|---|---|
-| `ci-portfolio` | You don't know what to watch, or your alerts are noise | A watchlist where every page is tied to a decision, with a safe-to-ignore rule and an alert prompt, plus a generic export |
-| `ci-triage` | A change came in and you need to know if it matters | A decision-ready brief: evidence basis, verification status, counterevidence, confidence, affected deals, one of seven recommended actions, an owner, a review date |
-| `ci-corroborate` | A claim is about to go in front of a customer or an exec | `corroborated` / `contradicted` / `single-source` / `unresolved`, the phrasing you may use, and the phrasing you may not |
-| `battlecard-patch` | A reviewed brief needs to reach sellers | A redlined diff with source and capture date per claim, and a list of claims elsewhere in the card that just went stale |
-| `ci-pattern-check` | Someone wants to change positioning because of a few deals | `single case` / `repeated signal` / `scoped pattern in <cohort>`, with the denominator stated and competing explanations |
-| `ci-weekly` | The exec asks what changed | A one-page update that separates recommendations from decisions, an ignore log, and an outcome record |
-| `ci-call-mentions` | A competitor comes up in a sales call | A concise Slack briefing with speaker, context, exact excerpt, source and PMM note; optional delivery to an explicitly authorized channel |
+| What should we monitor? | `ci-portfolio` | A decision-linked watchlist, ignore rules, alert prompts, and a generic URL export |
+| Does this change matter? | `ci-triage` | A decision brief with evidence, uncertainty, and a recommended response |
+| Can we support this claim? | `ci-corroborate` | A source comparison, verification verdict, and supportable draft wording |
+| Which battlecard lines need changing? | `battlecard-patch` | A proposed diff against the current card, including stale claims and reversals |
+| Is this one deal or a recurring issue? | `ci-pattern-check` | A count over a defined cohort, coverage limits, and a scoped conclusion |
+| What should the team know this period? | `ci-weekly` | A weekly, twice-monthly, monthly, or custom-period update and decision views |
+| What did the buyer say about a competitor? | `ci-call-mentions` | A contextual call excerpt and Slack draft, with held items explained |
 
-Try the [fictional call-to-Slack exercise](https://github.com/edoc33/ci-stack-skills/tree/pma-workshop-2026/workshops/pma-2026/starter-kit/inputs/call-mentions).
+Start with the skill that fits the input you already have. There is no required sequence through
+all seven. For a new CI program, the usual loop is portfolio → triage → period update.
 
-## What holds it together
+- [First runs for all seven skills](docs/getting-started.md)
+- [How the workshop workflows fit together](docs/workflows.md)
+- [Evidence and file contract](plugins/ci-stack/reference/decision-brief.md)
+- [Validation and known limits](docs/validation.md)
+- [PMA workshop materials](https://github.com/edoc33/ci-stack-skills/tree/pma-workshop-2026/workshops/pma-2026)
 
-Every skill reads one shared contract,
-[`reference/decision-brief.md`](plugins/ci-stack/reference/decision-brief.md). It defines the brief
-schema and the rules the skills apply even when asked not to:
+The workshop branch retains dated exercises and reference outputs. Install from this repository's
+`main` branch for the current skills and use the first-run guide above for current setup.
 
-1. **Three independent dimensions, not one score** — evidence basis (`observed` / `field report` /
-   `inferred`), verification status (`not tested` / `single-source` / `corroborated` /
-   `contradicted` / `unresolved`), and handling (`public` / `internal` / `restricted`). Corroboration
-   adds support; it never turns an inference into an observed fact. Repeating a claim upgrades
-   nothing.
-2. **Absence is not disproof.** A claim missing from a public page is `unresolved`, not
-   `contradicted`. Private pricing, negotiated terms, unreleased capability and seller behaviour are
-   invisible to a page diff.
-3. **A dated capture proves publication, not truth** — and a live URL plus a date is not a receipt,
-   because the page can change again. Preserved before/after content is.
-4. **`ignore` is a real answer.** Two of the seven recommended actions are to do nothing. A system
-   that never picks them is producing work, not judgement.
-5. **Drafts keep their review status.** The original six skills draft and propose. `ci-call-mentions`
-   can also send a scoped internal briefing to an explicitly authorized Slack destination. Permission
-   to share that briefing is separate from approval of its CI conclusions. No skill approves its own output.
+## Add your own context
 
-## Requirements
+Tell the agent your decision, customer segment, known competitors, and where to save CI work.
+It can reuse these details in `ci-context.md` under that directory. Start with the
+[fictional context example](plugins/ci-stack/examples/ci-context.example.md). Include owners and deadlines
+when known. Missing metadata stays unknown; it should not prevent an initial draft.
 
-Claude Code. That is the hard requirement.
+Use permitted, minimized exports for internal calls and CRM data. Your agent provider processes
+what you supply under your account and organization settings. This repository adds no telemetry,
+background service, or credentials. Keep private outputs out of public repositories.
 
-**No monitoring account is needed for the core loop.** `ci-triage` accepts a pasted before/after
-diff, so you can run the method by hand before automating any of it. The other skills work from its
-brief, or from a portfolio, evidence set, battlecard, or export you supply.
+## Connect and automate when the draft works
 
-Optional, all bring-your-own:
+An AI skill provides analysis instructions. A connector retrieves or writes data. A runner such as
+n8n or GitHub Actions starts and coordinates the job. Your CRM and second brain supply deal context,
+battlecards, brand rules, and history. Slack or Teams carry the reviewed output.
 
-- A change-monitoring tool for detection. `ci-triage` reads a generic normalized event and
-  understands the currently documented [Visualping](https://visualping.io) webhook fields; any tool
-  that reports a before/after works, and the portfolio export is generic.
-- A meeting-recorder export for `ci-pattern-check` — tl;dv, Gong, Fireflies, Zoom, or plain notes.
-- A CRM export for the pattern and outcome layers.
-- A Slack connector and an authorized destination for `ci-call-mentions` delivery. Draft mode works from a local transcript without a Slack account.
+The repository includes skill instructions, examples, and a local Codex installer. It does not
+include deployed n8n workflows, GitHub Actions jobs, CRM field adapters, a timeline database, or a
+newsletter delivery service. `ci-call-mentions` documents optional authorized Slack delivery; it
+requires a connector and a durable delivery record. The other skills produce drafts and proposals.
+See the [workflow guide](docs/workflows.md) for the pieces each example needs.
 
-### On data
+## Contributing and licence
 
-This plugin adds no telemetry and no background service. But Claude Code itself sends prompts and
-selected content to your configured model provider, stores local session transcripts in plaintext for
-30 days by default, and follows your provider and account retention policies. Web research and any
-API calls you authorize make explicit network requests. See
-[Claude Code data usage](https://code.claude.com/docs/en/data-usage).
+Created by Eric Do Couto, Head of Marketing at [Visualping](https://visualping.io), for the PMA
+competitive intelligence workshop. Visualping is one optional source of page-change evidence.
+This is a personal, MIT-licensed repository. Issues and pull requests are welcome.
 
-Before any skill reads call recordings, CRM exports, or buyer notes, it runs a preflight: confirm
-recording consent under your applicable law — several jurisdictions require all-party consent —
-confirm your organization permits AI processing of that data, and minimise the export before you
-upload it. If either is uncertain, the skills offer a count-only workflow instead. **None of this
-makes your processing compliant.** Route uncertainty to privacy or legal.
-
-## Try it in two minutes
-
-```
-/ci-stack:ci-triage
-```
-
-Paste [`examples/sample-webhook-payload.json`](plugins/ci-stack/examples/sample-webhook-payload.json)
-when asked for input. A fictional competitor raised a plan price, added a usage cap, and removed an
-enterprise-only SSO restriction — the third one is the interesting signal.
-
-## Scope, and what this is not
-
-A method with guardrails, not a CI platform. No database, no scheduler, no dashboard. It will not
-tell you a competitor's private pricing, their roadmap, or what their customers think — and it is
-built to say so rather than guess.
-
-Known gaps, stated plainly:
-
-- **It does not capture buyer truth.** Nothing here interviews a buyer about why they chose, rejected,
-  or delayed. `ci-pattern-check` consumes win/loss material; it does not produce it.
-- **It does not discover competitors you omitted.** `ci-portfolio` works from the alternatives you
-  already know about.
-- `ci-call-mentions` can deliver a contextual field note to an authorized Slack channel. Retrieval by account, persona or stage still requires a separate workflow.
-- **It does not observe whether guidance was used.** `ci-weekly` records what a human declares.
-- **It is not roadmap prioritization.** Mention frequency is not frequency × severity × buyer
-  importance × strategic fit.
-- **There is no enterprise governance here** — no source allowlists, retention enforcement,
-  revocation, or kill switch. It is markdown.
-
-It also will not help you obtain information by bypassing a paywall, using a competitor's
-credentials, misrepresenting who you are, or soliciting confidential information from a competitor's
-people. Those questions come back `unresolved`.
-
-## Contributing
-
-Issues and PRs welcome. Unsupported — use at your own risk, and read a diff before you ship anything
-to sellers.
-
-## Credit and licence
-
-Created by Eric Do Couto, Head of Marketing at [Visualping](https://visualping.io), as the ungated
-take-home for a workshop at Product Marketing Summit SF 2026. Visualping hosted that workshop and is
-one optional monitoring integration here — the skills are built to run without it. This is a personal
-repository, MIT-licensed and unsupported.
-
-The design is a research-backed hypothesis pending primary validation, not a description of observed
-product-marketing behaviour. Three sources shaped it, each with its limits stated:
-
-- [Forrester on market and competitive intelligence programs](https://www.forrester.com/blogs/five-findings-about-todays-market-and-competitive-intelligence-programs/)
-  — a survey of **21 organizations**, reporting a shift from delivering information to providing
-  implications, and that 8 of 21 intelligence teams are just one or two people. The post does not
-  detail recruitment, respondent mix, or question wording.
-- [Clozd, State of Win-Loss](https://www.clozd.com/state-of-win-loss) — teams combining call
-  recordings with win/loss report better feedback quality. Vendor-sponsored research into the category
-  that vendor sells; treat it as an association, not a causal finding.
-- [Product Marketing Alliance, State of Product Marketing 2025](https://www.productmarketingalliance.com/state-of-product-marketing-report-2025/)
-  — **44.3% of *responding* product marketing teams are one or two people.** That figure is the real
-  design constraint here. It describes PMA's survey respondents, not the global profession; the public
-  page does not detail recruitment, sampling, or the item denominator.
-
-The public summaries do not establish that any of the three is a representative probability sample.
-Two are published by organizations with a commercial interest in the finding. The evidence discipline
-in this plugin is an opinion about good practice, not a validated result.
-
-MIT. See [LICENSE](LICENSE).
+Run `python3 -m unittest discover -s tests -v` before proposing installer changes. For skill changes,
+include a realistic input and the observed output behavior. See [LICENSE](LICENSE).

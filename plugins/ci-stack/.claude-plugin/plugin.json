@@ -1,7 +1,7 @@
 {
   "name": "ci-stack",
   "displayName": "CI Stack",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Seven competitive-intelligence skills for product marketers, including contextual call mentions for an authorized Slack channel.",
   "author": {
     "name": "edoc33",

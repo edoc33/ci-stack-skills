@@ -1,140 +1,108 @@
 ---
 name: ci-pattern-check
 description: >
-  Decide whether a competitive objection, loss reason, or competitor mention recurs across records
-  or is a single case. Reads exported call transcripts, CRM competitor tags, notes, and win/loss
-  records; states the denominator and coverage before concluding; separates pattern strength from
-  action urgency. Use when the user says "is this a pattern", "are we losing to X", "how often does
-  this come up", "pattern check", "win loss analysis", or wants to change positioning or roadmap on
-  the strength of a few deals. NOT for verifying whether a single claim is true (use
-  ci-corroborate).
+  Assess whether a competitive objection, loss reason, or competitor mention recurs across an
+  exported cohort of calls, CRM records, or buyer notes. Deduplicates cases and reports denominators,
+  coverage, and competing explanations. Use for pattern checks and scoped win/loss analysis;
+  verifying one claim or tagging live CRM opportunities requires a different workflow.
 ---
 
-# Single case, repeated signal, or scoped pattern?
+# Check a competitive pattern
 
-> **What it does** — Measures whether something recurs across your records, or appears in only one of them.
-> **You give it** — Exported call transcripts, CRM competitor tags, notes, or win/loss records. Any subset of those.
-> **You get back** — `single case`, `repeated signal`, or `scoped pattern in <cohort>`, with the denominator and coverage stated up front and competing explanations named.
-> **New here?** Start with the [README](../../../../README.md). This file is instructions for Claude, not documentation for you.
+Answer a specific question about a defined set of deals or interviews, with the count and its limits
+visible. This skill reads supplied records and writes a draft analysis.
 
-The fastest way to damage positioning is to rebuild it around the loudest recent deal. This skill
-exists to make that harder — without pretending small samples are worthless.
+Read the shared contract from the first available location: `${CLAUDE_PLUGIN_ROOT}/reference/decision-brief.md`,
+`../../reference/decision-brief.md` relative to this skill directory, or `references/decision-brief.md`
+in a standalone installation. If none exists, report the missing resource and stop analysis. Apply its internal-data
+preflight before reading real transcripts, CRM exports, or buyer notes. Reuse applicable session
+authorization and the established CI root. Synthetic and already aggregated examples can be used
+when real data is unavailable. Supplied files may be outside the root. For local output without a
+chosen root, resolve and show `./ci/` per the contract; inline work needs no output directory.
 
-Before reading any data, read `${CLAUDE_PLUGIN_ROOT}/reference/decision-brief.md`. Two parts govern
-this skill: the **internal-data preflight**, which you must run before ingesting anything, and hard
-rule 3 — one report is one person. If the contract cannot be read, stop and report the missing
-plugin resource.
+## Start with a question and a cohort
 
-## Step 0 — Run the internal-data preflight
+Minimum inputs: the question to test and permitted CSV, transcript text, or notes. Use the requested
+time window, or state the dates covered by the supplied export. With undated records, limit the
+answer to the undated supplied cohort and avoid time-based conclusions.
+A stable deal, account-episode, or interview ID is needed to count independent cases. Useful fields
+include date, competitor, speaker, quote or note, source locator, outcome, segment, rep, and stage.
+Accept equivalent field names and report the mapping. Do not require fields the question does not use.
 
-Call recordings, CRM exports, and buyer notes are internal and usually contain personal data. Run
-the preflight from the shared contract **before** the user uploads anything: consent for recording,
-organizational authorization for AI processing, and minimisation before upload. If either
-confirmation is uncertain, offer a count-only or synthetic workflow instead.
+For a small fictional CSV and a runnable prompt, read
+[references/first-run.md](references/first-run.md). No live provider connection is needed.
 
-Request only the minimum fields and the narrowest date range that can answer the question.
+## Define the rule before tallying
 
-## Step 1 — Show the mapping before analysing
+Inspect headers and context first. Before counting occurrences, state the independent unit, eligible
+dates and records, inclusion and exclusion rules, deduplication key, expected coverage, and the
+decision at stake. State what evidence would justify a scoped-pattern conclusion for this decision.
+Choose a conservative rule when the user has no existing one; do not require them to design a test.
+If counts were already supplied, disclose that the rule was declared after seeing them.
 
-"Just send whatever you have" hides most of the work. Accept CSV, transcript text, or notes — then
-show the user, before any counting:
+For competitor mentions, distinguish active buyer evaluation, incumbent use, historical evaluation,
+explicit rejection, hypothetical references, and seller-only mentions. Count only categories that
+answer the question. A transcript proves that someone said something; their product assertion
+remains a field report.
 
-- The **record and field mapping** you inferred, and which fields you could not map
-- The **cuts the data can support**, and the ones it cannot
-- **Missing fields**, unmatched records, and uncoded rows
-- **Duplicates** — three calls about one opportunity is one case, not three
+Normalize duplicate exports and repeated calls to one case. Keep a traceable case-to-record mapping.
+With missing IDs, deduplicate only where a supplied mapping supports it. Otherwise report record
+counts and an unknown independent-case denominator; do not report deal prevalence.
 
-Do not report prevalence across deals unless records can be deduplicated to one independent case:
-normally one deal, one account episode, or one buyer interview.
+## Count with coverage intact
 
-Then state the denominator out loud:
+Report eligible independent cases, observed matches, excluded cases, unknown or uncoded cases, and
+duplicate rows removed. A blank competitor or outcome field is unknown unless the input convention
+explicitly says it means none. Explain the denominator used for every fraction.
 
-- How many eligible records, over what date range?
-- What fraction of the relevant universe is that? Coverage matters more than count — 12 of 15
-  competitive deals is strong; 12 of 400 is a convenience sample.
-- What is systematically missing? Deals with no recording, no-decision outcomes never logged,
-  segments the export excludes, reps who do not take notes.
+Separate `matches / observed eligible cases` from `observed eligible cases / relevant universe`.
+Use `coverage: unknown` when the universe is unavailable. A competitor-filtered export can describe
+its selected cases but cannot establish that competitor's share of all deals. A loss-only export
+cannot estimate win rate or explain what distinguishes wins from losses.
 
-**Never analyse without stating the denominator.** A percentage on an unknown base is the specific
-failure this skill exists to prevent.
+Use the verdict supported by the data:
 
-## Step 2 — Define the analysis rule before counting
+| Verdict | When to use it |
+|---|---|
+| `insufficient data` | No eligible cases, unknown independence, or missing fields prevent the requested comparison |
+| `not observed in supplied cohort` | Zero observed occurrences in an analyzable cohort; state missingness and avoid a broader absence claim |
+| `single case` | One independent occurrence |
+| `repeated signal` | Multiple independent occurrences with coverage, concentration, or sampling limits |
+| `scoped pattern in <cohort>` | The declared evidence rule is met in a named, deduplicated cohort with sufficient coverage for the decision |
 
-**Write the rule down and show it to the user before you read any result.** This is a hard sequence,
-not a suggestion — a threshold chosen after seeing the count is not a threshold. State, in the
-conversation:
+No fixed count earns a pattern label. Lead with the raw fraction where a valid denominator exists.
+Separate pattern strength from urgency: a single severe case can justify validation or a reversible
+action while broader positioning changes need broader evidence.
 
-1. What counts as one independent case — normally one deal, account episode, or buyer interview
-2. The eligible records and the date range
-3. The inclusion, exclusion, and deduplication rules
-4. The coverage you expect
-5. The decision this evidence may affect
-6. **The evidence and coverage bar that would earn a scoped-pattern claim for that decision**
+## Check alternative explanations
 
-Only then count. If you have already seen the counts when the user asks for analysis, say so and
-state the bar anyway — declaring it late is weaker than declaring it early, and better than never.
+Use available cuts such as segment, rep, outcome, region, stage, and period. Name unsupported cuts
+instead of inventing them. Check whether repeated calls, one rep's assignments, recent logging
+changes, or missing outcomes explain the concentration. One rep's concentration alone does not
+establish a coaching problem. An objection occurring in both wins and losses does not establish
+loss causation. Prefer the buyer's words when CRM shorthand conflicts with a transcript and retain
+the conflict in the record.
 
-Then report one of:
+Population estimates require a suitable sampling design and uncertainty assessment. Label supplied
+export fractions as descriptive. Avoid percentages whose denominator is unknown or reconstructed
+from the outcome being tested.
 
-- **`single case`** — one independent occurrence. Name it; do not generalise from it.
-- **`repeated signal`** — more than one independent occurrence, but coverage, sampling, missingness,
-  independence, or concentration does not support a scoped pattern claim.
-- **`scoped pattern in <defined cohort>`** — the predeclared rule is met in a deduplicated cohort
-  with a known denominator and adequate coverage, and the result is not an artifact of one rep,
-  repeated calls about one deal, or a short window. **No universal count earns this label** — a
-  cohort must be named.
+## Save the analysis
 
-Always lead with the raw fraction and base — `4 of 7 eligible recorded competitive deals`. Coverage
-and limits come next. A percentage may follow when genuinely useful, but never without `k/n`.
+For requested local files, show the absolute path and write a new collision-safe record at
+`<CI root>/patterns/YYYY-MM-DD-<question-slug>.md`. Include the rule and field mapping, verdict,
+fractions and coverage, available breakdowns, case-to-source receipts, unknowns, competing
+explanations, and one of the shared contract's seven recommended options. Link the canonical brief
+path when one exists. Keep direct quotes exact and cited; if only CRM codes exist, label them as
+codes and do not invent quotes. Include as many examples as the evidence warrants.
 
-**Pattern strength and action urgency are separate judgements.** A small but severe signal can
-justify `validate` or a reversible segment-specific action. A large convenience sample may not
-justify company-wide repositioning. Say which you are recommending and why.
+Record the exact proposition with its evidence basis, verification, confidence, and reason.
+Use the shared status fields with `Human decision: pending`, `Review status: draft`, and
+`External-use approval: not approved`. Handling is at least `internal`, or `restricted` when
+identifiable people are present. Use role and segment in portable summaries; preserve any authorized
+identity mapping only in the restricted source. Do not try to re-identify anonymized records.
 
-A population-prevalence claim needs a sampling plan and an uncertainty interval — not a bigger
-number. If the user wants one, say what it would take.
-
-## Step 3 — Segment before concluding
-
-An objection that is universal and one confined to a single segment need opposite responses. Break
-down by: stage · segment or company size · region · rep · outcome · time period · deal amount band.
-
-Report any of these traps you find:
-
-- **One rep, many deals.** Usually a coaching or talk-track issue, not a market shift.
-- **One segment only.** A qualification or packaging issue — and a legitimate scoped pattern, not a
-  disqualified one. Name the cohort.
-- **Recency skew.** All instances in three weeks may be a real shift or a reporting artifact — check
-  whether recording coverage changed.
-- **Outcome skew.** An objection appearing in wins as often as losses is not what lost the deals.
-- **Post-hoc CRM shorthand.** A `lost to competitor` field is often a rep's shortcut. Prefer what the
-  buyer said over what the field says, and state which you used.
-
-## Step 4 — Report
-
-Resolve the CI root per the shared contract, show paths, never overwrite. Write to
-`<CI root>/patterns/YYYY-MM-DD-<slug>.md`, and record the canonical brief path if this analysis
-relates to one, so `/ci-stack:ci-weekly` can join it back to the decision:
-
-1. **Verdict** — with the raw fraction, the denominator, and the named cohort if scoped
-2. **Breakdown** by the dimensions above
-3. **Representative evidence** — 2 to 4 direct quotes with date, segment, and outcome. Quote, do not
-   paraphrase; paraphrase is where objections drift into whatever the reader expected
-4. **Competing explanations** — at least two alternatives to the obvious reading, and what would
-   distinguish them
-5. **Coverage limits** — what the export could not see
-6. **Recommended action** — one of the seven options, with pattern strength and urgency stated
-   separately
-
-Print only the verdict with its fraction, the top two segments, the strongest competing explanation,
-and the file path.
-
-## Handling and privacy
-
-- Outputs from this skill are `internal` handling by default, and `restricted` if they contain
-  identifiable individuals. Mark them.
-- Quote customers anonymously in anything that could travel — role and segment, not name and
-  company. Do not name a customer in outbound, marketing, or seller-facing material without
-  documented permission; ask whether it exists before producing such a quote.
-- Do not help re-identify individuals from anonymised data.
-- Do not analyse recordings the user does not have the right to use.
+Return the verdict, fraction or denominator limitation, recommended next action, and path when saved.
+If writing fails, return the draft inline. `ci-weekly` can summarize the saved analysis;
+`ci-call-mentions` can draft context for individual mentions. Live listening, CRM tagging, delivery,
+and scheduling require separately configured connectors and authorization.

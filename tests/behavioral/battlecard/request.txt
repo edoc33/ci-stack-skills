@@ -1,0 +1,2 @@
+Use battlecard-patch for a fictional internal draft. We supplied current-card.md and brief.md in this case folder. All data is fictional. Review the full supplied capture history and propose any supported changes. Save proposals under the provided CI root, preserving the supplied original. No live systems or publication.
+CI root: <CI_ROOT>

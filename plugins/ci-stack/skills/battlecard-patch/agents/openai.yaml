@@ -1,0 +1,4 @@
+interface:
+  display_name: "Battlecard update"
+  short_description: "Draft sourced edits to an existing battlecard"
+  default_prompt: "Use $battlecard-patch to propose edits from this brief and related change history."
