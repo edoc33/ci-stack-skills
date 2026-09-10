@@ -1,139 +1,108 @@
 ---
 name: ci-weekly
 description: >
-  Roll a period's competitive briefs into one exec-ready page — what changed, what a human actually
-  decided, what was deliberately ignored and why, what is still unresolved, what is next — and render
-  a decision and outcome record so the program can show it influenced decisions rather than only
-  produced content. Use when the user says "weekly CI update", "what changed this week", "exec
-  brief", "competitive update", "ignore log", "monthly roundup", or asks a specific executive
-  question about a competitor. Needs a period and an existing corpus of briefs — NOT for triaging a
-  single new change (use ci-triage).
+  Draft a competitive intelligence newsletter or executive update for a weekly, twice-monthly,
+  monthly, or specified period. Joins sourced briefs, recorded decisions, and outcomes without
+  upgrading draft recommendations. Accepts a Reports export as intake for triage. Scheduling,
+  connector setup, and message delivery are separate workflows.
 ---
 
-# Weekly decision brief and ignore log
+# Draft a competitive update
 
-> **What it does** — Turns a pile of individual briefs into the one page an exec will actually read.
-> **You give it** — The period's briefs. It reads them as the source of truth rather than building a parallel record.
-> **You get back** — A one-page update separating recommendations from decisions, an ignore log, and a decision-and-outcome record, so the program can show it influenced decisions.
-> **New here?** Start with the [README](../../../../README.md). This file is instructions for Claude, not documentation for you.
+Create a concise update for a named audience, plus traceable views of ignored items and outcomes.
+The skill name stays `ci-weekly`; the reporting period can be any explicit date interval.
 
-Two outputs, and the second is the unusual one. The brief says what happened. The **ignore log** says
-what you chose not to chase, and why — the honest measure of a working program.
+Read the shared contract from the first available location: `${CLAUDE_PLUGIN_ROOT}/reference/decision-brief.md`,
+`../../reference/decision-brief.md` relative to this skill directory, or `references/decision-brief.md`
+in a standalone installation. If none exists, report the missing resource. Reuse the established
+CI root and applicable internal-data authorization. Source briefs remain the source of truth.
+For local output without a chosen root, resolve and show `./ci/` per the contract. Supplied files
+may be outside the root; inline work needs no output directory.
 
-Before writing, read `${CLAUDE_PLUGIN_ROOT}/reference/decision-brief.md` for the evidence dimensions
-and language policy. Nothing is upgraded on its way to an exec. If the contract cannot be read, stop
-and report the missing plugin resource.
+## Establish the period and audience
 
-## Step 1 — Gather the period's material
+Use the user's start date, end date, and timezone. Otherwise use the most recent complete calendar
+week (Monday through Sunday) for a weekly request, the most recent complete calendar month for a
+monthly request, or the
+last completed half-month (days 1–15 or 16 through month-end) for a twice-monthly request. Use the
+configured timezone, or state UTC if none is available. Show the exact inclusive dates before work.
+Every two weeks and twice monthly are different cadences; preserve the user's chosen cadence.
 
-Resolve the CI root per the shared contract, then read only what lives under it: `briefs/`,
-`corroborations/`, `patterns/`, `ci-portfolio.md`, and any battlecard changelog the user points at.
-Do not scan unrelated working-directory files. If no briefs exist, ask the user to paste the period's
-changes and run `/ci-stack:ci-triage` on anything untriaged — do not write a brief on raw alerts.
+Use the named audience and supplied writing rules. If none is given, draft for the internal PMM and
+sales team. Read [references/first-run.md](references/first-run.md) for a fictional first run and
+[references/reports-intake.md](references/reports-intake.md) when starting from an export.
+Neither a provider connection nor a scheduler is required for supplied files.
 
-Confirm the period and hold to it. If a prior-period item is included because it resolved this week,
-mark it carried over rather than presenting it as new.
+## Gather only relevant material
 
-**The briefs are the source of truth.** Render every section below as a view over them. Do not create
-or maintain a parallel record that can drift out of sync.
+Read `briefs/`, linked `corroborations/` and `patterns/`, `ci-portfolio.md`, and explicitly supplied
+battlecard changelogs under the agreed scope. Follow canonical brief paths to join work; if a link
+is absent, label the item unmatched instead of guessing. Preserve handling restrictions in the
+newsletter, including any more restrictive audience limit than the source's topic suggests.
 
-## Step 2 — Assemble the brief
+Include observations within the period and older briefs with a dated decision, resolution, or
+outcome update within it. Label older observations as carried over. A file modification date is not
+an event or decision date. Hold undated items out of dated claims and list the missing date.
+Deduplicate repeated exports and references to the same event. Related changes that reverse an
+earlier change belong in one chronological account with receipts for each state.
 
-Target **one page**. An exec brief that runs long does not get read, and length is not rigour.
+Raw alerts or Reports rows need triage before they become decision briefs. If `ci-triage` is
+available, use it on the supplied scope and preserve its draft states. Otherwise produce an intake
+list identifying the missing evidence and triage fields. Continue the update from usable briefs,
+state coverage, and avoid inventing a complete period when records are missing.
 
-```
-Competitive update — <period>
-Prepared by <name> · <date>
+## Write the update
 
-Headline
-  Two sentences. If nothing material happened, say that. A quiet week
-  reported as quiet builds more trust than a padded one.
+Aim for one readable page, with detail linked to source briefs. Lead with the consequence for the
+audience. A period with no supported material change can have a short update.
 
-What changed
-  3-5 items maximum, ranked by consequence to a named decision — not by
-  recency, not by size of change. Each one line: what changed · source
-  with capture date · evidence basis and verification · who it affects.
+Include the sections supported by the corpus:
 
-Recommendations awaiting decision
-  In-period briefs still marked `Human decision: pending`.
-  Never describe these as decisions.
+- What changed, ranked by consequence. Each item names the scope, affected team or decision, dated
+  receipt, evidence basis, verification, and important uncertainty.
+- Recommendations awaiting decision. Keep draft recommendations distinct from recorded decisions.
+- Decisions taken. Include only a recorded `accepted` or `rejected` human decision with decision
+  maker and date, plus known owner and deadline. Flag incomplete decision records.
+- Deliberately not pursued. Include accepted `ignore` or `continue monitoring` decisions, their
+  reasons, and revisit conditions. Recommendations to ignore remain pending until accepted.
+- Still unresolved. Name what evidence would resolve the question.
+- Watching next. Use the recorded portfolio or label proposed monitoring changes as proposals.
 
-Decisions taken
-  Only briefs with a recorded human decision. Each: the decision, who
-  decided, the date, the owner, the deadline, the brief path.
+Preserve missing values and conflicting records. A blank decision field is missing, not accepted.
+Zero recorded ignore decisions may reflect a quiet period, incomplete records, or the supplied
+selection; it does not establish a faulty program. Do not pad the update to reach an item quota.
 
-Deliberately not pursued
-  What we saw and chose to ignore, with the reason.
+## Build the supporting views
 
-Still unresolved
-  Claims we could not corroborate, and the specific evidence that would
-  resolve each. Naming these is a strength, not a gap.
+Render `ci-ignore-log.md` and `ci-outcomes.md` as proposed views over the canonical briefs. Use all
+available briefs for these cumulative views, while the newsletter stays within its stated period.
+If only a subset is available, label the view partial and preserve the existing full view.
 
-Watching next
-  Portfolio changes, with a reason for each addition or removal. Read
-  `ci-portfolio.md` before claiming this section.
-```
+The ignore view records date, competitor, observation, reason, decision maker, revisit condition,
+and brief path. The outcome view records date, brief path, decision, action status, owner, observed
+outcome, and attribution. Existing view annotations should appear in the proposed diff for review.
 
-The separation between *awaiting decision* and *decisions taken* is the point. A recommendation
-reported as a decision is how a program starts believing its own output.
+Statuses and outcomes need an explicit record from the responsible person. File existence, a
+battlecard proposal, or elapsed time does not prove an action happened. Report known outcomes with
+`contributed`, `unclear`, or `unknown` attribution as supported. Do not infer revenue influence or
+causation from a deal closing after an update. If reporting a completion rate, show completed actions
+over accepted actionable decisions with known status, and report unknown-status cases separately.
 
-## Step 3 — The ignore view
+## Save and hand off
 
-Render `ci-ignore-log.md` from briefs whose recommended option was `ignore` or `continue monitoring`
-and whose human decision accepted that:
+For requested local files, show absolute paths first. Write a collision-safe
+`<CI root>/updates/YYYY-MM-DD-competitive-update.md` with the exact period, source coverage, draft
+status, handling, and linked receipts. Place full proposed view snapshots and diffs beside it as
+`YYYY-MM-DD-ci-ignore-log.proposed.md` and `YYYY-MM-DD-ci-outcomes.proposed.md`. Never silently replace
+fixed-name views or alter source-brief statuses. Use collision-safe names for every snapshot and
+diff. If a write fails, return the draft inline.
 
-```
-| date | competitor | what we saw | why we ignored it | who decided | revisit if |
-```
+Return the headline, distinct briefs with recorded decisions in the period (accepted and rejected
+separately), pending count, accepted-ignore count, coverage limits, and file paths when saved.
+For Slack, Teams, or email requests, supply a channel-ready draft within the same handling scope.
+This skill does not send or schedule it. A separate authorized workflow can collect inputs on a
+schedule and deliver the reviewed output.
 
-`revisit if` is what separates a decision from neglect. Fill it every time.
-
-Include it in the brief, summarised. It does three things: it shows the program is filtering rather
-than forwarding, it protects the user when something ignored later matters — the reasoning was
-recorded, not absent — and it makes it safe to ignore things at all.
-
-If nothing was ignored this period, surface that as a finding: either the portfolio is too narrow, or
-everything is being escalated.
-
-## Step 4 — The decision and outcome view
-
-Render `ci-outcomes.md` from the briefs' status fields:
-
-```
-| date | brief | decision | action status | owner | outcome observed | attribution |
-```
-
-**Never infer a status.** Action status and outcomes come from the named owner. Ask them, and
-preserve `unknown` rather than guessing from chronology or the existence of a file. An unexecuted
-decision is the most useful row in this file — record it.
-
-Rules on `attribution`, and hold them:
-
-- **`contributed`** is usually the honest word. `caused` requires a controlled comparison you almost
-  certainly do not have.
-- Do not attribute a won deal to a battlecard edit because the timing lines up.
-- Leave `outcome observed` blank until something is observed. Blank is data; a guess is not.
-
-When an exec asks about the program's impact, report the decision count, the action-completion rate,
-and observed outcomes with honest attribution — not an influenced-revenue figure the record cannot
-support.
-
-## Step 5 — Emit
-
-Write `<CI root>/updates/YYYY-MM-DD-competitive-update.md` as a new collision-safe record.
-
-Then **regenerate** `ci-ignore-log.md` and `ci-outcomes.md` from the briefs. Both carry fixed names,
-so emit a proposed diff against the existing file rather than replacing it — the user may have added
-notes you would destroy. Apply only what they accept.
-
-Print only the headline, the decision count, the pending count, the ignore count, and the file paths.
-
-Offer, but never perform, distribution. Ask before writing to Slack, email, a wiki, or a CRM. If the
-user wants a channel-ready version, produce the text for them to send.
-
-## Exec and board question mode
-
-If the trigger is a specific question — "what is Acme doing", "should we be worried about X" — answer
-that question directly: what changed with dates, what it means, what we are doing, our confidence and
-why, and what would change our view. Attach the receipts. Do not deliver a general roundup when a
-specific question was asked.
+For a specific executive question, answer that question directly with dated changes, current
+interpretation, recorded response, confidence, and what would change the assessment. Keep the
+same period, evidence, and approval rules.
