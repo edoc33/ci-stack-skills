@@ -1,0 +1,31 @@
+{
+  "fictional": true,
+  "fixture_note": "Every company, speaker, quote, date, and source link in this file is fictional practice data. Do not send it.",
+  "provider": "export",
+  "workspace_id": "fictional-workspace",
+  "call_id": "practice-001",
+  "call_url": "https://example.invalid/calls/practice-001",
+  "captured_at": "2026-09-01T16:00:00Z",
+  "account": {"label": "Northstar", "association": "supplied"},
+  "competitors": [
+    {"name": "AcmeFlow", "aliases": ["AcmeFlow"]},
+    {"name": "CedarQueue", "aliases": ["CedarQueue"]},
+    {"name": "MorrowDesk", "aliases": ["MorrowDesk"]}
+  ],
+  "turns": [
+    {"speaker_id": "seller-1", "speaker_role": "seller", "start_seconds": 750,
+      "text": "Which options are you considering, and what does the pilot need to show?"},
+    {"speaker_id": "buyer-1", "speaker_role": "buyer", "start_seconds": 761,
+      "text": "We're evaluating AcmeFlow's Team plan. The pilot needs to show whether our support team can route requests without engineering help."},
+    {"speaker_id": "buyer-1", "speaker_role": "buyer", "start_seconds": 780,
+      "text": "We used CedarQueue for a similar process."},
+    {"speaker_id": "seller-1", "speaker_role": "seller", "start_seconds": 790,
+      "text": "Is CedarQueue what your team uses today?"},
+    {"speaker_id": "buyer-1", "speaker_role": "buyer", "start_seconds": 799,
+      "text": "Sorry, I meant at my previous employer. Northstar has never used CedarQueue. Here we use a shared inbox."},
+    {"speaker_id": "seller-1", "speaker_role": "seller", "start_seconds": 820,
+      "text": "Are you also evaluating MorrowDesk?"},
+    {"speaker_id": "buyer-1", "speaker_role": "buyer", "start_seconds": 825,
+      "text": "No, MorrowDesk isn't on our shortlist."}
+  ]
+}

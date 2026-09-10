@@ -1,61 +1,120 @@
-# Configure the call-to-Slack workflow
+# Connect a call briefing to Slack
 
-This is a setup plan for a configured orchestrator or the skill's explicitly authorized delivery
-mode. The skill can use available connectors; it does not install them or manage credentials.
-Check tool access, transcript availability, and account entitlements in the chosen environment.
-
-1. **Receive a completed transcript.** For tl;dv, its `TranscriptReady` webhook can trigger a
-   fetch of `/v1alpha1/meetings/{meetingId}/transcript`. For Gong, a configured Automation rule can
-   fire a webhook; fetch the relevant call through `POST /v2/calls/transcript`. These have different
-   payloads and access requirements. Normalize the actual response: speaker role, turn start time,
-   stable call ID, and verified plain call URL. Gong sentence times are milliseconds. Verify tl;dv
-   time units in the available response or connector instead of assuming them. Provider plan and
-   administrative permissions may constrain access. Poll only the requested call window when
-   polling is the selected trigger.
-2. **Run `ci-call-mentions`.** Supply the configured competitor aliases, allowed data scope, and
-   CI root. The result contains evidence-backed draft items and reasons for held mentions.
-3. **Apply the routing policy.** The authorized delivery mode or configured workflow checks allowed contexts,
-   evidence completeness, data handling, and the recorded authorization for this Slack audience.
-   A user may authorize recurring internal sharing for a defined channel and data scope. That
-   authorization is recorded from the user; a configuration file alone cannot grant it. Hold items
-   outside that scope for review. The skill's shared draft statuses remain unchanged.
-4. **Deduplicate before delivery.** Use a durable store keyed by provider/workspace/call/competitor
-   and destination channel. Claim a pending item atomically so concurrent runs cannot both post.
-   Record a unique intended delivery ID and pending state before invoking Slack. Store the
-   resulting Slack channel and message timestamp on confirmed success. On an ambiguous
-   timeout, reconcile pending delivery before retrying; do not blindly resend. A later correction
-   should propose an update to that message.
-5. **Post using the authorized Slack app.** Supply the configured channel ID and sanitized draft
-   text to `chat.postMessage` or an available connector exposing that operation. Slack requires
-   `chat:write`; the app must have access to the destination channel. Use the minimum scopes and
-   membership required for that destination.
-   Record delivery separately from the canonical brief. Honor HTTP 429 `Retry-After` and use
-   bounded retries only for confirmed retryable failures;
-   a failed response must remain failed or pending, never delivered.
-
-Suggested Slack item:
+Start with [the draft-only practice run](first-run.md). This reference describes how to connect
+that draft to a configured workflow. It is an implementation plan, not an installed integration.
+Check available tools, transcript access, and account entitlements in your environment.
 
 ```text
-Northstar mentioned AcmeFlow | Active evaluation
-Buyer, 12:41: “We're evaluating AcmeFlow’s Team plan. Our IT team is testing Okta before we choose.”
-Note: SSO setup is part of this evaluation. Ask what their Okta test needs to prove.
-Source: [permitted call URL] · 12:41
+Gong or tl;dv transcript
+          |
+          v
+Runner: receive event or fetch the chosen call window
+          |
+          v
+Agent: run ci-call-mentions with competitor aliases and source evidence
+          |
+          v
+Routing check + durable delivery claim
+          |
+          v
+Slack: contextual briefing for the authorized audience
 ```
 
-The account, company, quote, and call in this example are fictional. In production, use only an
-account label permitted in the configured channel. Do not include full transcripts or unrelated
-personal information. A follow-up CRM tag is a separate action requiring its own configured scope.
+The runner can be an existing automation service or a script. A manual draft needs no runner.
+n8n can be part of a configured workflow; a scheduled GitHub Actions job can run a configured
+script. Either needs an adapter that actually invokes an agent with this skill and passes back
+its output. A generic AI node does not acquire the skill merely because this repository exists.
+The user's second brain can supply competitor aliases and permitted messaging rules. CRM context
+is optional; matching and updating opportunities are separate configured actions.
+
+## Inputs the implementation owner supplies
+
+| Component | Required setup |
+|---|---|
+| Transcript provider | Authorized calls, event or polling scope, fetch operation, roles, source time units, call IDs, and safe source links. |
+| Agent runtime | This installed skill, shared contract, competitor aliases, permitted input/output locations, and access to the required sources. |
+| Routing | Included contexts, permitted account labels, handling rules, destination channel ID, and recorded user authorization for the audience and data scope. |
+| Delivery store | Persistent records, atomic claims, and a way to inspect pending, sent, failed, and uncertain attempts. A plain JSON file alone is insufficient for concurrent writers. |
+| Slack connector | An authorized app or tool that can post to the intended channel and expose a confirmed result. A permitted lookup path is needed to reconcile uncertain results. |
+
+Keep secrets in the user's configured credential store. The skill does not request credentials,
+register webhooks, change provider settings, or enable a recurring job. Extra provider, runner,
+hosting, and model costs depend on the chosen implementation.
+
+## Fetch and normalize the actual provider response
+
+For tl;dv, a configured `TranscriptReady` event can trigger a transcript fetch. For Gong, a configured
+Automation rule can fire a webhook and an adapter can request transcripts. Check the current
+provider documentation and permissions when building the adapter. Preserve the supplied speaker
+mapping and time units, then convert source times explicitly to seconds. For Gong, sentence start
+and end fields are milliseconds; verify the tl;dv response or connector's units before converting.
+
+Fetch the requested call set and preserve the relevant exchange, including questions and
+corrections. Run `ci-call-mentions` and validate its per-item output before any delivery. Call
+access does not prove that a Slack audience may see the same material.
+
+## Route and claim before delivery
+
+Send only when the user has explicitly authorized a known destination, audience, and content
+scope, either in the current request or an already configured trusted workflow. Reuse that
+permission while its scope still applies. A private channel alone does not establish permission;
+its actual audience, including external guests where relevant, must fit the material's handling.
+Fictional fixtures always remain unsent.
+
+For each item, require `slack_candidate: true`, complete evidence, stable identity, no unresolved
+delivery blockers, and the allowed context. Consume that item's `delivery_draft`. Missing or
+ambiguous permission, source evidence, connector access, or durable state yields a draft with a
+specific setup gap. Do not silently promote `ready_for_delivery` based on completed extraction.
+
+The store key combines the stable item key with the channel. Atomically claim it and persist a
+unique intended delivery ID and `pending` state before calling Slack. Concurrent workers must
+observe the same claim. Skip already sent keys. Reconcile pending or uncertain keys before another
+attempt; an expired worker lease does not establish that a message was never sent.
+
+A correction to an already sent item proposes an update to the original message using its stored
+channel and timestamp. Posting a second message is a separate decision and must not be the default
+response to a changed transcript hash.
+
+## Send and reconcile
+
+Use the configured Slack connector or `chat.postMessage` with the configured channel ID and the
+per-item sanitized payload. Slack's posting method requires `chat:write` and appropriate access
+to that destination. Request only the scopes and membership needed for the chosen workflow.
+See [chat.postMessage](https://docs.slack.dev/reference/methods/chat.postMessage/).
+
+A confirmed successful response includes `ok: true`, channel, and message timestamp (`ts`). Save
+them before reporting delivery. A confirmed failure is `failed`. A timeout, lost response, or
+server error that may have followed a successful write remains `uncertain`, even if it is retryable
+at the network layer. Use Slack history or another permitted lookup to establish whether the
+intended message exists. If it cannot be established, keep the item held and report the uncertainty.
+Do not treat absence from an incomplete history lookup as proof of non-delivery.
+
+Honor a confirmed rate-limit response's `Retry-After` and use bounded retries only after establishing
+that the prior attempt did not send. Apply the workflow's configured attempt limit. If none is set,
+leave a failed or uncertain record for the operator instead of looping. See
+[Slack rate limits](https://docs.slack.dev/apis/web-api/rate-limits/).
+
+Delivery status is separate from the brief's human decision, review, external-use approval, and
+recommended-action status. A successful post can still contain a draft conclusion. Report a
+message link only if the connector returns it or a permitted lookup resolves it.
+
+## Verify the adapter before enabling a schedule
+
+Use a controlled test destination and data scope explicitly authorized by the user. Check a first
+send, the same input twice, two workers claiming the same item, a lost send response, and a later
+transcript correction. Confirm that source text cannot generate Slack mentions or change the
+configured destination. These are implementation checks to run after the adapter exists; the
+bundled fictional fixture remains a draft-only exercise.
 
 ## Provider references
 
-Consult the current official documentation when implementing adapters:
+Consult current official documentation when implementing adapters:
 
 - [Gong webhook rules](https://help.gong.io/docs/create-a-webhook-rule)
 - [Gong transcript endpoint](https://help.gong.io/apidocs/retrieve-transcripts-of-calls-by-date-or-callids-v2callstranscript-2)
 - [tl;dv API and TranscriptReady webhook](https://doc.tldv.io/index.html)
-- [Slack chat.postMessage](https://docs.slack.dev/reference/methods/chat.postMessage/)
 - [Slack text formatting and escaping](https://docs.slack.dev/messaging/formatting-message-text/)
-- [Slack Web API rate limits](https://docs.slack.dev/apis/web-api/rate-limits/)
 
-These links identify implementation references. This workshop fixture does not demonstrate a
-connected account, supported subscription, installed Slack app, or completed delivery.
+A successful fixture run demonstrates interpretation and draft generation. Provider access,
+subscription entitlement, the installed Slack app, and delivery reliability require separate
+checks in the configured environment.
