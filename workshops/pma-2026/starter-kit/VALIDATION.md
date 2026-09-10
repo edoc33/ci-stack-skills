@@ -1,3 +1,15 @@
+# Call-mentions addition, 9 September 2026
+
+The current workshop fixture suite passes **126 offline checks**, including generation of seven invocation files. The new skill also passes the skill frontmatter validator.
+
+An independent Codex agent executed `ci-call-mentions` in draft mode on three fictional inputs. It produced one contextual active-evaluation briefing, held one negated mention and one seller-only mention, preserved the source evidence and kept every decision/review status pending or draft. [Inspect the actual output and schema repair](validation/call-mentions-model-run/README.md).
+
+The first output contained a redundant top-level delivery payload because the schema did not specify its location. The clarified contract uses one payload per eligible item. A separate repaired output passed eight checks and preserves every classification, quote and status. The original output remains available.
+
+No live Gong/tl;dv connection, Slack delivery, retry/concurrency behavior or marketplace installation was executed. The original six-skill checks and earlier Claude triage run are recorded below as dated history.
+
+---
+
 # Validation report
 
 Validation date: 5 September 2026. This report describes the authored synthetic workshop kit.

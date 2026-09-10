@@ -1,0 +1,35 @@
+{
+  "fictional": true,
+  "fixture_notice": "All companies, people, calls, dates, and source URLs in these fixtures are invented for the workshop. No message was sent.",
+  "provider": "tldv",
+  "workspace_id": "fictional-workshop",
+  "captured_at": "2026-09-09T10:00:00Z",
+  "account": {
+    "label": "Northstar",
+    "association": "supplied"
+  },
+  "competitors": [
+    {
+      "name": "AcmeFlow",
+      "aliases": [
+        "AcmeFlow"
+      ]
+    }
+  ],
+  "call_id": "fictional-northstar-001",
+  "call_url": "https://example.invalid/calls/northstar-001",
+  "turns": [
+    {
+      "speaker_id": "seller-1",
+      "speaker_role": "seller",
+      "start_seconds": 750,
+      "text": "What does your team need to decide before choosing a plan?"
+    },
+    {
+      "speaker_id": "buyer-1",
+      "speaker_role": "buyer",
+      "start_seconds": 761,
+      "text": "We're evaluating AcmeFlow’s Team plan. Our IT team is testing Okta before we choose."
+    }
+  ]
+}

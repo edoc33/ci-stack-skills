@@ -1,0 +1,233 @@
+{
+  "schema": "ci-call-mentions-draft-v1",
+  "fictional": true,
+  "mode": "draft",
+  "fixture_notice": "All companies, people, calls, dates, and source URLs in the supplied fixtures are fictional. No message was sent.",
+  "ci_root": "<CI_ROOT>",
+  "created_at": "2026-09-10T04:49:33.870869+00:00",
+  "delivery_permission": {
+    "authorized": false,
+    "reference": "User request: “Do not send anything.” Fictional workshop fixtures must remain unsent.",
+    "destination": null
+  },
+  "ready_for_delivery": false,
+  "delivery_status": "not attempted",
+  "items": [
+    {
+      "fictional": true,
+      "provider": "tldv",
+      "workspace_id": "fictional-workshop",
+      "call_id": "fictional-northstar-001",
+      "account": {
+        "label": "Northstar",
+        "association": "supplied"
+      },
+      "competitor": "AcmeFlow",
+      "context": "active_evaluation",
+      "speaker_id": "buyer-1",
+      "speaker_role": "buyer",
+      "quote": "We're evaluating AcmeFlow’s Team plan. Our IT team is testing Okta before we choose.",
+      "start_seconds": 761,
+      "time_label": "12:41",
+      "timestamp_verified": true,
+      "timestamp_verification_scope": "Matched exactly against the supplied fictional transcript; no recording was accessed.",
+      "source_url": "https://example.invalid/calls/northstar-001",
+      "source_url_verification": "Source-provided fictional locator, not browsed or treated as a live recording.",
+      "captured_at": "2026-09-09T10:00:00Z",
+      "captured_at_notice": "Source-supplied fictional fixture capture timestamp; no meeting date supplied.",
+      "preserved_at": "2026-09-10T04:49:33.870869+00:00",
+      "evidence_path": "<CI_ROOT>/updates/call-mentions-2026-09-09-8c942bf1-evidence/active-evaluation.json",
+      "evidence_quotes": [
+        {
+          "speaker_id": "seller-1",
+          "speaker_role": "seller",
+          "start_seconds": 750,
+          "text": "What does your team need to decide before choosing a plan?",
+          "time_label": "12:30"
+        },
+        {
+          "speaker_id": "buyer-1",
+          "speaker_role": "buyer",
+          "start_seconds": 761,
+          "text": "We're evaluating AcmeFlow’s Team plan. Our IT team is testing Okta before we choose.",
+          "time_label": "12:41"
+        }
+      ],
+      "conversation_context": "The seller asks what the team needs to decide before choosing a plan. The buyer names AcmeFlow’s Team plan and says the IT team is testing Okta before choosing.",
+      "pmm_note": "The buyer places an Okta test before the plan decision. Ask what the test must establish and how its result will affect the choice.",
+      "slack_candidate": true,
+      "hold_reason": null,
+      "deduplication_key": "ci-call-mentions:v1:ca3fd6693fde3d617849ac0e941381e19e942a15498ecc40f13a6a8e58f73eee",
+      "deduplication_key_components": [
+        "tldv",
+        "fictional-workshop",
+        "fictional-northstar-001",
+        "AcmeFlow"
+      ],
+      "brief": {
+        "Proposition (exact, scope-limited)": "In fictional call fictional-northstar-001, the Northstar buyer reports evaluating AcmeFlow’s Team plan and says their IT team is testing Okta before choosing.",
+        "Evidence basis": "field report",
+        "Verification": "single-source",
+        "Handling": "internal",
+        "Counterevidence / unknowns": "The fixture does not establish AcmeFlow capabilities, the result or scope of the Okta test, evaluation timing, or a broader buyer pattern. The supplied exchange contains no correction.",
+        "Confidence": "low: This is a single fictional buyer report. Independent confirmation of the evaluation and the Okta test criteria would raise confidence in the underlying report.",
+        "Recommended option": "validate",
+        "Rationale": "Clarifying the buyer’s test criteria will make the evaluation context actionable without turning the report into a product claim.",
+        "Human decision": "pending",
+        "Review status": "draft",
+        "External-use approval": "not approved",
+        "Action status": "not started"
+      },
+      "ready_for_delivery": false,
+      "delivery_draft": {
+        "text": "FICTIONAL WORKSHOP DRAFT | UNSENT | Internal\nNorthstar mentioned AcmeFlow | Active evaluation\nContext: The seller asked what the team needs to decide before choosing a plan.\nBuyer, 12:41: “We're evaluating AcmeFlow’s Team plan. Our IT team is testing Okta before we choose.”\nPMM note: The buyer places an Okta test before the plan decision. Ask what the test must establish and how its result will affect the choice.\nEvidence: Buyer field report; single-source. Product capabilities and test results remain unverified.\nSource: <https://example.invalid/calls/northstar-001|Fictional call> | 12:41",
+        "unfurl_links": false,
+        "unfurl_media": false
+      }
+    },
+    {
+      "fictional": true,
+      "provider": "tldv",
+      "workspace_id": "fictional-workshop",
+      "call_id": "fictional-northstar-002",
+      "account": {
+        "label": "Northstar",
+        "association": "supplied"
+      },
+      "competitor": "AcmeFlow",
+      "context": "negated",
+      "speaker_id": "buyer-1",
+      "speaker_role": "buyer",
+      "quote": "No. We ruled out AcmeFlow last quarter and aren't evaluating it now.",
+      "start_seconds": 125,
+      "time_label": "2:05",
+      "timestamp_verified": true,
+      "timestamp_verification_scope": "Matched exactly against the supplied fictional transcript; no recording was accessed.",
+      "source_url": "https://example.invalid/calls/northstar-002",
+      "source_url_verification": "Source-provided fictional locator, not browsed or treated as a live recording.",
+      "captured_at": "2026-09-09T10:00:00Z",
+      "captured_at_notice": "Source-supplied fictional fixture capture timestamp; no meeting date supplied.",
+      "preserved_at": "2026-09-10T04:49:33.870869+00:00",
+      "evidence_path": "<CI_ROOT>/updates/call-mentions-2026-09-09-8c942bf1-evidence/negated.json",
+      "evidence_quotes": [
+        {
+          "speaker_id": "seller-1",
+          "speaker_role": "seller",
+          "start_seconds": 120,
+          "text": "Are you evaluating AcmeFlow?",
+          "time_label": "2:00"
+        },
+        {
+          "speaker_id": "buyer-1",
+          "speaker_role": "buyer",
+          "start_seconds": 125,
+          "text": "No. We ruled out AcmeFlow last quarter and aren't evaluating it now.",
+          "time_label": "2:05"
+        }
+      ],
+      "conversation_context": "The seller asks whether the buyer is evaluating AcmeFlow. The buyer answers no and describes a prior rejection. The buyer’s answer controls classification.",
+      "pmm_note": "The buyer reports ruling out AcmeFlow last quarter. If the reason becomes relevant to this opportunity, ask why it was ruled out; reopen the evaluation classification only on new buyer evidence.",
+      "slack_candidate": false,
+      "hold_reason": "The buyer explicitly denies a current evaluation and says AcmeFlow was ruled out last quarter. Negated mentions are outside the default Slack candidate filter.",
+      "deduplication_key": "ci-call-mentions:v1:dd60de7e71302ec0e86ed02c80393df7492d3834bb2c6d51448f687ab121c038",
+      "deduplication_key_components": [
+        "tldv",
+        "fictional-workshop",
+        "fictional-northstar-002",
+        "AcmeFlow"
+      ],
+      "brief": {
+        "Proposition (exact, scope-limited)": "In fictional call fictional-northstar-002, the Northstar buyer reports that AcmeFlow was ruled out last quarter and is not being evaluated now.",
+        "Evidence basis": "field report",
+        "Verification": "single-source",
+        "Handling": "internal",
+        "Counterevidence / unknowns": "The reason for ruling AcmeFlow out is unspecified. The source does not supply a meeting date, so “last quarter” cannot be converted into a calendar period. The seller’s question does not establish active evaluation.",
+        "Confidence": "low: The underlying evaluation status rests on one fictional buyer report. Independent confirmation of the account’s evaluation status would raise confidence.",
+        "Recommended option": "continue monitoring",
+        "Rationale": "The explicit denial supports holding an active-evaluation alert. Retain the exchange for future context.",
+        "Human decision": "pending",
+        "Review status": "draft",
+        "External-use approval": "not approved",
+        "Action status": "not started",
+        "Revisit if": "A later buyer statement confirms renewed AcmeFlow evaluation or current use, or corrects this denial."
+      },
+      "ready_for_delivery": false,
+      "delivery_draft": null
+    },
+    {
+      "fictional": true,
+      "provider": "tldv",
+      "workspace_id": "fictional-workshop",
+      "call_id": "fictional-northstar-003",
+      "account": {
+        "label": "Northstar",
+        "association": "supplied"
+      },
+      "competitor": "AcmeFlow",
+      "context": "seller_only",
+      "speaker_id": "seller-1",
+      "speaker_role": "seller",
+      "quote": "Some teams also look at AcmeFlow. Has it come up internally?",
+      "start_seconds": 240,
+      "time_label": "4:00",
+      "timestamp_verified": true,
+      "timestamp_verification_scope": "Matched exactly against the supplied fictional transcript; no recording was accessed.",
+      "source_url": "https://example.invalid/calls/northstar-003",
+      "source_url_verification": "Source-provided fictional locator, not browsed or treated as a live recording.",
+      "captured_at": "2026-09-09T10:00:00Z",
+      "captured_at_notice": "Source-supplied fictional fixture capture timestamp; no meeting date supplied.",
+      "preserved_at": "2026-09-10T04:49:33.870869+00:00",
+      "evidence_path": "<CI_ROOT>/updates/call-mentions-2026-09-09-8c942bf1-evidence/seller-only.json",
+      "evidence_quotes": [
+        {
+          "speaker_id": "seller-1",
+          "speaker_role": "seller",
+          "start_seconds": 240,
+          "text": "Some teams also look at AcmeFlow. Has it come up internally?",
+          "time_label": "4:00"
+        },
+        {
+          "speaker_id": "buyer-1",
+          "speaker_role": "buyer",
+          "start_seconds": 246,
+          "text": "I don't know. We haven't discussed other vendors on this call.",
+          "time_label": "4:06"
+        }
+      ],
+      "conversation_context": "The seller introduces AcmeFlow and asks whether it has come up internally. The buyer says they do not know and that other vendors have not been discussed on this call.",
+      "pmm_note": "The exchange leaves competitor involvement unknown. A useful follow-up is to ask the buyer which vendors, if any, are actually under consideration.",
+      "slack_candidate": false,
+      "hold_reason": "Only the seller names AcmeFlow. The buyer does not confirm evaluation or current use. Seller-only mentions are outside the default Slack candidate filter.",
+      "deduplication_key": "ci-call-mentions:v1:9e6f3627d537dc03ce0d082af83c39736f3d6975d26b1bd59b1497b1d3088105",
+      "deduplication_key_components": [
+        "tldv",
+        "fictional-workshop",
+        "fictional-northstar-003",
+        "AcmeFlow"
+      ],
+      "brief": {
+        "Proposition (exact, scope-limited)": "In the supplied fictional call fictional-northstar-003, the seller introduces AcmeFlow and the buyer does not confirm involvement.",
+        "Evidence basis": "observed",
+        "Verification": "single-source",
+        "Handling": "internal",
+        "Counterevidence / unknowns": "The account’s actual vendor consideration is unknown. The buyer’s lack of confirmation does not establish that AcmeFlow is absent. The seller’s statement about other teams is an uncorroborated field report.",
+        "Confidence": "high: The preserved, complete supplied exchange directly supports this narrow statement about who mentioned AcmeFlow and what the buyer answered.",
+        "Recommended option": "continue monitoring",
+        "Rationale": "A seller prompt alone does not supply buyer evaluation evidence. Preserve it and await an explicit buyer statement.",
+        "Human decision": "pending",
+        "Review status": "draft",
+        "External-use approval": "not approved",
+        "Action status": "not started",
+        "Revisit if": "A buyer explicitly confirms AcmeFlow evaluation or current use, or supplies a material correction."
+      },
+      "ready_for_delivery": false,
+      "delivery_draft": null
+    }
+  ],
+  "delivery_draft": {
+    "text": "FICTIONAL WORKSHOP DRAFT | UNSENT | Internal\nNorthstar mentioned AcmeFlow | Active evaluation\nContext: The seller asked what the team needs to decide before choosing a plan.\nBuyer, 12:41: “We're evaluating AcmeFlow’s Team plan. Our IT team is testing Okta before we choose.”\nPMM note: The buyer places an Okta test before the plan decision. Ask what the test must establish and how its result will affect the choice.\nEvidence: Buyer field report; single-source. Product capabilities and test results remain unverified.\nSource: <https://example.invalid/calls/northstar-001|Fictional call> | 12:41",
+    "unfurl_links": false,
+    "unfurl_media": false
+  },
+  "draft_path": "<CI_ROOT>/updates/call-mentions-2026-09-09-8c942bf1-slack-draft.md"
+}

@@ -46,9 +46,15 @@ The original battlecard contains obsolete claims. Produce a proposed patch with 
 
 The optional pattern exercise counts independent deals rather than repeated calls. The weekly exercise has its own supplied, fictional brief corpus so accepted, rejected and pending decisions are available to practice. Its historical statuses are story data, not permission to approve or distribute your current outputs.
 
+## Call mentions to Slack
+
+After the core exercise, run the generated `session/prompts/06-call-mentions.md`. It uses a fictional Northstar conversation about AcmeFlow. Compare the result with `worked/07-call-mentions/`. The input folder also contains negated and seller-only mentions, which should be held rather than described as active buyer evaluations.
+
+The workshop invocation stays in draft mode. The skill's setup reference explains a separately configured Gong or tl;dv transcript trigger, extraction, duplicate checks and authorized Slack delivery.
+
 ## Scope
 
-The included skills produce local drafts. This kit contains no live monitors, scheduler, CRM connection, chat integration, wiki sync or publishing workflow. The routing artifacts in `output-excerpts.json` are proposed examples for review.
+The included exercises produce local drafts. `ci-call-mentions` supports explicit authorized Slack delivery, but this kit contains no credentials, configured destination or active integrations. The routing artifacts in `output-excerpts.json` remain proposed examples for review.
 
 No real customer information belongs in this folder. All URLs use reserved example domains and serve as fictional locators. Read the matching local files instead of opening those URLs.
 

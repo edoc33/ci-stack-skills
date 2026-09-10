@@ -163,7 +163,7 @@ with tempfile.TemporaryDirectory(dir=work) as temp:
     paths=json.loads((target/'session/paths.json').read_text())
     check('All generated paths confined to kit',all(Path(v).is_relative_to(target) for v in paths.values()))
     generated=list((target/'session/prompts').glob('*.md'))
-    check('Six exact invocation files generated',len(generated)==6 and all('{{' not in p.read_text() for p in generated))
+    check('Seven exact invocation files generated',len(generated)==7 and all('{{' not in p.read_text() for p in generated))
     check('Original card copy is identical',(target/'session/existing-battlecard.md').read_bytes()==(ROOT/'inputs/existing-battlecard.md').read_bytes())
     second=subprocess.run([sys.executable,str(target/'prepare_session.py')],cwd=target,capture_output=True,text=True)
     check('Setup rerun protects existing session',second.returncode!=0 and 'already exists' in second.stderr)

@@ -40,7 +40,7 @@ All generated canonical records must stay inside the current CI root. Proposed c
 
 The scenario owner is Alex Morgan, a fictional PMM, and the scenario decision deadline is 7 August 2026. Use business-context.md for the full context. All exercise outputs must keep an illustrative/fictional label. Do not read worked/ until after completing your answer.
 
-Then paste session/prompts/01-triage.md. Portfolio is optional. Continue through 02 and 03. For 04, explicitly switch to the separate supplied weekly root named in that prompt. The 05 pattern exercise has a plan that must be read before its results.
+Then paste session/prompts/01-triage.md. Portfolio is optional. Continue through 02 and 03. For 04, explicitly switch to the separate supplied weekly root named in that prompt. The 05 pattern exercise has a plan that must be read before its results. The optional 06 call-mentions exercise returns to the canonical CI root and produces a Slack draft from fictional call data.
 """.format(**values)
 (session / "session-start.md").write_text(setup)
 (session / "paths.json").write_text(json.dumps(values, indent=2) + "\n")

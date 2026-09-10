@@ -1,7 +1,7 @@
 {
   "status": "pass",
   "scope": "offline fixture validation",
-  "checks_passed": 125,
+  "checks_passed": 126,
   "model_runtime_executed_by_this_validator": false,
   "model_runtime_note": "This validator makes no model calls. See VALIDATION.md and validation/claude-smoke-status.json for the separate runtime test.",
   "checks": [
@@ -42,6 +42,11 @@
     },
     {
       "check": "Prompt fictional label: manual-prompt.md",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "check": "Prompt fictional label: 06-call-mentions.md",
       "status": "pass",
       "detail": ""
     },
@@ -616,7 +621,7 @@
       "detail": ""
     },
     {
-      "check": "Six exact invocation files generated",
+      "check": "Seven exact invocation files generated",
       "status": "pass",
       "detail": ""
     },

@@ -1,0 +1,31 @@
+{
+  "result": "passed",
+  "mode": "independent Codex agent, draft only",
+  "fixture_count": 3,
+  "slack_candidates": 1,
+  "held_mentions": 2,
+  "held_contexts": [
+    "negated",
+    "seller_only"
+  ],
+  "source_files_changed": false,
+  "slack_calls": 0,
+  "provider_calls": 0,
+  "schema_repair": "Removed duplicate top-level delivery payload. Original is preserved separately; extraction, wording and statuses are unchanged.",
+  "schema_checks": {
+    "original_bytes_unchanged": true,
+    "no_top_level_delivery_payload": true,
+    "exactly_one_payload_on_eligible_item": true,
+    "eligible_payload_structure": true,
+    "held_payloads_are_null": true,
+    "all_items_exactly_unchanged": true,
+    "only_change_is_top_level_payload_removal": true,
+    "draft_and_unsent": true
+  },
+  "limits": [
+    "Gong/tl;dv account access and live payloads were not tested.",
+    "Slack delivery, concurrent atomic claims, retry/reconciliation and marketplace installation were not executed.",
+    "The model output is an example, not a guarantee for other transcripts."
+  ],
+  "path_normalization": "Absolute local CI-root paths are replaced with <CI_ROOT>. All other model content is preserved."
+}

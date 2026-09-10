@@ -1,0 +1,109 @@
+{
+  "fictional": true,
+  "ready_for_delivery": false,
+  "delivery_status": "not sent",
+  "items": [
+    {
+      "call_id": "fictional-northstar-001",
+      "competitor": "AcmeFlow",
+      "context": "active_evaluation",
+      "speaker_role": "buyer",
+      "quote": "We're evaluating AcmeFlow\u2019s Team plan. Our IT team is testing Okta before we choose.",
+      "start_seconds": 761,
+      "timestamp_verified": true,
+      "source_url": "https://example.invalid/calls/northstar-001",
+      "evidence_path": "../../inputs/call-mentions/active-evaluation.json",
+      "pmm_note": "SSO setup is part of this evaluation. Ask what their Okta test needs to prove.",
+      "slack_candidate": true,
+      "hold_reason": null,
+      "deduplication_key": "tldv:fictional-workshop:fictional-northstar-001:acmeflow",
+      "brief": {
+        "Proposition (exact, scope-limited)": "One fictional Northstar buyer reports evaluating AcmeFlow\u2019s Team plan and testing Okta before choosing.",
+        "Evidence basis": "field report",
+        "Verification": "single-source",
+        "Handling": "internal",
+        "Counterevidence / unknowns": "This is one fictional buyer report. It does not establish AcmeFlow product capability or a market pattern.",
+        "Confidence": "low: the underlying evaluation is a single fictional report; no independent corroboration exists.",
+        "Recommended option": "validate",
+        "Rationale": "SSO setup is part of this evaluation. Ask what their Okta test needs to prove.",
+        "Human decision": "pending",
+        "Review status": "draft",
+        "External-use approval": "not approved",
+        "Action status": "not started"
+      },
+      "delivery_draft": {
+        "text": "Fictional workshop example \u00b7 Draft\n*Northstar mentioned AcmeFlow | Active evaluation*\nBuyer, 12:41: \u201cWe're evaluating AcmeFlow\u2019s Team plan. Our IT team is testing Okta before we choose.\u201d\n*Note:* SSO setup is part of this evaluation. Ask what their Okta test needs to prove.\nSource: https://example.invalid/calls/northstar-001 \u00b7 12:41 (fictional source)",
+        "unfurl_links": false,
+        "unfurl_media": false
+      }
+    },
+    {
+      "call_id": "fictional-northstar-002",
+      "competitor": "AcmeFlow",
+      "context": "negated",
+      "speaker_role": "buyer",
+      "quote": "No. We ruled out AcmeFlow last quarter and aren't evaluating it now.",
+      "start_seconds": 125,
+      "timestamp_verified": true,
+      "source_url": "https://example.invalid/calls/northstar-002",
+      "evidence_path": "../../inputs/call-mentions/negated.json",
+      "pmm_note": "The buyer explicitly denies a current evaluation. Do not tag this as active competition.",
+      "slack_candidate": false,
+      "hold_reason": "Negated current evaluation.",
+      "deduplication_key": "tldv:fictional-workshop:fictional-northstar-002:acmeflow",
+      "brief": {
+        "Proposition (exact, scope-limited)": "One fictional buyer reports that Northstar is not currently evaluating AcmeFlow.",
+        "Evidence basis": "field report",
+        "Verification": "single-source",
+        "Handling": "internal",
+        "Counterevidence / unknowns": "The transcript reports a past exclusion; no present evaluation is supported.",
+        "Confidence": "low: the reported absence of a current evaluation is a single fictional buyer report; the exact denial is preserved.",
+        "Recommended option": "continue monitoring",
+        "Rationale": "The buyer explicitly denies a current evaluation. Do not tag this as active competition.",
+        "Human decision": "pending",
+        "Review status": "draft",
+        "External-use approval": "not approved",
+        "Action status": "not started",
+        "Revisit if": "A later buyer statement confirms a current evaluation."
+      },
+      "delivery_draft": null
+    },
+    {
+      "call_id": "fictional-northstar-003",
+      "competitor": "AcmeFlow",
+      "context": "seller_only",
+      "speaker_role": "seller",
+      "quote": "Some teams also look at AcmeFlow. Has it come up internally?",
+      "start_seconds": 240,
+      "timestamp_verified": true,
+      "source_url": "https://example.invalid/calls/northstar-003",
+      "evidence_path": "../../inputs/call-mentions/seller-only.json",
+      "pmm_note": "The seller introduced AcmeFlow. The buyer has not confirmed an evaluation.",
+      "slack_candidate": false,
+      "hold_reason": "Seller-introduced mention without buyer confirmation.",
+      "deduplication_key": "tldv:fictional-workshop:fictional-northstar-003:acmeflow",
+      "brief": {
+        "Proposition (exact, scope-limited)": "The fictional seller introduced AcmeFlow; the buyer did not confirm evaluating it.",
+        "Evidence basis": "observed",
+        "Verification": "single-source",
+        "Handling": "internal",
+        "Counterevidence / unknowns": "Buyer evaluation status is unresolved.",
+        "Confidence": "high: the supplied fictional transcript directly supports this scope-limited description of the exchange.",
+        "Recommended option": "continue monitoring",
+        "Rationale": "The seller introduced AcmeFlow. The buyer has not confirmed an evaluation.",
+        "Human decision": "pending",
+        "Review status": "draft",
+        "External-use approval": "not approved",
+        "Action status": "not started",
+        "Revisit if": "A later buyer statement confirms a current evaluation."
+      },
+      "delivery_draft": null
+    }
+  ],
+  "delivery_requirements": [
+    "Configured authorized Slack channel and data scope",
+    "Destination handling check",
+    "Durable deduplication claim",
+    "Separate authorized orchestration step"
+  ]
+}

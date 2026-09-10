@@ -1,0 +1,12 @@
+{
+  "result": "passed",
+  "scope": "Static integrity checks on fictional worked output; does not test provider access, model extraction, or live Slack delivery.",
+  "checks": [
+    "Fictional fixture cannot claim delivery readiness or success.",
+    "Every quoted excerpt, speaker role, start time, call ID, and source locator exactly matches its preserved fixture.",
+    "All CI decision, review, external-use, and action statuses remain at shared-contract defaults.",
+    "Only the explicit buyer-evaluation fixture is a candidate; negated and seller-only fixtures are retained with hold reasons.",
+    "Slack text preserves the buyer quote and PMM note, shows the source time, and disables source-link previews.",
+    "Deduplication keys are stable source/workspace/call/competitor identifiers and unique across these fixtures."
+  ]
+}
