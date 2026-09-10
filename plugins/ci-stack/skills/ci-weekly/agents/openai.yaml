@@ -1,0 +1,4 @@
+interface:
+  display_name: "CI period update"
+  short_description: "Draft a sourced weekly or monthly CI update"
+  default_prompt: "Use $ci-weekly to draft an internal update for the supplied reporting period."

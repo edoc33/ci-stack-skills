@@ -1,0 +1,4 @@
+interface:
+  display_name: "CI watchlist"
+  short_description: "Plan sources around the decisions you own"
+  default_prompt: "Use $ci-portfolio to build a focused competitor watchlist for my decision."

@@ -1,0 +1,2 @@
+Use ci-weekly for a fictional internal update covering August 1 through 15 inclusive, 2026, America/Los_Angeles. Use the supplied briefs under the provided CI root. There is no portfolio, no CRM outcome data, and no report delivery adapter. Save the draft and appropriate views. No live systems.
+CI root: <CI_ROOT>

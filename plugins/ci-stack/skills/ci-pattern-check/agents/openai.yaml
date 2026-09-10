@@ -1,0 +1,4 @@
+interface:
+  display_name: "CI pattern check"
+  short_description: "Count recurrence within a defined deal cohort"
+  default_prompt: "Use $ci-pattern-check to assess whether this issue recurs across our supplied records."

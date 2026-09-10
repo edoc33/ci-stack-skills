@@ -14,7 +14,7 @@ visible. This skill reads supplied records and writes a draft analysis.
 
 Read the shared contract from the first available location: `${CLAUDE_PLUGIN_ROOT}/reference/decision-brief.md`,
 `../../reference/decision-brief.md` relative to this skill directory, or `references/decision-brief.md`
-in a standalone installation. If none exists, report the missing resource. Apply its internal-data
+in a standalone installation. If none exists, report the missing resource and stop analysis. Apply its internal-data
 preflight before reading real transcripts, CRM exports, or buyer notes. Reuse applicable session
 authorization and the established CI root. Synthetic and already aggregated examples can be used
 when real data is unavailable. Supplied files may be outside the root. For local output without a

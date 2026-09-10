@@ -1,0 +1,44 @@
+{
+  "fictional": true,
+  "provider": "gong",
+  "workspace_id": "demo",
+  "call_id": "demo-01",
+  "call_url": "https://calls.example/demo-01",
+  "captured_at": "2026-08-06T12:00:00Z",
+  "account": {
+    "label": "Northstar demo",
+    "association": "supplied"
+  },
+  "competitors": [
+    {
+      "name": "AcmeFlow",
+      "aliases": [
+        "Acme Flow"
+      ]
+    },
+    {
+      "name": "OrbitDesk",
+      "aliases": []
+    }
+  ],
+  "turns": [
+    {
+      "speaker_id": "s",
+      "speaker_role": "seller",
+      "start_seconds": 60,
+      "text": "Are you also considering OrbitDesk?"
+    },
+    {
+      "speaker_id": "b",
+      "speaker_role": "buyer",
+      "start_seconds": 70,
+      "text": "No, OrbitDesk is not on our shortlist. We are evaluating Acme Flow for SSO."
+    },
+    {
+      "speaker_id": "b",
+      "speaker_role": "buyer",
+      "start_seconds": 80,
+      "text": "Correction: procurement paused that Acme Flow evaluation yesterday. We are only testing your product now."
+    }
+  ]
+}

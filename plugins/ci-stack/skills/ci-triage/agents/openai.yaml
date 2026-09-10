@@ -1,0 +1,4 @@
+interface:
+  display_name: "CI change triage"
+  short_description: "Assess a change and recommend the next action"
+  default_prompt: "Use $ci-triage to assess this competitor change and draft a sourced brief."

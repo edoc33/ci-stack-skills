@@ -1,0 +1,1 @@
+Use ci-call-mentions on the fictional transcript.json supplied in this directory. Draft the product marketing Slack briefing and the extraction ledger. CI root: <CI_ROOT>. No live connectors or sending. All data is synthetic.

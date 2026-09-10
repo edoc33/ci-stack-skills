@@ -54,8 +54,8 @@ links before persisting any content. Say when evidence is missing or cannot be p
 
 ## Connect it to a decision
 
-Reuse supplied context. After resolving the CI root, read only `<CI root>/ci-portfolio.md` if
-present and match the source URL and competitor to a row. Record the row used, or `no match`.
+Reuse supplied context. For a file-backed run, resolve the CI root and read
+`<CI root>/ci-portfolio.md` if present and match the source URL and competitor to a row. Record the row used, or `no match`.
 Reuse its materiality and ignore rules unless the user's current decision has changed.
 
 If needed, ask once for the affected segment, asset or deal, deadline, and owner. Continue with
@@ -87,7 +87,7 @@ Choose exactly one response from the shared contract. Use `ignore` or `continue 
 appropriate, with a concrete `Revisit if` condition. Name the smallest useful next output and the
 owner/deadline if known. Set unknown assignments explicitly and keep human decisions pending.
 
-Show planned absolute paths, then write a collision-safe
+For file output, show planned absolute paths, then write a collision-safe
 `<CI root>/briefs/YYYY-MM-DD-<competitor>-<slug>.md` using the shared schema. The filename date is
 the processing date; preserve actual capture/effective dates in the brief. Initialize
 `Human decision: pending`, `Review status: draft`, and `External-use approval: not approved`.

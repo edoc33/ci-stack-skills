@@ -13,7 +13,7 @@ Produce a small, reviewable edit to the card the team uses. Keep the original fi
 
 Read the shared contract from the first available location: `${CLAUDE_PLUGIN_ROOT}/reference/decision-brief.md`,
 `../../reference/decision-brief.md` relative to this skill directory, or `references/decision-brief.md`
-in a standalone installation. If none exists, report the missing resource. Reuse the established CI
+in a standalone installation. If none exists, report the missing resource and stop analysis. Reuse the established CI
 root and applicable internal-data authorization from the session. Supplied files may be outside the
 root. For local output without a chosen root, resolve and show `./ci/` per the contract; inline work
 needs no output directory.

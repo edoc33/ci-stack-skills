@@ -14,7 +14,7 @@ The skill name stays `ci-weekly`; the reporting period can be any explicit date 
 
 Read the shared contract from the first available location: `${CLAUDE_PLUGIN_ROOT}/reference/decision-brief.md`,
 `../../reference/decision-brief.md` relative to this skill directory, or `references/decision-brief.md`
-in a standalone installation. If none exists, report the missing resource. Reuse the established
+in a standalone installation. If none exists, report the missing resource and stop analysis. Reuse the established
 CI root and applicable internal-data authorization. Source briefs remain the source of truth.
 For local output without a chosen root, resolve and show `./ci/` per the contract. Supplied files
 may be outside the root; inline work needs no output directory.
@@ -92,10 +92,13 @@ over accepted actionable decisions with known status, and report unknown-status 
 
 For requested local files, show absolute paths first. Write a collision-safe
 `<CI root>/updates/YYYY-MM-DD-competitive-update.md` with the exact period, source coverage, draft
-status, handling, and linked receipts. Place full proposed view snapshots and diffs beside it as
-`YYYY-MM-DD-ci-ignore-log.proposed.md` and `YYYY-MM-DD-ci-outcomes.proposed.md`. Never silently replace
-fixed-name views or alter source-brief statuses. Use collision-safe names for every snapshot and
-diff. If a write fails, return the draft inline.
+status, handling, and linked receipts. Save proposed view snapshots and diffs beside their final
+root-level targets as `<CI root>/ci-ignore-log.proposed.YYYY-MM-DD.md` and
+`<CI root>/ci-outcomes.proposed.YYYY-MM-DD.md`, with collision-safe suffixes. Keep proposals and final
+views in the same parent directory so relative receipt links still work when applied. Generate
+diffs against the actual fixed-name targets (`ci-ignore-log.md` and `ci-outcomes.md`), rather than
+against the proposed snapshot filenames. Verify links from each final destination. Never silently
+replace a fixed-name view or alter source-brief statuses. If a write fails, return the draft inline.
 
 Return the headline, distinct briefs with recorded decisions in the period (accepted and rejected
 separately), pending count, accepted-ignore count, coverage limits, and file paths when saved.

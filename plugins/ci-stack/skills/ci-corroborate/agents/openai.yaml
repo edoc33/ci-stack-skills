@@ -1,0 +1,4 @@
+interface:
+  display_name: "CI claim check"
+  short_description: "Check a precise claim against independent evidence"
+  default_prompt: "Use $ci-corroborate to test this competitive claim and identify evidence gaps."
