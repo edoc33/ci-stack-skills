@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Competitive-intelligence skills that turn page changes into decisions you can defend.",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "plugins": [
     {
       "name": "ci-stack",
       "source": "./plugins/ci-stack",
-      "description": "Six skills that take a competitor change from signal to a decision with its receipt attached: scope a portfolio, triage materiality, corroborate claims, patch battlecards, separate patterns from anecdotes, and keep a weekly decision and ignore log.",
-      "version": "0.1.0",
+      "description": "Seven skills for source-backed competitive decisions and contextual call briefings: portfolio, triage, corroboration, battlecards, patterns, weekly updates and call mentions for Slack.",
+      "version": "0.2.0",
       "category": "research",
       "keywords": [
         "competitive-intelligence",
