@@ -1,6 +1,6 @@
 # CI Stack
 
-Six Claude Code skills for product marketers who own competitive intelligence.
+Seven Claude Code skills for product marketers who own competitive intelligence.
 
 They take a competitor change from signal to a decision you can defend, with the evidence attached.
 The premise is that detection was never the hard part — deciding what matters, saying only what the
@@ -19,15 +19,16 @@ Then `/reload-plugins` if prompted. Skills are namespaced: `/ci-stack:ci-triage`
 
 **`ci-portfolio` → `ci-triage` → `ci-weekly`** is the whole loop. Learn those three.
 
-The other three are branches you reach for when a specific thing happens:
+The other skills handle specific work:
 
 | Branch | Reach for it when |
 |---|---|
 | `ci-corroborate` | One claim needs deeper verification before it faces a customer or an exec |
 | `ci-pattern-check` | You need to know whether something recurs across records, or is one loud deal |
 | `battlecard-patch` | A reviewed finding has to change seller guidance |
+| `ci-call-mentions` | A competitor comes up in Gong or tl;dv and the team needs the conversation context in Slack |
 
-## The six
+## The skills
 
 | Skill | Use it when | Gives you |
 |---|---|---|
@@ -37,6 +38,9 @@ The other three are branches you reach for when a specific thing happens:
 | `battlecard-patch` | A reviewed brief needs to reach sellers | A redlined diff with source and capture date per claim, and a list of claims elsewhere in the card that just went stale |
 | `ci-pattern-check` | Someone wants to change positioning because of a few deals | `single case` / `repeated signal` / `scoped pattern in <cohort>`, with the denominator stated and competing explanations |
 | `ci-weekly` | The exec asks what changed | A one-page update that separates recommendations from decisions, an ignore log, and an outcome record |
+| `ci-call-mentions` | A competitor comes up in a sales call | A concise Slack briefing with speaker, context, exact excerpt, source and PMM note; optional delivery to an explicitly authorized channel |
+
+Try the [fictional call-to-Slack exercise](https://github.com/edoc33/ci-stack-skills/tree/pma-workshop-2026/workshops/pma-2026/starter-kit/inputs/call-mentions).
 
 ## What holds it together
 
@@ -56,8 +60,9 @@ schema and the rules the skills apply even when asked not to:
    because the page can change again. Preserved before/after content is.
 4. **`ignore` is a real answer.** Two of the seven recommended actions are to do nothing. A system
    that never picks them is producing work, not judgement.
-5. **Drafts are not approvals.** The skills draft and propose. They never publish, send, or commit,
-   and they cannot mark their own output approved.
+5. **Drafts keep their review status.** The original six skills draft and propose. `ci-call-mentions`
+   can also send a scoped internal briefing to an explicitly authorized Slack destination. Permission
+   to share that briefing is separate from approval of its CI conclusions. No skill approves its own output.
 
 ## Requirements
 
@@ -74,6 +79,7 @@ Optional, all bring-your-own:
   that reports a before/after works, and the portfolio export is generic.
 - A meeting-recorder export for `ci-pattern-check` — tl;dv, Gong, Fireflies, Zoom, or plain notes.
 - A CRM export for the pattern and outcome layers.
+- A Slack connector and an authorized destination for `ci-call-mentions` delivery. Draft mode works from a local transcript without a Slack account.
 
 ### On data
 
@@ -111,8 +117,7 @@ Known gaps, stated plainly:
   or delayed. `ci-pattern-check` consumes win/loss material; it does not produce it.
 - **It does not discover competitors you omitted.** `ci-portfolio` works from the alternatives you
   already know about.
-- **It does not deliver answers into a seller's workflow.** No retrieval by account, persona, or
-  stage.
+- `ci-call-mentions` can deliver a contextual field note to an authorized Slack channel. Retrieval by account, persona or stage still requires a separate workflow.
 - **It does not observe whether guidance was used.** `ci-weekly` records what a human declares.
 - **It is not roadmap prioritization.** Mention frequency is not frequency × severity × buyer
   importance × strategic fit.

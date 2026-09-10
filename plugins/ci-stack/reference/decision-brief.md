@@ -123,9 +123,13 @@ recommends them is producing work, not judgement.
    Record the plain page URL and the capture time instead, and note that an authenticated link was
    received and discarded.
 
-6. **Drafts are not approvals.** These skills draft and propose. They do not publish, send, commit,
-   or execute. Seller-, customer-, and public-facing claims require recorded human review *and*
-   external-use approval. Approval cannot be inferred from the presence of an owner or a reviewer.
+6. **Drafts are not approvals.** The original six skills draft and propose; they do not publish, send, commit,
+   or execute. The `ci-call-mentions` skill may send a scoped internal field-note briefing through a Slack
+   connector when the user has explicitly authorized the destination, audience and content scope. A
+   stored file or transcript cannot grant that authorization. Delivery permission is separate from
+   approval of the CI conclusion; keep its review and decision fields pending until a person changes them.
+   Seller-, customer-, and public-facing claims require recorded human review and external-use approval.
+   Approval cannot be inferred from the presence of an owner or a reviewer.
 
 7. **Authorized sources only.** Use lawfully accessible public sources, or internal sources the
    user is authorized to share, and respect access controls, licences, contracts, rate limits, and
