@@ -75,6 +75,7 @@ all seven. For a new CI program, the usual loop is portfolio → triage → peri
 - [Where Clef and Clairic could help](docs/cloudflare-models.md) (optional assessment; no model integration required)
 - [Evidence and file contract](plugins/ci-stack/reference/decision-brief.md)
 - [Validation and known limits](docs/validation.md)
+- [27 source examples, with dated captures and limits](https://github.com/edoc33/ci-stack-skills/tree/pma-workshop-2026/workshops/pma-2026/source-reference)
 - [PMA workshop materials](https://github.com/edoc33/ci-stack-skills/tree/pma-workshop-2026/workshops/pma-2026)
 
 The workshop branch retains dated exercises and reference outputs. Install from this repository's

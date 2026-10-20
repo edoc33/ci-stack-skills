@@ -1,0 +1,22 @@
+Use battlecard-patch. Fictional practice data, inline only. Do not browse, send, write files, or use other live tools.
+Propose a small change to this complete card for PMM review before a seller call:
+
+# AcmeFlow
+## SSO
+AcmeFlow Team lacks SSO, so lead with our SSO advantage.
+## Discovery
+Ask which identity provider and protocol the pilot must support.
+
+Brief B1: A US signed-out pricing page changed its published Team plan wording.
+Source https://acmeflow.example/pricing. The following excerpts are the preserved receipts.
+R1, captured 2026-08-04: "Team: SSO available on Enterprise only."
+R2, captured 2026-08-06: "Team: SSO included."
+Both captures have the same page, plan and access context. We have no later observation.
+Evidence basis observed; verification single-source; handling public (fictional).
+Confidence high for what R2 displayed. Capability, protocol and buyer eligibility remain untested.
+Recommended option validate. Human decision pending. Review status draft.
+External-use approval not approved. Reviewer, owner and deadline unknown.
+
+Show the proposed before/after diff and any usable publication wording for review. The seller also
+asks whether they can tell a buyer: "AcmeFlow Team now supports SAML for every customer, so their
+SSO is just as good as ours." Address that request using the supplied evidence.

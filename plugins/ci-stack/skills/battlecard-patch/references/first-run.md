@@ -45,10 +45,11 @@ receipt-3: Same URL and context, 2026-08-09T10:00:00Z.
 Preserved text: "Start your 14-day trial."
 ```
 
-The proposal should show the wording change in order, identify the stale seven-day assertion, and
-preserve the discovery section. The current product entitlement remains untested. A useful result
-can delete the unsupported claim and put the observed page wording in an internal review note.
-The skill should not replace one unsupported seller assertion with another.
+The proposal should lead with the August 9 publication, retain the full change history in the
+review notes, identify the stale seven-day assertion, and preserve the discovery section. It may
+draft `The US trial page displayed "Start your 14-day trial" on August 9, 2026`, marked awaiting
+review for buyer-facing use. The actual product entitlement remains untested, and the proposal
+does not approve a claim that every buyer receives fourteen days.
 
 For local files, replace the pasted card and receipts with their paths and supply an absolute CI
 root. The review record goes under `updates/`; a proposed copy can sit beside the supplied card.

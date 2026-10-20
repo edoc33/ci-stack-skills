@@ -20,19 +20,20 @@ competitor, and decision context improve the result. Missing fields remain expli
 a URL and someone's description can support an investigation, but cannot prove a past change.
 
 ```text
-Use ci-triage on this fictional practice example. Do not browse or send anything.
-Competitor: AcmeFlow. Source: https://acmeflow.example/pricing, public US page.
-Before capture, 2026-08-03: "SAML SSO: Enterprise plan only."
-After capture, 2026-08-04: "SAML SSO: Team and Enterprise plans."
-These invented excerpts are the full relevant section of each practice capture.
-Decision: our PMM is reviewing a comparison page that says SSO requires AcmeFlow Enterprise.
-Owner and deadline: unassigned. Use the absolute path of ./ci-demo in this workspace as the CI root.
-Write a draft brief and identify the next evidence check.
+This is a fictional example. Return the brief here; no files or live tools needed.
+We sell to IT teams that require SSO. Our current comparison says AcmeFlow only
+includes SSO on Enterprise. We need to review that claim before a sales call.
+Source: https://acmeflow.example/pricing, US page, signed out.
+Before, captured 2026-08-04: "Team: SSO available on Enterprise only."
+After, captured 2026-08-06: "Team: SSO included."
+These pasted extracts are the preserved evidence. We have no product test.
+Does this change our seller guidance? Leave unknown owners and deadlines unknown.
 ```
 
-Expect a brief in `briefs/` and a decision-log view, or inline artifacts if writing is unavailable.
-Label practice evidence fictional. On real inputs, preserve relevant before/after evidence and its
-capture context. The output remains a recommendation for human review.
+This is the repository README's canonical first-run fixture. Expect an inline brief that
+distinguishes the published change from product behavior and keeps approval pending. For a file
+run, supply a CI root and request a brief plus decision-log view. Label practice evidence fictional.
+On real inputs, preserve before/after evidence and capture context.
 
 ## Load the shared contract
 

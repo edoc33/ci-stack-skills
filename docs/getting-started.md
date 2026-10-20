@@ -44,6 +44,24 @@ or create monitors. Reviewer and exact campaign date are unassigned.
 Look for a connection between each page and the SSO decision. URLs supplied as fictional or
 unverified should retain that label. A generic export still needs mapping to your monitoring tool.
 
+### Map the watchlist to a monitor
+
+Check the tool's current setup fields and import format before creating a job. The `url,title`
+CSV supplies two fields; prompts, schedules and notification settings need separate setup.
+
+| Watchlist field | Setup destination | Check before saving |
+|---|---|---|
+| URL | Exact page to monitor | Open it and confirm locale, plan, access state and relevant content |
+| Title | Monitor name or title | Use a descriptive name; add a label separately if the tool supports grouping |
+| Alert prompt | Importance or filtering instructions, if supported | Keep the decision, material change and ignore rule; a flag still needs review |
+| Check interval | Monitoring schedule | Confirm the plan permits it and the resulting check volume is acceptable |
+| Review cadence | Human review routine | A weekly review does not imply weekly page checks or weekly notifications |
+| Reviewer | Person responsible for reading the alerts | Leave unassigned until a person is named |
+| Alert destination | Notification settings | Choose the recipient or channel explicitly and verify delivery separately |
+
+Save a receipt of the configured page, prompt, schedule and destination. Importing URLs alone does
+not establish that the other fields were configured or that an alert arrived.
+
 ## Judge a change with ci-triage
 
 Use the [README's pasted change](../README.md#run-your-first-skill). Save the brief when you want
@@ -76,10 +94,12 @@ Evidence basis: observed publication. Verification: single-source.
 Confidence: high for publication, unresolved for product behavior.
 Recommended option: validate. Human decision: pending. Review status: draft.
 External-use approval: not approved. We have no newer captures or trial test.
-Find stale claims and propose the appropriate internal edit. Preserve the original.
+Find stale claims and propose the appropriate internal edit. Include a narrowly dated,
+attributed publication line awaiting review for buyer-facing use. Preserve the original.
 ```
 
-Expect a diff or internal warning with its limits, rather than a newly approved feature claim.
+Expect a diff, the dated publication line, and its limits. Product behavior remains untested
+and buyer-facing approval stays pending.
 When using real data, supply the current card and related later changes, including any reversal.
 
 ## Check recurrence with ci-pattern-check

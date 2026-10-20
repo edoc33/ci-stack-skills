@@ -54,11 +54,18 @@ result a complete history or a verified current state beyond the evidence's cuto
 
 - When the brief recommends `ignore` or `continue monitoring`, return a no-change recommendation
   with its reason and revisit condition. Do not manufacture a card edit to fill the output.
-- Draft inputs produce `AWAITING REVIEW: not for seller use`. A reviewed source brief also leaves
-  newly drafted wording awaiting review and external-use approval.
-- Hold a seller-facing claim with low confidence, `single-source` or `unresolved` verification,
+- Label a new proposal `Internal reference · AWAITING REVIEW for buyer-facing use`. A reviewed source
+  brief also leaves newly drafted wording awaiting review and external-use approval.
+- Hold a buyer-facing assertion with low confidence, `single-source` or `unresolved` verification,
   or an `inferred` basis. Draft an internal note naming the missing support instead. Independently
   supported edits elsewhere may proceed, including removal of unsupported existing wording.
+- A narrow publication statement may be drafted from one preserved competitor-owned page when
+  its exact wording, capture date and matching scope are supplied and confidence in publication
+  is high. Attribute it explicitly, for example: `The US pricing page displayed "Team: SSO included"
+  on August 6, 2026.` Keep `Verification: single-source` and mark the line `AWAITING REVIEW for
+  buyer-facing use`. This exception permits a proposed line, not approval. It does not support
+  claims about actual capability, current entitlement, buyer eligibility or price, motive, or
+  superiority. Hold those assertions until their own evidence and approval requirements are met.
 
 Search the entire supplied card for affected claims, contradictions, and undated assertions. If
 only a section was provided, state that the rest of the card was not checked. Separate issues caused
@@ -70,6 +77,8 @@ Show a unified diff against the supplied text. Attach a source locator, preserve
 date, scope, evidence basis, and verification to each changed factual claim. Keep quoted page
 wording distinct from claims about product behavior. Do not add inferred motives, unsupported
 numbers, customer identities, or allegations about security, legality, quality, or financial health.
+Lead an affected section with the latest supported dated state, then put earlier changes and
+reversals in its history or review notes. Preserve an unknown current state when the evidence ends.
 
 Stamp only the claims actually rechecked. A section's `Last fully reviewed` date can advance only
 when every material claim in that section was reverified and human review is recorded. Suggest a

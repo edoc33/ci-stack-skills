@@ -1,0 +1,15 @@
+Use battlecard-patch for an affected-deal brief, inline. All records are fictional.
+Do not browse, write files, update CRM, or send messages. No current battlecard is available.
+Opportunity O1 is open. Call C1, dated 2026-08-06, is explicitly mapped to O1.
+Buyer at 02:10: "We are comparing AcmeFlow Team. SAML SSO is required for the pilot."
+Receipt fixture:C1@02:10 preserves the complete relevant exchange.
+Brief B1: AcmeFlow's US public, signed-out pricing page displayed "Team: SSO included" on 2026-08-06.
+Receipt https://acmeflow.example/pricing; the quoted excerpt is preserved here.
+Observed publication; single-source; public fictional data; confidence high for publication.
+Product behavior, SAML support and buyer eligibility untested. No later capture supplied.
+Recommendation validate. Human decision pending; review draft; external-use not approved.
+Guidance G1: "Ask which identity provider and protocol the pilot must support."
+Reviewed by fictional PMM Sam on 2026-08-05 and approved for internal reference only.
+No buyer-facing approval has been recorded.
+Prepare a useful note for O1's seller to read. Explain whether they may repeat the guidance or the
+competitive assertion to the buyer, and keep any proposed new wording visibly awaiting review.

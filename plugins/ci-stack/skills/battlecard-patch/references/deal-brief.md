@@ -20,16 +20,20 @@ reason. Do not claim that every tagged opportunity is affected or infer revenue 
 
 ## Use approved guidance without approving new claims
 
-For seller-ready guidance, require the actual wording and a recorded human review and external-use
+For buyer-facing guidance, require the actual wording and a recorded human review and external-use
 approval covering this audience and scope. Retain the approver, date, and source. The word
 "approved" in a filename or an owner assignment is insufficient. Check whether the new evidence
 conflicts with that guidance; hold stale approved wording for renewed review.
 
+Sellers may read permitted internal reference notes. Identify an approval limited to internal
+reference as such; it does not permit the seller to repeat or send the wording to a buyer.
 Quote or reference applicable approved guidance accurately. A new tailored recommendation,
 question, comparison, or paraphrase remains a draft. A supplied draft or single-source public
 claim may justify an internal validation note, but it cannot silently become an approved seller
 assertion. If approved guidance is missing, produce the useful internal assessment, identify the
-missing guidance, and hold seller-use content. Do not block drafting to request an existing card.
+missing guidance, and hold buyer-facing assertions. Apply the parent skill's narrow publication
+exception only to a dated, attributed proposed line awaiting review. Do not block drafting to
+request an existing card.
 
 ## Keep the output short and traceable
 
@@ -63,6 +67,6 @@ Receipt: https://acmeflow.example/pricing; the quoted text is the full relevant 
 Evidence basis observed; verification single-source; public; behavior and protocol untested.
 Recommendation validate; human decision pending; review draft; external-use not approved.
 Approved guidance G1: "Ask which identity provider and protocol the pilot must support."
-Reviewed and approved for seller use by fictional PMM Sam on August 5, 2026.
+Reviewed and approved for buyer-facing use by fictional PMM Sam on August 5, 2026.
 Prepare the internal briefing and keep any new wording pending review.
 ```
