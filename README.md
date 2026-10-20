@@ -20,6 +20,13 @@ In Claude Code:
 Follow the install summary. Run `/reload-plugins` if it asks you to.
 The commands follow [Claude Code's plugin installation](https://code.claude.com/docs/en/discover-plugins).
 
+Or from a terminal (the installation path tested for this release):
+
+```sh
+claude plugin marketplace add edoc33/ci-stack-skills
+claude plugin install ci-stack@ci-stack
+```
+
 For Codex, download or clone this repository, then run from its root:
 
 ```sh
@@ -33,11 +40,12 @@ replace an existing skill. Restart Codex if the new skills do not appear. Codex 
 Python 3.10 or later is required only for the installer and repository checks.
 
 Already installed? Follow [the upgrade instructions](docs/getting-started.md#update-an-existing-installation)
-to get version 0.3.0 and preserve any local customizations.
+to get version 0.4.0 and preserve any local customizations.
 
 ## Run your first skill
 
-In Claude Code, use `/ci-stack:ci-triage`. In Codex, use `$ci-triage`. Then paste:
+In Claude Code, type `/ci-stack:ci-triage`, a space, then the prompt below in the same message.
+In Codex, use `$ci-triage` with the prompt below:
 
 ```text
 This is a fictional example. Return the brief here; no files or live tools needed.
@@ -63,16 +71,19 @@ pending. A usable result may recommend checking the claim before editing the bat
 | Can we support this claim? | `ci-corroborate` | A source comparison, verification verdict, and supportable draft wording |
 | Which battlecard lines need changing? | `battlecard-patch` | A proposed diff against the current card, including stale claims and reversals |
 | Is this one deal or a recurring issue? | `ci-pattern-check` | A count over a defined cohort, coverage limits, and a scoped conclusion |
+| Who needs this reviewed guidance? | `battlecard-patch` in deal-brief mode | An owner-specific draft linked to approved guidance and a verified active evaluation |
 | What should the team know this period? | `ci-weekly` | A weekly, twice-monthly, monthly, or custom-period update and decision views |
-| What did the buyer say about a competitor? | `ci-call-mentions` | A contextual call excerpt and Slack draft, with held items explained |
+| What did the buyer say about a competitor? | `ci-call-mentions` | A contextual Slack draft or a proposed CRM tag matched to an exact opportunity |
 
 Start with the skill that fits the input you already have. There is no required sequence through
 all seven. For a new CI program, the usual loop is portfolio → triage → period update.
 
 - [First runs for all seven skills](docs/getting-started.md)
 - [How the workshop workflows fit together](docs/workflows.md)
+- [Where Clef and Clairic could help](docs/cloudflare-models.md) (optional assessment; no model integration required)
 - [Evidence and file contract](plugins/ci-stack/reference/decision-brief.md)
 - [Validation and known limits](docs/validation.md)
+- [27 source examples, with dated captures and limits](https://github.com/edoc33/ci-stack-skills/tree/pma-workshop-2026/workshops/pma-2026/source-reference)
 - [PMA workshop materials](https://github.com/edoc33/ci-stack-skills/tree/pma-workshop-2026/workshops/pma-2026)
 
 The workshop branch retains dated exercises and reference outputs. Install from this repository's
@@ -100,6 +111,10 @@ include deployed n8n workflows, GitHub Actions jobs, CRM field adapters, a timel
 newsletter delivery service. `ci-call-mentions` documents optional authorized Slack delivery; it
 requires a connector and a durable delivery record. The other skills produce drafts and proposals.
 See the [workflow guide](docs/workflows.md) for the pieces each example needs.
+
+The eight workshop workflows map to the existing seven skills. Optional output modes cover
+CRM tag proposals, competitor timelines, affected-deal briefs, and review-based discovery questions.
+These modes create local drafts from supplied evidence; they do not add live integrations.
 
 ## Contributing and licence
 

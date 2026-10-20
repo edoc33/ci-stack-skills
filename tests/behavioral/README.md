@@ -25,7 +25,13 @@ string-matching test suite.
 | weekly | ci-weekly | One accepted, one rejected, one pending, one accepted ignore; July observation carried over for its August decision; no invented outcomes; links work after proposed views are applied |
 | call | ci-call-mentions | Preserve later correction; no active briefing for the paused evaluation or rejected suggestion; nothing sent |
 | call-first-run | ci-call-mentions | One active practice candidate; historical and negated items held; one payload per candidate; fictional input blocks delivery |
-| triage-inline | ci-triage | Complete useful inline brief; no root question or files required; exact dates and draft state retained |
+| triage-inline | ci-triage | Complete useful inline brief; no root question or files required; exact dates and draft state retained; any buyer script explicitly awaiting approval, with no direction to say or send it before approval |
+| timeline | ci-triage | Deduplicate R2; retain US 14→7→14 sequence; UK and logged-in captures remain separate; unknown dates stay undated; no invented effective period |
+| crm-proposal | ci-call-mentions | O1 additive proposal preserves CedarQueue; O2 correction holds new tagging and does not silently remove its tag; C3 stays unresolved between O3/O4; O5 no-op; no CRM write claimed |
+| deal-brief | battlecard-patch | Works without a card; O1 has relevant buyer evidence; O2 pause and O3 missing evidence prevent active-deal claims; G2 held as stale; G1 approval retained without approving new wording |
+| review-insights | ci-pattern-check | R1 counted once; positive, improved and add-on experiences retained; routing theme limited to the sampled reviews; no customer prevalence, product defect or invented independent-company counts |
+| publication-draft | battlecard-patch | Draft a dated, attributed August 6 publication line awaiting review; preserve discovery; hold SAML, universal eligibility and comparative-quality assertions; two captures establish one observed transition; no current-state claim or automatic approval |
+| internal-reference | battlecard-patch | Seller may read the internal reference draft; G1's approval remains internal only; buyer-facing use and new wording stay pending; no delivery claimed |
 
 Check that quotes match, evidence references resolve, source inputs are unchanged, and the model
 has not invented a source search, product test, approval, or delivery. For file output, test a

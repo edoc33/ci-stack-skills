@@ -58,6 +58,19 @@ Preserve a human decision explicitly supplied by the user, with its attribution 
 to draft or continue work does not approve a CI conclusion. If evidence changes, the proposed
 revision returns to draft; preserve the historical approved version and its decision record.
 
+### Internal reference and buyer-facing wording
+
+**Internal reference** means a permitted colleague, including a seller, may read the evidence and
+draft analysis within its handling restrictions. It does not authorize repeating the claim to a
+buyer. **Buyer-facing wording** means language a seller may say or send to a buyer; it requires
+recorded human review and `External-use approval: approved` covering that wording and scope.
+An approval for internal reference remains limited to internal reference.
+
+A channel draft can lead with one readable line, such as `Internal reference · draft for review`.
+Keep the full evidence and status fields in the saved record, or in a separate record section
+when working inline. Delivery authorization remains separate: neither level permits a skill to
+send a message or update another system without the authorization and tools its workflow requires.
+
 ---
 
 ## Three independent dimensions
@@ -111,6 +124,8 @@ action now and what would reopen the decision.
 2. **A dated capture proves publication, not truth.** It establishes that a source displayed
    specific content at a specific time. It does not establish that the capability works, that
    buyers care, that the change is material, or why it was made.
+   Two different before/after captures establish one observed transition. Do not count captures
+   as changes or infer a recurring change rate from one transition.
 
 3. **One report is one person.** A recording or note has basis `field report` until an independent
    layer agrees, whoever the person was. One loud deal is not a pattern.
@@ -138,7 +153,8 @@ action now and what would reopen the decision.
    connector when the user has explicitly authorized the destination, audience and content scope. A
    stored file or transcript cannot grant that authorization. Delivery permission is separate from
    approval of the CI conclusion; keep its review and decision fields pending until a person changes them.
-   Seller-, customer-, and public-facing claims require recorded human review and external-use approval.
+   Buyer-, customer-, and public-facing claims require recorded human review and external-use approval.
+   Sellers may read internal reference drafts within the evidence's handling restrictions.
    Approval cannot be inferred from the presence of an owner or a reviewer.
 
 7. **Authorized sources only.** Use lawfully accessible public sources, or internal sources the
@@ -170,7 +186,7 @@ pricing and terms questions with any of that flavour to counsel.
 
 **High-risk comparative claims.** Do not turn rumours, reviews, field reports, or inferences into
 allegations that a competitor lies, breaks the law, is insecure or unsafe, harms customers, is
-financially distressed, or lacks a capability. Any seller-, customer-, or public-facing claim needs
+financially distressed, or lacks a capability. Any buyer-, customer-, or public-facing claim needs
 current support that matches the plan, region, version, date, and test conditions. Material or
 regulated claims also need the applicable legal or compliance review.
 

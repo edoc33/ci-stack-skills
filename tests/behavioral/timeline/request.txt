@@ -1,0 +1,12 @@
+Use ci-triage to create a competitor timeline and assess what our PMM should do about the trial comparison. Use only the fictional records below. No browsing or connectors. Write the requested artifacts under <CI_ROOT>; show absolute paths before writing. Preserve the supplied records and label the output fictional.
+
+The source is https://acmeflow.example/trial. Every quoted excerpt is the entire relevant trial section of its capture. Events have stable IDs. Source-specific page context is given below. Capture times are UTC; effective dates and intervening coverage are unknown. Our current internal comparison says: "AcmeFlow only offers a seven-day trial." Reviewer and deadline are unassigned. Use history through August 10, 2026.
+
+R1, 2026-08-03T10:00:00Z, US, English, public logged out: "Start your 14-day trial."
+R2, 2026-08-06T10:00:00Z, US, English, public logged out: "Start your 7-day trial."
+R2, repeated delivery of that same event/capture: "Start your 7-day trial."
+R3, 2026-08-09T10:00:00Z, US, English, public logged out: "Start your 14-day trial."
+R4, 2026-08-10T10:00:00Z, UK, English, public logged out: "Start your 7-day trial."
+R5, capture date unavailable, US, English, logged-in Enterprise account: "Contact your account team for trial terms."
+
+No product test, contract, further captures, or human approval is supplied.

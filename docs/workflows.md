@@ -4,6 +4,25 @@ Start by running the analysis manually on one permitted export. Add a runner aft
 is useful and you know which parts require review. The diagrams below describe proposed workflows;
 they are not importable n8n or GitHub Actions definitions.
 
+## Eight workshop workflows
+
+Each row produces a reviewable local artifact from supplied evidence. The external connection
+still needs its own implementation and authorization.
+
+| Workshop workflow | Skill or mode | Local artifact | External piece still needed |
+|---|---|---|---|
+| Call to competitor tag | `ci-call-mentions`, CRM proposal | Exact-opportunity field change proposal | CRM read/write adapter |
+| Call to team briefing | `ci-call-mentions` | Quote, context and Slack draft | Authorized delivery and durable send record |
+| Change to battlecard | `ci-triage` → `battlecard-patch` | Evidence brief and proposed diff | Version-aware publication adapter |
+| Competitor timeline | `ci-triage`, timeline | Dated entries, reversals and receipt references | Archive ingestion and storage |
+| Internal newsletter | `ci-weekly` | Period update linked to decision records | Export retrieval and reviewed delivery |
+| Affected-deal briefing | `battlecard-patch`, deal brief | Owner note from approved guidance | Current deal match, owner lookup and delivery |
+| Research brief | `ci-triage` → `ci-corroborate` | Scoped proposition, alternatives and next evidence | Source retrieval and scheduled collection |
+| Reviews to discovery | `ci-pattern-check`, review insights | Interview questions tied to supplied reviews | Permitted review collection and delivery |
+
+For high-volume inputs, [Clef and Clairic are optional candidates for extraction and routing](cloudflare-models.md).
+The skills work without them. The guide describes a proposed pilot, not a deployed integration.
+
 ## The stack
 
 ```mermaid
@@ -75,8 +94,9 @@ and allowed value before proposing a write. An ambiguous account match or missin
 unmatched. The connector must preserve a manually confirmed tag and distinguish historical use
 from current evaluation. `ci-pattern-check` can analyze the resulting export across opportunities.
 
-The repository supplies the classification method and cohort analysis. It does not ship a CRM
-mutation adapter. Installation should never imply that a deal was tagged.
+The CRM proposal mode supplies the draft field change, evidence and hold reason; cohort analysis
+remains available through `ci-pattern-check`. The repository does not ship a CRM mutation adapter.
+Installation should never imply that a deal was tagged.
 
 ## Important change to battlecard proposal
 
@@ -107,8 +127,8 @@ flowchart LR
 A timeline needs two records: the underlying dated capture and the judgment about why it matters.
 Use event IDs and source identity to deduplicate ingestion. Preserve corrections and reversals as
 new dated entries, linked to earlier ones. When storage fails, report a gap instead of claiming the
-evidence was archived. `ci-triage` supplies the judgment; archive ingestion and timeline rendering
-need separate implementation in your chosen storage tool.
+evidence was archived. `ci-triage` in timeline mode supplies dated draft entries and the judgment.
+Archive ingestion and rendering in your chosen storage tool need separate implementation.
 
 ## Report to internal newsletter
 
@@ -136,7 +156,8 @@ A delivery adapter and run ledger are required to publish each issue once.
 
 Join a reviewed card revision with verified active competitive opportunities. Draft a short note
 for each owner: the changed guidance, why it applies to their deal, and the approved source.
-Use `battlecard-patch` for the proposed edit and `ci-pattern-check` for cohort analysis where useful.
+Use `battlecard-patch` in deal-brief mode for the note, its default mode for a proposed card edit,
+and `ci-pattern-check` for cohort analysis where useful.
 The join, current approval check, owner routing, and delivery need a separate workflow. A call
 mention alone is insufficient evidence that the deal is still evaluating the competitor.
 
@@ -152,8 +173,10 @@ as independent corroboration.
 
 Use a permitted review capture or export with its date, platform, relevant scope, and any visible
 incentive disclosure. `ci-corroborate` can assess a specific reported claim. `ci-pattern-check` can
-check recurrence when the collection has a defined denominator. Draft buyer interview questions
-from the reported experience. One review cannot establish prevalence or a universal product defect.
+check recurrence when the collection has a defined denominator. Use `ci-pattern-check` in
+review-insights mode to draft buyer interview questions from the reported experience, including
+a single review without a prevalence calculation. One review cannot establish prevalence or a
+universal product defect.
 Review ingestion and interview-guide delivery need separate adapters.
 
 ## Before switching on a runner

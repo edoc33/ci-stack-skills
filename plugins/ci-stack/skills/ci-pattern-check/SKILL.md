@@ -2,8 +2,8 @@
 name: ci-pattern-check
 description: >
   Assess whether a competitive objection, loss reason, or competitor mention recurs across an
-  exported cohort of calls, CRM records, or buyer notes. Deduplicates cases and reports denominators,
-  coverage, and competing explanations. Use for pattern checks and scoped win/loss analysis;
+  exported cohort of calls, CRM records, buyer notes, or public reviews. Deduplicates cases and reports denominators,
+  coverage, and competing explanations. Use for pattern checks, scoped win/loss analysis, and review discovery;
   verifying one claim or tagging live CRM opportunities requires a different workflow.
 ---
 
@@ -11,6 +11,10 @@ description: >
 
 Answer a specific question about a defined set of deals or interviews, with the count and its limits
 visible. This skill reads supplied records and writes a draft analysis.
+
+For public-review insight discovery, read [references/review-insights.md](references/review-insights.md).
+Use its review-level unit and handling rules in place of deal-level counting. A supplied sample
+can reveal questions worth checking without establishing prevalence among customers.
 
 Read the shared contract from the first available location: `${CLAUDE_PLUGIN_ROOT}/reference/decision-brief.md`,
 `../../reference/decision-brief.md` relative to this skill directory, or `references/decision-brief.md`
@@ -98,7 +102,7 @@ codes and do not invent quotes. Include as many examples as the evidence warrant
 
 Record the exact proposition with its evidence basis, verification, confidence, and reason.
 Use the shared status fields with `Human decision: pending`, `Review status: draft`, and
-`External-use approval: not approved`. Handling is at least `internal`, or `restricted` when
+`External-use approval: not approved`. For internal field records, handling is at least `internal`, or `restricted` when
 identifiable people are present. Use role and segment in portable summaries; preserve any authorized
 identity mapping only in the restricted source. Do not try to re-identify anonymized records.
 

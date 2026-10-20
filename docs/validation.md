@@ -1,10 +1,99 @@
-# Validation for 0.3.0
+# Validation for 0.4.0
+
+Reviewed October 19, 2026. The seven skills retain their existing evidence and draft controls.
+This release adds optional timeline, CRM-proposal, affected-deal, and review-insight modes,
+first-run prompts, and a workflow mapping. The Cloudflare guide is a documentation assessment;
+no Clef or Clairic inference or production adapter was exercised.
+
+The ten package and installation checks passed against this release, including self-contained
+copies of all new references, matching version metadata, and resolving local documentation links.
+All seven skills passed the skill-creator structural validator. The exporter checks used temporary
+directories and preserved the user's installed skills.
+
+An independent Codex agent ran the four new fictional regression requests before reading their
+expected outcomes. Each case used a separate scratch directory, with one shared agent context.
+All four met their stated outcome checks:
+
+| Mode | Observed result |
+|---|---|
+| Timeline | Retained the US 14→7→14 sequence, deduplicated R2, separated UK and logged-in observations, and left the undated record undated |
+| CRM proposal | Preserved CedarQueue in O1's additive proposal, held O2's corrected history and ambiguous O3/O4 match, and returned no change for already-tagged O5 |
+| Affected-deal brief | Worked without a card, matched O1's buyer criterion, held paused O2 and tag-only O3, preserved G1's approval scope, and held stale G2 |
+| Review insights | Counted five distinct review records after deduplication, retained positive and improved experiences and the add-on distinction, and avoided customer-prevalence claims |
+
+Eight additional fictional worked examples covered the workshop outputs. The agent that authored
+those fixtures also produced those example outputs; they are demonstrations, not blinded tests.
+The independent regression cases above provide separate evidence for the four new modes.
+
+These were single runs with no live connectors. Outputs were checked for resolving local links,
+exact source quotes, preserved inputs and draft approval state. They remain human-readable prose:
+some field values include explanatory text, so an execution adapter needs schema validation.
+Output verbosity and repeatability are not established. A description-only discovery edit to
+`ci-pattern-check` followed the regression run; its operative instructions were unchanged, and
+its structural validation passed afterward.
+
+### Claude Code installation and first-run checks
+
+On October 19, the public `main` revision `afed770a51ddd5ec982efb890b6853b742672277`
+(0.3.0) was added through `claude plugin marketplace add edoc33/ci-stack-skills` and installed
+through `claude plugin install ci-stack@ci-stack` in an empty temporary configuration directory.
+The install and plugin inventory commands succeeded.
+
+The proposed 0.4.0 package was separately installed from its local marketplace checkout. Claude
+Sonnet 5.5 at low effort then executed the README prompt on each installed package in a fresh
+working directory. Restricted mode excluded personal and project settings; only `Read` and
+`Skill` tools were enabled. The run loaded the explicit installed plugin path and reused the
+existing account's keychain authentication, with no credential copy. This tests installation
+and explicit skill invocation, rather than login on a new account or the interactive installer UI.
+The runtime inventory contained CI Stack and Claude's built-in plugins.
+
+Both README runs returned a dated inline triage brief with a `validate` recommendation, pending
+approval and unknown owners/deadlines. No files or messages were created. The README and installed
+`ci-triage` first-run prompt now use identical fixture text.
+
+Two additional fictional runs exercised the revised battlecard instructions:
+
+| Case | Observed result |
+|---|---|
+| Publication draft | Produced a dated, attributed single-page statement awaiting review; held SAML, universal buyer eligibility and comparative-quality assertions; preserved the unrelated discovery section |
+| Internal reference | Allowed the seller to read an internal draft; retained the source guidance's internal-only approval; kept buyer-facing wording pending and sent nothing |
+
+The initial publication run incorrectly counted two captures as two changes and used an undated
+`no longer` phrase. A narrow correction now distinguishes capture count from transition count
+and keeps state labels tied to their dates. The follow-up at `d121d24` reported one observed
+transition and retained the August 6 cutoff. The core behavior passed, but the output still needs
+editorial review: it described the proposed parity assertion as a superiority claim, and its
+explanation of the old Team-plan wording was imprecise. These are sample runs, not a guarantee
+that every output will be concise or factually precise.
+
+The final Opus review identified a separate approval-boundary slip in the October 19 triage
+sample: it told a seller “If the buyer asks, say something like…” while recording
+`External-use approval: not approved`. A pending status elsewhere does not repair that instruction.
+The raw sample is retained as failed evidence for that boundary. The triage skill now requires
+an explicit `Proposed buyer-facing wording, awaiting approval` label and prohibits directing
+seller use before approval. The targeted release test checks the buyer script itself, as well as
+the status fields.
+
+The October 20 targeted local run at `507acb5` used the unchanged README fixture and the installed
+candidate. It explicitly withheld new buyer wording until review and approval, retained unknown
+assignments, and left the approval fields pending. It proposed no buyer script. This single run
+supports the correction's behavior on the fixture; it does not establish repeatability.
+
+Public installation results after release are recorded in
+[PR #2](https://github.com/edoc33/ci-stack-skills/pull/2), with the tested source revision.
+No Codex interactive discovery or live integration was exercised by these runs.
+
+
+The limitations below still apply. The September results are retained as dated evidence for the
+unchanged workflows, rather than represented as new runs of this release.
+
+## Validation for 0.3.0
 
 Reviewed September 10, 2026. All seven skill entrypoints, their references, the shared contract,
 onboarding, and workflow handoffs were reviewed. The checks support using supplied evidence to
 produce reviewable drafts. They do not establish production integration readiness.
 
-## Package and installation checks
+### Package and installation checks
 
 Run from the repository root:
 
@@ -18,7 +107,7 @@ versions, local document links, and the bundled transcript's metadata. All passe
 SKILL.md files also passed the skill-creator structural validator. The Codex exporter was tested
 in temporary directories, including paths with spaces, without modifying a user's installed skills.
 
-## Independent model runs
+### Independent model runs
 
 Independent Codex agents executed nine fictional scenarios using the revised skills and only the
 minimum raw inputs. They received no expected answer or implementation findings. The resulting
@@ -49,7 +138,7 @@ No claim is made that output length is deterministic.
 
 ## What remains untested
 
-- Marketplace installation and automatic skill selection in a fresh Claude Code or Codex account.
+- Login and interactive installation in a fresh Claude Code or Codex account, and automatic skill selection.
 - Live Gong, tl;dv, Visualping, CRM, wiki, Slack, or Teams connections.
 - Live delivery, concurrent delivery claims, retries, or uncertain-send reconciliation.
 - Real provider exports, retention configuration, scheduling, and model/API costs.
