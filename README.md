@@ -33,7 +33,7 @@ replace an existing skill. Restart Codex if the new skills do not appear. Codex 
 Python 3.10 or later is required only for the installer and repository checks.
 
 Already installed? Follow [the upgrade instructions](docs/getting-started.md#update-an-existing-installation)
-to get version 0.3.0 and preserve any local customizations.
+to get version 0.4.0 and preserve any local customizations.
 
 ## Run your first skill
 
@@ -63,14 +63,16 @@ pending. A usable result may recommend checking the claim before editing the bat
 | Can we support this claim? | `ci-corroborate` | A source comparison, verification verdict, and supportable draft wording |
 | Which battlecard lines need changing? | `battlecard-patch` | A proposed diff against the current card, including stale claims and reversals |
 | Is this one deal or a recurring issue? | `ci-pattern-check` | A count over a defined cohort, coverage limits, and a scoped conclusion |
+| Who needs this reviewed guidance? | `battlecard-patch` in deal-brief mode | An owner-specific draft linked to approved guidance and a verified active evaluation |
 | What should the team know this period? | `ci-weekly` | A weekly, twice-monthly, monthly, or custom-period update and decision views |
-| What did the buyer say about a competitor? | `ci-call-mentions` | A contextual call excerpt and Slack draft, with held items explained |
+| What did the buyer say about a competitor? | `ci-call-mentions` | A contextual Slack draft or a proposed CRM tag matched to an exact opportunity |
 
 Start with the skill that fits the input you already have. There is no required sequence through
 all seven. For a new CI program, the usual loop is portfolio → triage → period update.
 
 - [First runs for all seven skills](docs/getting-started.md)
 - [How the workshop workflows fit together](docs/workflows.md)
+- [Where Clef and Clairic could help](docs/cloudflare-models.md) (optional assessment; no model integration required)
 - [Evidence and file contract](plugins/ci-stack/reference/decision-brief.md)
 - [Validation and known limits](docs/validation.md)
 - [PMA workshop materials](https://github.com/edoc33/ci-stack-skills/tree/pma-workshop-2026/workshops/pma-2026)
@@ -100,6 +102,10 @@ include deployed n8n workflows, GitHub Actions jobs, CRM field adapters, a timel
 newsletter delivery service. `ci-call-mentions` documents optional authorized Slack delivery; it
 requires a connector and a durable delivery record. The other skills produce drafts and proposals.
 See the [workflow guide](docs/workflows.md) for the pieces each example needs.
+
+The eight workshop workflows map to the existing seven skills. Optional output modes cover
+CRM tag proposals, competitor timelines, affected-deal briefs, and review-based discovery questions.
+These modes create local drafts from supplied evidence; they do not add live integrations.
 
 ## Contributing and licence
 

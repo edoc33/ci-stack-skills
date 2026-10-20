@@ -1,0 +1,28 @@
+Use battlecard-patch to draft an affected-deal brief for the internal PMM and account team from the fictional records below. We have no existing battlecard. Use only these inputs, no browsing, connectors, CRM writes or messages. Save the brief under <CI_ROOT>, showing its absolute path before writing. Keep fictional evidence clearly labeled.
+
+Cutoff: August 9, 2026. Each quoted exchange is the complete relevant fictional call context. Unknown fields are not supplied elsewhere.
+
+Canonical brief B1, AcmeFlow:
+Observed change: Public US pricing-page wording now includes "Team: SSO included."
+Receipt R1: https://acmeflow.example/pricing, captured 2026-08-06T10:00:00Z, US English, public logged out. The quoted text is the full relevant captured section.
+Evidence basis: observed. Verification: single-source. Handling: public (fictional source).
+Confidence: high for displayed wording; SAML protocol, actual product behavior and effective date untested.
+Recommended option: validate. Human decision: pending. Review status: draft. External-use approval: not approved. Owner/deadline unassigned/unknown.
+
+Opportunity O1, open. C1 is explicitly associated with O1 in the supplied provider mapping.
+C1, Aug 7, buyer at 02:10: "We are comparing AcmeFlow Team. SAML SSO is required for the pilot."
+Receipt: fixture:C1@02:10. No later correction is supplied.
+
+Opportunity O2, open. C2 is explicitly associated with O2.
+C2, Aug 7, buyer at 01:00: "We are evaluating AcmeFlow."
+C2, Aug 8 follow-up, buyer at 03:00: "We paused the AcmeFlow evaluation. We have no active pilot with them now."
+Receipts: fixture:C2@01:00 and fixture:C2-followup@03:00.
+
+Opportunity O3, open. CRM evaluated_competitors is [AcmeFlow]. No call, buyer criterion or date is available.
+
+Approved guidance G1: "Ask which identity provider and protocol the pilot must support."
+Reviewed and approved for seller use by fictional PMM Sam on August 5, 2026. Scope: SSO discovery questions in active evaluations.
+Approved guidance G2: "AcmeFlow Team never includes SSO."
+Reviewed and approved for seller use by fictional PMM Sam on July 1, 2026. No supporting receipt or subsequent review is available.
+
+Prepare a useful internal briefing with relevant guidance and proposed next questions. Identify the supplied opportunities that need different handling and the limits on using any new seller wording.

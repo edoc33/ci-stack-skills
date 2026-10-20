@@ -26,6 +26,10 @@ string-matching test suite.
 | call | ci-call-mentions | Preserve later correction; no active briefing for the paused evaluation or rejected suggestion; nothing sent |
 | call-first-run | ci-call-mentions | One active practice candidate; historical and negated items held; one payload per candidate; fictional input blocks delivery |
 | triage-inline | ci-triage | Complete useful inline brief; no root question or files required; exact dates and draft state retained |
+| timeline | ci-triage | Deduplicate R2; retain US 14→7→14 sequence; UK and logged-in captures remain separate; unknown dates stay undated; no invented effective period |
+| crm-proposal | ci-call-mentions | O1 additive proposal preserves CedarQueue; O2 correction holds new tagging and does not silently remove its tag; C3 stays unresolved between O3/O4; O5 no-op; no CRM write claimed |
+| deal-brief | battlecard-patch | Works without a card; O1 has relevant buyer evidence; O2 pause and O3 missing evidence prevent active-deal claims; G2 held as stale; G1 approval retained without approving new wording |
+| review-insights | ci-pattern-check | R1 counted once; positive, improved and add-on experiences retained; routing theme limited to the sampled reviews; no customer prevalence, product defect or invented independent-company counts |
 
 Check that quotes match, evidence references resolve, source inputs are unchanged, and the model
 has not invented a source search, product test, approval, or delivery. For file output, test a

@@ -3,7 +3,7 @@ name: battlecard-patch
 description: >
   Propose a sourced edit to an existing competitive battlecard from a decision brief and related
   change history. Checks for reversals and stale claims, then produces a redline and review notes.
-  Use for battlecard updates or urgent sourced seller answers. Creating a card from scratch and
+  Use for battlecard updates, affected-deal briefs, or urgent sourced seller answers. Creating a card from scratch and
   publishing approved changes are separate workflows.
 ---
 
@@ -20,7 +20,11 @@ needs no output directory.
 
 ## Start with these inputs
 
-Required: the current card (file or pasted section) and a decision brief containing the exact claim,
+For an affected-deal brief, read [references/deal-brief.md](references/deal-brief.md). That mode uses
+supplied opportunity evidence and approved guidance; it needs no existing card and creates no
+card patch unless one is requested. Continue with the inputs below for a card edit.
+
+Required for a card edit: the current card (file or pasted section) and a decision brief containing the exact claim,
 source receipts, capture dates, scope, verification, confidence, and recommended option. A draft
 brief is enough to draft a proposal; record its actual review status. For raw alerts, use
 `ci-triage` or `ci-corroborate` if available, or request the missing brief fields.

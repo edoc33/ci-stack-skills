@@ -1,4 +1,4 @@
 interface:
-  display_name: "Battlecard update"
-  short_description: "Draft sourced edits to an existing battlecard"
+  display_name: "Battlecard and deal briefs"
+  short_description: "Draft sourced card edits and briefs for affected deals"
   default_prompt: "Use $battlecard-patch to propose edits from this brief and related change history."

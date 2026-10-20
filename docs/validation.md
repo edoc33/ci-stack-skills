@@ -1,10 +1,48 @@
-# Validation for 0.3.0
+# Validation for 0.4.0
+
+Reviewed October 19, 2026. The seven skills retain their existing evidence and draft controls.
+This release adds optional timeline, CRM-proposal, affected-deal, and review-insight modes,
+first-run prompts, and a workflow mapping. The Cloudflare guide is a documentation assessment;
+no Clef or Clairic inference or production adapter was exercised.
+
+The ten package and installation checks passed against this release, including self-contained
+copies of all new references, matching version metadata, and resolving local documentation links.
+All seven skills passed the skill-creator structural validator. The exporter checks used temporary
+directories and preserved the user's installed skills.
+
+An independent Codex agent ran the four new fictional regression requests before reading their
+expected outcomes. Each case used a separate scratch directory, with one shared agent context.
+All four met their stated outcome checks:
+
+| Mode | Observed result |
+|---|---|
+| Timeline | Retained the US 14→7→14 sequence, deduplicated R2, separated UK and logged-in observations, and left the undated record undated |
+| CRM proposal | Preserved CedarQueue in O1's additive proposal, held O2's corrected history and ambiguous O3/O4 match, and returned no change for already-tagged O5 |
+| Affected-deal brief | Worked without a card, matched O1's buyer criterion, held paused O2 and tag-only O3, preserved G1's approval scope, and held stale G2 |
+| Review insights | Counted five distinct review records after deduplication, retained positive and improved experiences and the add-on distinction, and avoided customer-prevalence claims |
+
+Eight additional fictional worked examples covered the workshop outputs. The agent that authored
+those fixtures also produced those example outputs; they are demonstrations, not blinded tests.
+The independent regression cases above provide separate evidence for the four new modes.
+
+These were single runs with no live connectors. Outputs were checked for resolving local links,
+exact source quotes, preserved inputs and draft approval state. They remain human-readable prose:
+some field values include explanatory text, so an execution adapter needs schema validation.
+Output verbosity and repeatability are not established. A description-only discovery edit to
+`ci-pattern-check` followed the regression run; its operative instructions were unchanged, and
+its structural validation passed afterward.
+
+
+The limitations below still apply. The September results are retained as dated evidence for the
+unchanged workflows, rather than represented as new runs of this release.
+
+## Validation for 0.3.0
 
 Reviewed September 10, 2026. All seven skill entrypoints, their references, the shared contract,
 onboarding, and workflow handoffs were reviewed. The checks support using supplied evidence to
 produce reviewable drafts. They do not establish production integration readiness.
 
-## Package and installation checks
+### Package and installation checks
 
 Run from the repository root:
 
@@ -18,7 +56,7 @@ versions, local document links, and the bundled transcript's metadata. All passe
 SKILL.md files also passed the skill-creator structural validator. The Codex exporter was tested
 in temporary directories, including paths with spaces, without modifying a user's installed skills.
 
-## Independent model runs
+### Independent model runs
 
 Independent Codex agents executed nine fictional scenarios using the revised skills and only the
 minimum raw inputs. They received no expected answer or implementation findings. The resulting

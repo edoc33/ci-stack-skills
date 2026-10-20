@@ -17,7 +17,7 @@ claude plugin update ci-stack@ci-stack
 claude plugin list
 ```
 
-Check that the listed version is `0.3.0`, then start a new session or run `/reload-plugins` in an
+Check that the listed version is `0.4.0`, then start a new session or run `/reload-plugins` in an
 existing session when prompted. If you installed in project or local scope, add `--scope project`
 or `--scope local` to the update command and run it from that project. See the
 [official update reference](https://code.claude.com/docs/en/plugins-reference#plugin-update).
@@ -126,6 +126,22 @@ Use the bundled [call example](../plugins/ci-stack/skills/ci-call-mentions/refer
 for a complete normalized transcript and prompt. It requires no Gong, tl;dv, or Slack account.
 Ask for a draft, then check the exact quote, speaker role, timestamp, context, and PMM note.
 The result should explain why seller-only, historical, or rejected mentions were held.
+
+## Try the other webinar outputs
+
+These are optional modes of the same installed skills. Each linked reference includes a copyable
+fictional prompt and needs no live account.
+
+| Output | Skill and first run | What to check |
+|---|---|---|
+| Competitor timeline | [ci-triage timeline](../plugins/ci-stack/skills/ci-triage/references/timeline.md#first-run) | Keep removals and restorations, date gaps, page scope, and receipts visible |
+| CRM competitor-tag proposal | [ci-call-mentions CRM proposal](../plugins/ci-stack/skills/ci-call-mentions/references/crm-proposal.md#first-run) | Match exact opportunity IDs, preserve existing values, and show proposals separately from executed writes |
+| Affected-deal brief | [battlecard-patch deal brief](../plugins/ci-stack/skills/battlecard-patch/references/deal-brief.md#first-run) | Match current buyer criteria to the change and distinguish approved guidance from new draft wording; no existing card is needed |
+| Review insights | [ci-pattern-check review discovery](../plugins/ci-stack/skills/ci-pattern-check/references/review-insights.md#first-run) | Preserve positive and conflicting reviews; selected samples supply questions to test, with their coverage limits |
+
+Ask for one output at a time. For a real run, replace the fictional evidence with a permitted
+export or preserved excerpts. A local draft does not configure a CRM writer, monitoring archive,
+review scraper, or message delivery.
 
 ## Move from examples to your own work
 

@@ -3,12 +3,12 @@ name: ci-call-mentions
 description: >
   Turn competitor mentions in permitted Gong, tl;dv, or exported call transcripts into
   contextual Slack drafts with exact quotes, source times, and a brief PMM note. Use for
-  call-to-Slack competitive intelligence workflows. Distinguishes active evaluations,
+  call-to-Slack competitive intelligence workflows and draft CRM-tag proposals. Distinguishes active evaluations,
   incumbent use, history, and rejected suggestions. Draft by default; scoped internal
   delivery requires recorded authorization and a configured Slack connector.
 ---
 
-# Competitor mentions from calls to Slack
+# Competitor mentions from calls
 
 Help a PMM understand why a competitor came up and what to ask next. Start with a permitted
 transcript and a competitor list. A provider connector is optional for drafting from an export.
@@ -55,6 +55,9 @@ and any distinct contexts. A later correction controls the final classification 
 an earlier statement; retain both quotes. Unresolved conflicting accounts remain `unclear`.
 An account or opportunity association must be supplied or reliably matched, otherwise leave it
 unresolved. This skill does not write CRM tags.
+For a requested CRM proposal, read [references/crm-proposal.md](references/crm-proposal.md).
+Use supplied exact opportunity IDs and field mappings to draft an auditable change plan. A Slack
+candidate or account match does not establish the correct opportunity or authorize a CRM write.
 
 ## Produce a useful draft
 

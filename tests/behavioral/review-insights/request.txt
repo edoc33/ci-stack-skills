@@ -1,0 +1,12 @@
+Use ci-pattern-check to find useful buyer-discovery questions in the following public-review sample about fictional AcmeFlow. Use only supplied records; no browsing or live tools. Save the requested analysis under <CI_ROOT>, showing its absolute path first. All review text, dates, labels and links are fictional.
+
+Decision: our PMM is choosing a question about setup or routing for the next buyer interviews. This is a handpicked mixed-rating sample selected by the word "setup," not a complete result set. We do not know the total number of reviews, customers or independent companies. All quoted text is the full relevant excerpt. Captures are August 6, 2026. Review publication dates and IDs follow. Do not re-identify reviewers.
+
+R1, https://reviews.example/acmeflow/r1, published Aug 3, Team, support manager: "Setup took longer than I expected. Support helped us finish. Our custom routing needed engineering help."
+R1, duplicate export, same URL/date/role/text as above.
+R2, https://reviews.example/acmeflow/r2, published Aug 4, Team, operations manager: "Setup was quick. We connected our existing templates without engineering."
+R3, https://reviews.example/acmeflow/r3, published Aug 5, plan unknown, role unknown: "Setup was fine. Our custom routing rules required engineering help."
+R4, https://reviews.example/acmeflow/r4, published Aug 5, plan unknown, operations manager: "The old setup was hard. After the July release, setup is straightforward for us."
+R5, https://reviews.example/acmeflow/r5, published Aug 5, Enterprise, role unknown: "The payroll add-on's setup was slow. AcmeFlow's own setup was straightforward."
+
+No internal buyer interviews, product tests, approved comparative claims, or private customer records are supplied.

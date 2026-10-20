@@ -1,0 +1,27 @@
+Use ci-call-mentions to prepare CRM competitor-tag proposals from these fictional records. Use only the data below; no live tools, Slack posting, CRM writes, or browsing. Save the requested artifacts under <CI_ROOT>, showing absolute paths before writing. All quotes, records, times and IDs are fictional practice evidence.
+
+Provider fixture, workspace webinar. Competitor canonical identity AcmeFlow, alias Acme. Every call is dated August 6, 2026, and the supporting transcript excerpts were captured that day. Each line gives its verified source time. Every exchange is complete for this exercise. Locators are fixture:C1, fixture:C2, fixture:C3 and fixture:C4 with the supplied times. No Slack destination is supplied.
+
+C1, 02:10 buyer: "We are evaluating AcmeFlow for the support workflow this month."
+C1, 02:30 buyer: "The Acme pilot needs to connect to our current identity provider."
+C2, 01:00 buyer: "We are also looking at AcmeFlow."
+C2, 01:20 buyer: "I mean at my former employer last year. It is not on this shortlist."
+C3, 03:10 buyer: "Our AcmeFlow test is running alongside your product."
+C4, 04:00 buyer: "We are evaluating AcmeFlow for this purchase."
+
+Supplied mapping table, captured August 6, 2026:
+C1 -> opportunity O1, explicit provider association.
+C2 -> opportunity O2, explicit provider association.
+C3 -> account Northstar; this account has open opportunities O3 and O4. No call-to-opportunity association is supplied.
+C4 -> opportunity O5, explicit provider association.
+
+CRM field: evaluated_competitors, multi-value list. Allowed values: AcmeFlow, CedarQueue.
+Tagging policy: include explicit current buyer evaluations only. Historical, seller-only, rejected and unresolved mentions do not qualify. No removal policy is supplied.
+Current values read August 6, 2026:
+O1: [CedarQueue]
+O2: [AcmeFlow]
+O3: []
+O4: []
+O5: [AcmeFlow]
+
+Prepare the reviewable change plan and explain what a separately authorized executor would need before applying it.
