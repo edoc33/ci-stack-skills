@@ -74,7 +74,13 @@ an explicit `Proposed buyer-facing wording, awaiting approval` label and prohibi
 seller use before approval. The targeted release test checks the buyer script itself, as well as
 the status fields.
 
-The local branch installation has not yet been retested from public `main` after release.
+The October 20 targeted local run at `507acb5` used the unchanged README fixture and the installed
+candidate. It explicitly withheld new buyer wording until review and approval, retained unknown
+assignments, and left the approval fields pending. It proposed no buyer script. This single run
+supports the correction's behavior on the fixture; it does not establish repeatability.
+
+Public installation results after release are recorded in
+[PR #2](https://github.com/edoc33/ci-stack-skills/pull/2), with the tested source revision.
 No Codex interactive discovery or live integration was exercised by these runs.
 
 
