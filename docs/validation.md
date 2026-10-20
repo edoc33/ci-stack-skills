@@ -66,6 +66,14 @@ editorial review: it described the proposed parity assertion as a superiority cl
 explanation of the old Team-plan wording was imprecise. These are sample runs, not a guarantee
 that every output will be concise or factually precise.
 
+The final Opus review identified a separate approval-boundary slip in the October 19 triage
+sample: it told a seller “If the buyer asks, say something like…” while recording
+`External-use approval: not approved`. A pending status elsewhere does not repair that instruction.
+The raw sample is retained as failed evidence for that boundary. The triage skill now requires
+an explicit `Proposed buyer-facing wording, awaiting approval` label and prohibits directing
+seller use before approval. The targeted release test checks the buyer script itself, as well as
+the status fields.
+
 The local branch installation has not yet been retested from public `main` after release.
 No Codex interactive discovery or live integration was exercised by these runs.
 

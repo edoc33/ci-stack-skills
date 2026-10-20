@@ -20,6 +20,13 @@ In Claude Code:
 Follow the install summary. Run `/reload-plugins` if it asks you to.
 The commands follow [Claude Code's plugin installation](https://code.claude.com/docs/en/discover-plugins).
 
+Or from a terminal (the installation path tested for this release):
+
+```sh
+claude plugin marketplace add edoc33/ci-stack-skills
+claude plugin install ci-stack@ci-stack
+```
+
 For Codex, download or clone this repository, then run from its root:
 
 ```sh
@@ -37,7 +44,8 @@ to get version 0.4.0 and preserve any local customizations.
 
 ## Run your first skill
 
-In Claude Code, use `/ci-stack:ci-triage`. In Codex, use `$ci-triage`. Then paste:
+In Claude Code, type `/ci-stack:ci-triage`, a space, then the prompt below in the same message.
+In Codex, use `$ci-triage` with the prompt below:
 
 ```text
 This is a fictional example. Return the brief here; no files or live tools needed.

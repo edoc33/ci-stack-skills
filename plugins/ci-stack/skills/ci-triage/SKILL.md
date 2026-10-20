@@ -91,6 +91,9 @@ proposition. Confidence in a captured statement does not establish its buyer rel
 Choose exactly one response from the shared contract. Use `ignore` or `continue monitoring` when
 appropriate, with a concrete `Revisit if` condition. Name the smallest useful next output and the
 owner/deadline if known. Set unknown assignments explicitly and keep human decisions pending.
+Label any proposed buyer script `Proposed buyer-facing wording, awaiting approval`. Do not direct
+a seller to say or send that wording before recorded human review and external-use approval,
+including inside an internal-reference note.
 
 For file output, show planned absolute paths, then write a collision-safe
 `<CI root>/briefs/YYYY-MM-DD-<competitor>-<slug>.md` using the shared schema. The filename date is
