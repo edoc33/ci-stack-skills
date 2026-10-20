@@ -32,6 +32,43 @@ Output verbosity and repeatability are not established. A description-only disco
 `ci-pattern-check` followed the regression run; its operative instructions were unchanged, and
 its structural validation passed afterward.
 
+### Claude Code installation and first-run checks
+
+On October 19, the public `main` revision `afed770a51ddd5ec982efb890b6853b742672277`
+(0.3.0) was added through `claude plugin marketplace add edoc33/ci-stack-skills` and installed
+through `claude plugin install ci-stack@ci-stack` in an empty temporary configuration directory.
+The install and plugin inventory commands succeeded.
+
+The proposed 0.4.0 package was separately installed from its local marketplace checkout. Claude
+Sonnet 5.5 at low effort then executed the README prompt on each installed package in a fresh
+working directory. Restricted mode excluded personal and project settings; only `Read` and
+`Skill` tools were enabled. The run loaded the explicit installed plugin path and reused the
+existing account's keychain authentication, with no credential copy. This tests installation
+and explicit skill invocation, rather than login on a new account or the interactive installer UI.
+The runtime inventory contained CI Stack and Claude's built-in plugins.
+
+Both README runs returned a dated inline triage brief with a `validate` recommendation, pending
+approval and unknown owners/deadlines. No files or messages were created. The README and installed
+`ci-triage` first-run prompt now use identical fixture text.
+
+Two additional fictional runs exercised the revised battlecard instructions:
+
+| Case | Observed result |
+|---|---|
+| Publication draft | Produced a dated, attributed single-page statement awaiting review; held SAML, universal buyer eligibility and comparative-quality assertions; preserved the unrelated discovery section |
+| Internal reference | Allowed the seller to read an internal draft; retained the source guidance's internal-only approval; kept buyer-facing wording pending and sent nothing |
+
+The initial publication run incorrectly counted two captures as two changes and used an undated
+`no longer` phrase. A narrow correction now distinguishes capture count from transition count
+and keeps state labels tied to their dates. The follow-up at `d121d24` reported one observed
+transition and retained the August 6 cutoff. The core behavior passed, but the output still needs
+editorial review: it described the proposed parity assertion as a superiority claim, and its
+explanation of the old Team-plan wording was imprecise. These are sample runs, not a guarantee
+that every output will be concise or factually precise.
+
+The local branch installation has not yet been retested from public `main` after release.
+No Codex interactive discovery or live integration was exercised by these runs.
+
 
 The limitations below still apply. The September results are retained as dated evidence for the
 unchanged workflows, rather than represented as new runs of this release.
@@ -87,7 +124,7 @@ No claim is made that output length is deterministic.
 
 ## What remains untested
 
-- Marketplace installation and automatic skill selection in a fresh Claude Code or Codex account.
+- Login and interactive installation in a fresh Claude Code or Codex account, and automatic skill selection.
 - Live Gong, tl;dv, Visualping, CRM, wiki, Slack, or Teams connections.
 - Live delivery, concurrent delivery claims, retries, or uncertain-send reconciliation.
 - Real provider exports, retention configuration, scheduling, and model/API costs.

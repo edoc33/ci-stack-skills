@@ -30,7 +30,7 @@ string-matching test suite.
 | crm-proposal | ci-call-mentions | O1 additive proposal preserves CedarQueue; O2 correction holds new tagging and does not silently remove its tag; C3 stays unresolved between O3/O4; O5 no-op; no CRM write claimed |
 | deal-brief | battlecard-patch | Works without a card; O1 has relevant buyer evidence; O2 pause and O3 missing evidence prevent active-deal claims; G2 held as stale; G1 approval retained without approving new wording |
 | review-insights | ci-pattern-check | R1 counted once; positive, improved and add-on experiences retained; routing theme limited to the sampled reviews; no customer prevalence, product defect or invented independent-company counts |
-| publication-draft | battlecard-patch | Draft a dated, attributed August 6 publication line awaiting review; preserve the discovery section; hold SAML, universal eligibility and comparative-quality assertions; no automatic approval |
+| publication-draft | battlecard-patch | Draft a dated, attributed August 6 publication line awaiting review; preserve discovery; hold SAML, universal eligibility and comparative-quality assertions; two captures establish one observed transition; no current-state claim or automatic approval |
 | internal-reference | battlecard-patch | Seller may read the internal reference draft; G1's approval remains internal only; buyer-facing use and new wording stay pending; no delivery claimed |
 
 Check that quotes match, evidence references resolve, source inputs are unchanged, and the model
