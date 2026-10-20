@@ -124,6 +124,8 @@ action now and what would reopen the decision.
 2. **A dated capture proves publication, not truth.** It establishes that a source displayed
    specific content at a specific time. It does not establish that the capability works, that
    buyers care, that the change is material, or why it was made.
+   Two different before/after captures establish one observed transition. Do not count captures
+   as changes or infer a recurring change rate from one transition.
 
 3. **One report is one person.** A recording or note has basis `field report` until an independent
    layer agrees, whoever the person was. One loud deal is not a pattern.

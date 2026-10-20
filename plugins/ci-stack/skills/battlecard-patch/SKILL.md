@@ -79,6 +79,8 @@ wording distinct from claims about product behavior. Do not add inferred motives
 numbers, customer identities, or allegations about security, legality, quality, or financial health.
 Lead an affected section with the latest supported dated state, then put earlier changes and
 reversals in its history or review notes. Preserve an unknown current state when the evidence ends.
+Keep state labels scoped to publication: `latest captured page wording`, rather than an unqualified
+capability statement. Avoid `now` or `no longer` when no current observation is supplied.
 
 Stamp only the claims actually rechecked. A section's `Last fully reviewed` date can advance only
 when every material claim in that section was reverified and human review is recorded. Suggest a
