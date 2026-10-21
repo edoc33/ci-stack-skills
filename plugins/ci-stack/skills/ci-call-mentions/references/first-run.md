@@ -10,15 +10,14 @@ After installing the skill, paste this request into your agent:
 ```text
 Use ci-call-mentions in draft mode with its bundled references/example-transcript.json.
 The companies, speakers, quotes, dates, and source link are fictional. Use only that file.
-Use a new ci-call-practice folder under the current working directory as my CI root;
-resolve it to an absolute path and show the output paths before writing.
-Draft the Slack items and extraction ledger. Explain any held mentions. Do not send anything.
+Return the Slack drafts and extraction ledger here. Explain any held mentions.
+Do not write files or send anything.
 ```
 
 The fixture travels with the skill. The agent should resolve it relative to `SKILL.md`, regardless
 of where the skill was installed. This practice run needs only an agent that can read the installed
-files and write to the chosen folder. If file access is unavailable, paste the fixture contents
-into the conversation and request inline drafts.
+files. If file access is unavailable, paste the fixture contents into the conversation. For saved
+drafts, request files and supply a CI root or use the skill's `./ci/` default.
 
 Review these parts of the result:
 
@@ -45,9 +44,9 @@ Slack draft stays short enough for a teammate to decide whether to open the sour
 
 # Use your own call next
 
-Provide one permitted export or connector response, the relevant competitor list, and the same
-CI root. Include the speaker role mapping if the export has only names or numeric IDs. A pasted
-excerpt is enough for an initial draft when it contains the complete relevant exchange. Missing
+Provide one permitted export, pasted exchange, or connector response and the relevant competitor
+list. Reuse the same CI root only when saving files. Include the speaker role mapping if the
+export has only names or numeric IDs. A pasted excerpt is enough for an initial draft when it contains the complete relevant exchange. Missing
 roles, times, source links, or stable IDs will be named as gaps and will hold delivery.
 
 The next implementation step is to configure the provider, agent runner, Slack destination, and

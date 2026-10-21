@@ -3,7 +3,8 @@ name: battlecard-patch
 description: >
   Propose a sourced edit to an existing competitive battlecard from a decision brief and related
   change history. Checks for reversals and stale claims, then produces a redline and review notes.
-  Use for battlecard updates, affected-deal briefs, or urgent sourced seller answers. Creating a card from scratch and
+  Use for battlecard updates and affected-deal briefs. For a standalone rep question using shared
+  guidance and evidence, use battleagent when available. Creating a card from scratch and
   publishing approved changes are separate workflows.
 ---
 
@@ -24,10 +25,14 @@ For an affected-deal brief, read [references/deal-brief.md](references/deal-brie
 supplied opportunity evidence and approved guidance; it needs no existing card and creates no
 card patch unless one is requested. Continue with the inputs below for a card edit.
 
-Required for a card edit: the current card (file or pasted section) and a decision brief containing the exact claim,
-source receipts, capture dates, scope, verification, confidence, and recommended option. A draft
-brief is enough to draft a proposal; record its actual review status. For raw alerts, use
-`ci-triage` or `ci-corroborate` if available, or request the missing brief fields.
+For a card edit, use the current card (file or pasted section) plus a decision brief or the
+supporting evidence itself. Reuse the exact claim, source receipts, capture dates and scope
+already supplied; assess verification, confidence and a recommended option in a concise inline
+record when a brief does not yet exist. Do not require the user to reformat usable evidence or
+install another skill first. A draft brief is enough to draft a proposal; record its actual review
+status. Use `ci-triage` or `ci-corroborate` when available and a separate change assessment or
+claim investigation is needed. Name missing evidence and hold unsupported assertions while
+continuing any supported removals or dated publication notes.
 
 Also use the related change history through the requested cutoff, the intended audience, and any
 style rules the user supplies. Resolve the reviewer from existing context; otherwise write
@@ -110,5 +115,8 @@ update a CRM. A scheduler or connector must be configured separately for recurri
 
 ## Urgent seller answer
 
-For a specific seller question, answer it first with the scope-limited claim, dated receipt, and
-known limit. Apply the same evidence and approval gates. Then offer the relevant card patch.
+For a seller question tied to the supplied card, answer it first with the scope-limited claim,
+dated receipt, and known limit. Apply the same evidence and approval gates. Then offer the
+relevant card patch. For a standalone question that needs shared guidance and evidence retrieval,
+use `battleagent` when available; pass the question and relevant receipts without requiring a
+card edit. If it is unavailable, a scoped inline answer is still possible from supplied evidence.

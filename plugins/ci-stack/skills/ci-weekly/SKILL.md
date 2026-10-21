@@ -31,7 +31,9 @@ Every two weeks and twice monthly are different cadences; preserve the user's ch
 Use the named audience and supplied writing rules. If none is given, draft for the internal PMM and
 sales team. Read [references/first-run.md](references/first-run.md) for a fictional first run and
 [references/reports-intake.md](references/reports-intake.md) when starting from an export.
-Neither a provider connection nor a scheduler is required for supplied files.
+Neither a provider connection nor a scheduler is required for supplied files or pasted records.
+Return the newsletter and applicable supporting views inline unless files were requested or the
+user established a file-based workflow.
 
 ## Gather only relevant material
 
@@ -47,9 +49,12 @@ Deduplicate repeated exports and references to the same event. Related changes t
 earlier change belong in one chronological account with receipts for each state.
 
 Raw alerts or Reports rows need triage before they become decision briefs. If `ci-triage` is
-available, use it on the supplied scope and preserve its draft states. Otherwise produce an intake
-list identifying the missing evidence and triage fields. Continue the update from usable briefs,
-state coverage, and avoid inventing a complete period when records are missing.
+available, use it on the supplied scope and preserve its draft states. If it is unavailable, use
+[the intake reference](references/reports-intake.md) to assess supplied evidence and create concise
+provisional records within this run. Hold rows whose missing evidence prevents assessment in an
+intake list. Continue the update from usable records, state coverage, and avoid inventing a
+complete period when records are missing. A separate installed skill or a saved brief file is
+not required for this inline path.
 
 ## Write the update
 

@@ -45,9 +45,11 @@ hosting, and model costs depend on the chosen implementation.
 
 For tl;dv, a configured `TranscriptReady` event can trigger a transcript fetch. For Gong, a configured
 Automation rule can fire a webhook and an adapter can request transcripts. Check the current
-provider documentation and permissions when building the adapter. Preserve the supplied speaker
-mapping and time units, then convert source times explicitly to seconds. For Gong, sentence start
-and end fields are milliseconds; verify the tl;dv response or connector's units before converting.
+provider documentation and permissions when building the adapter. For tl;dv, seeing a shared
+meeting in the UI does not establish API export access; verify the organizer's plan and the requested
+API scope. Preserve the supplied speaker mapping and time units, then convert source times explicitly
+to seconds. For Gong, sentence start and end fields are milliseconds; verify the tl;dv response or
+connector's units before converting. Preserve provider IDs as strings so large call IDs stay exact.
 
 Fetch the requested call set and preserve the relevant exchange, including questions and
 corrections. Run `ci-call-mentions` and validate its per-item output before any delivery. Call

@@ -72,8 +72,9 @@ with complete evidence. Keep all other mentions in the ledger with a hold reason
 request other contexts, clearly labeled. If no mentions qualify, return the ledger and say so;
 never manufacture a Slack item to fill the output.
 
-For file output, show collision-safe absolute paths under `<CI root>/updates/` before writing the
-readable draft, JSON ledger, and minimized evidence copy. Reuse the supplied root or follow the
+Return the readable draft and extraction ledger inline by default. For requested file output,
+show collision-safe absolute paths under `<CI root>/updates/` before writing the readable draft,
+JSON ledger, and minimized evidence copy. Reuse the supplied root or follow the
 shared contract's local default. Inline-only drafts need no CI root. Follow
 [the output contract](references/contract.md).
 Initialize `Human decision: pending`, `Review status: draft`, `External-use approval: not approved`,
