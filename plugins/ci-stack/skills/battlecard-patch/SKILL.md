@@ -1,8 +1,8 @@
 ---
 name: battlecard-patch
 description: >
-  Propose a sourced edit to an existing competitive battlecard from a decision brief and related
-  change history. Checks for reversals and stale claims, then produces a redline and review notes.
+  Propose a sourced edit to an existing competitive battlecard from supplied evidence or a
+  decision brief. Checks related history for reversals and stale claims, then produces a redline and review notes.
   Use for battlecard updates and affected-deal briefs. For a standalone rep question using shared
   guidance and evidence, use battleagent when available. Creating a card from scratch and
   publishing approved changes are separate workflows.
