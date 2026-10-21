@@ -20,7 +20,10 @@ class PackageTests(unittest.TestCase):
 
     def test_skill_names_and_shared_resource_are_discoverable(self):
         skills = list((PLUGIN / "skills").glob("*/SKILL.md"))
-        self.assertEqual(len(skills), 7)
+        self.assertEqual({s.parent.name for s in skills}, {
+            "ci-portfolio", "ci-triage", "ci-corroborate", "battlecard-patch",
+            "ci-pattern-check", "ci-weekly", "ci-call-mentions", "battleagent",
+        })
         for skill in skills:
             with self.subTest(skill=skill.parent.name):
                 text = skill.read_text()

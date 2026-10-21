@@ -26,13 +26,14 @@ Only supplied evidence: a fictional capture of https://acmeflow.example/docs/tea
 2026-08-04 lists Team-plan features and contains no reference to SSO. The full relevant captured
 section is: "Team includes shared projects, custom fields, and email support."
 We are deciding whether that seller claim belongs in a comparison page.
-Use the absolute path of ./ci-demo in this workspace as the CI root. Check the original claim,
-record the evidence limits, and draft wording we could send for human review.
+Check the original claim, record the evidence limits, and draft wording for human review.
+Return the record here. Do not write files.
 ```
 
-Expect a record in `corroborations/` with the original claim, tested proposition, sources, verdict,
+Expect an inline record with the original claim, tested proposition, sources, verdict,
 supportable draft wording and resolving evidence. Label fictional sources throughout practice
-outputs. File writing is optional; return the record inline if unavailable.
+outputs. Use `corroborations/` under the resolved CI root when files are requested or the user
+established a file-based workflow.
 
 ## Load the shared contract
 
@@ -100,9 +101,9 @@ resolve the remaining uncertainty. Distinguish a publisher's claim from tested b
 
 ## Write and hand off
 
-Resolve the CI root, show the planned absolute path, and create a collision-safe
-`<CI root>/corroborations/YYYY-MM-DD-<slug>.md`. Use the processing date in the filename and actual
-source dates inside the record. Include:
+Return the record inline by default. For requested files, resolve the CI root, show the planned
+absolute path, and create a collision-safe `<CI root>/corroborations/YYYY-MM-DD-<slug>.md`.
+Use the processing date in the filename and actual source dates inside the record. Include:
 
 - Original claim and provenance; `Proposition (exact, scope-limited)` and any separate narrower question.
 - Per-source table, `Evidence basis`, `Verification`, `Handling`, `Counterevidence / unknowns`,

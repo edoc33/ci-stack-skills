@@ -26,9 +26,11 @@ chosen root, resolve and show `./ci/` per the contract; inline work needs no out
 
 ## Start with a question and a cohort
 
-Minimum inputs: the question to test and permitted CSV, transcript text, or notes. Use the requested
-time window, or state the dates covered by the supplied export. With undated records, limit the
-answer to the undated supplied cohort and avoid time-based conclusions.
+Minimum inputs: the question to test and permitted CSV, transcript text, pasted records, or notes.
+Normalize readable records yourself and return the analysis inline unless files were requested
+or the user established a file-based workflow. Use the requested time window, or state the dates
+covered by the supplied export. With undated records, limit the answer to the undated supplied
+cohort and avoid time-based conclusions.
 A stable deal, account-episode, or interview ID is needed to count independent cases. Useful fields
 include date, competitor, speaker, quote or note, source locator, outcome, segment, rep, and stage.
 Accept equivalent field names and report the mapping. Do not require fields the question does not use.

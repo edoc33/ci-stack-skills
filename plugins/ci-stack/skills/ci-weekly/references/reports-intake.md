@@ -38,10 +38,18 @@ Keep all generated briefs at `Human decision: pending`, `Review status: draft`, 
 not constitute a human decision. A routine change can receive an `ignore` recommendation, but it
 enters the accepted ignore log only after a recorded human decision.
 
-If `ci-triage` is unavailable, return a pending-intake table with row locator, observed timestamp,
+If `ci-triage` is unavailable, perform this scoped assessment directly from the supplied evidence.
+Separate literal observations from the provider's summary, compare like-for-like capture context,
+check supplied reversals and conflicts, and tie the consequence to the stated decision. A plausible
+capture artifact, unresolved material conflict, or untested business implication that would change
+the recommendation calls for `validate`; it cannot become a confirmed capability change. Preserve the fields above in a concise
+provisional record with the shared draft statuses. Do not require the user to create a brief file.
+
+For rows that cannot be assessed, return a pending-intake table with row locator, observed timestamp,
 available receipt, missing fields, and suggested triage question. Produce a partial newsletter from
-existing usable briefs if possible. State how many rows were read, duplicates removed, usable
-briefs included, and items held. Avoid filling the report with unsupported claims to appear complete.
+usable records and identify which were assessed during this run. State how many rows were read,
+duplicates removed, usable records included, and items held. Avoid filling the report with
+unsupported claims to appear complete.
 
 ## Connect a recurring workflow
 

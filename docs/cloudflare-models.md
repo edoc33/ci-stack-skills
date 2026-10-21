@@ -1,6 +1,6 @@
 # Optional Clef and Clairic evaluation
 
-Reviewed October 19, 2026. This is an integration recommendation. This repository has no deployed
+Reviewed October 19, 2026. Clef and Clairic model documentation rechecked October 21, 2026. This is an integration recommendation. This repository has no deployed
 adapter, and this review made no inference calls. Performance on these CI workflows is unmeasured.
 
 **Clairic could extract the evidence; Clef could help route it; your existing assistant would

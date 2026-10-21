@@ -1,0 +1,1 @@
+Use the battleagent skill to run its bundled demo. Return the answer inline. Use only the bundled demo evidence; no browsing, external tools, file writes, or messages.

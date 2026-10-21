@@ -16,6 +16,17 @@ Everything below is fictional. Omit fields you do not know.
 - Material change: an alternative changes SSO entitlement, plan limits, or a claim we repeat.
 - Safe to ignore for this decision: cosmetic changes that leave those terms unchanged.
 
+## Optional battleagent source locations
+
+- Shared guidance: supply a permitted card or document location.
+- Evidence: supply a permitted folder, excerpts, or connected knowledge collection.
+- Deal context: supplied in each question unless a permitted source is named.
+- Evidence owner: unassigned.
+- Freshness policy: check source review-by dates and material changes; flag unknown dates.
+
+Start with pasted evidence if these locations are not configured. This context does not establish
+access rights to a source. Keep API keys and other credentials out of it.
+
 This context helps the agent interpret evidence. It contains no credentials or permission to send,
 publish, change CRM records, or approve a CI conclusion. Those actions need their own authorized
 workflow and recorded review where applicable.

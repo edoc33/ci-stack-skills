@@ -26,12 +26,13 @@ Decision: decide which enterprise objections our PMM should investigate before a
 Competitor: AcmeFlow. Supplied pages: https://acmeflow.example/pricing and
 https://acmeflow.example/docs/sso. Watch for changes to SSO eligibility and plan limits.
 One PMM can review alerts once a week. Owner: unassigned. All details and domains are fictional.
-Use the absolute path of ./ci-demo in this workspace as the CI root. Draft the watchlist and prompts.
+Return the watchlist, generic CSV, and alert prompts here. Do not write files.
 ```
 
-Expect `ci-portfolio.md`, `ci-portfolio-export.csv`, and `ci-alert-prompts.md`, or their contents
-inline if file writing is unavailable. The practice output is a provisional plan with fictional
-URLs, never evidence about a real company or a list of jobs that have been created.
+Expect the watchlist, a generic CSV, and alert prompts inline. For saved artifacts, ask for files
+and use `ci-portfolio.md`, `ci-portfolio-export.csv`, and `ci-alert-prompts.md` under the resolved
+CI root. The practice output is a provisional plan with fictional URLs, never evidence about a
+real company or a list of jobs that have been created.
 
 ## Load the shared contract
 
@@ -92,8 +93,10 @@ prompts or that its importance flag will establish business materiality.
 
 ## Save and hand off
 
-Resolve the CI root and show absolute paths before writing. Follow collision and proposed-diff
-rules in the shared contract, including for a portfolio the user has edited.
+Return the requested artifacts inline unless files were requested or the user established a
+file-based workflow. For files, resolve the CI root and show absolute paths before writing.
+Follow collision and proposed-diff rules in the shared contract, including for a portfolio the
+user has edited.
 
 1. `ci-portfolio.md`: the table, decision and assumptions, review capacity, and named blind spots.
 2. `ci-portfolio-export.csv`: a generic UTF-8 `url,title` export of supplied or verified specific URLs.

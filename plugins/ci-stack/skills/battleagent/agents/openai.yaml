@@ -1,0 +1,4 @@
+interface:
+  display_name: "Battleagent"
+  short_description: "Answer sales questions with shared, cited evidence"
+  default_prompt: "Use $battleagent to answer my competitive question from the shared guidance and evidence available to this deal."

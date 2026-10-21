@@ -17,17 +17,47 @@ claude plugin update ci-stack@ci-stack
 claude plugin list
 ```
 
-Check that the listed version is `0.4.0`, then start a new session or run `/reload-plugins` in an
+Check that the listed version is `0.5.0`, then start a new session or run `/reload-plugins` in an
 existing session when prompted. If you installed in project or local scope, add `--scope project`
 or `--scope local` to the update command and run it from that project. See the
-[official update reference](https://code.claude.com/docs/en/plugins-reference#plugin-update).
+[official update reference](https://code.claude.com/docs/en/discover-plugins#update-plugins-now).
 
-For Codex, download the latest `main` checkout before running the installer. If you already have
-CI Stack skill folders in your destination, compare and back up those seven folders outside every
-skill-discovery directory, then move the old copies out of the destination. Keep unrelated skills
-and your CI output directory in place. Rerun the two installer commands in the README. The script
-copies a fresh set and refuses collisions; it does not merge local edits or fetch future updates.
-Review your customizations before applying them to the new version. Restart Codex if needed.
+For Codex, download the latest `main` checkout, or run `git pull --ff-only` in a clean clone.
+Run from that checkout:
+
+```sh
+python3 scripts/install_codex.py --update --dry-run
+python3 scripts/install_codex.py --update
+```
+
+The installer defaults to `~/.agents/skills`. Pass `--dest /your/skills/path` on both commands
+if you installed elsewhere. Update replaces the packaged skill folders and backs up existing
+copies outside the discovery directory; the command prints the backup path. Review and reapply
+any local customizations from that backup. Unrelated skills and your CI outputs stay in place.
+The script does not fetch updates itself. Restart Codex if needed.
+
+To install or update only the battleagent, add `--skill battleagent`. Without `--update`, an
+existing skill is preserved and the command stops before writing. Use `--help` to see all options.
+
+## Ask a rep question with battleagent
+
+Start with the [bundled fictional demo](../plugins/ci-stack/skills/battleagent/references/demo.md):
+
+```text
+Run the bundled battleagent demo using only its supplied evidence. Answer inline.
+Do not browse, write files, or send anything.
+```
+
+Invoke `/ci-stack:battleagent` in Claude Code or `$battleagent` in Codex with that prompt.
+Look for a direct answer, citations to the relevant passages, a distinction between the old card
+and current published terms, and a useful next discovery question. A new answer remains a draft.
+
+For your first real question, paste the rep's question, known buying criterion, and permitted
+evidence. Ask the agent to use those sources. When you want reusable team setup, supply the
+shared guidance and evidence locations once in `ci-context.md`. The
+[knowledge guide](../plugins/ci-stack/skills/battleagent/references/knowledge-sources.md) covers
+local documents, enterprise search, and existing PostgreSQL or Snowflake sources. No warehouse
+is required for the example or a supplied-evidence answer.
 
 ## Build a watchlist with ci-portfolio
 
@@ -180,7 +210,7 @@ use the [workflow guide](workflows.md) to define inputs, retries, destinations, 
 | Skill not listed in Claude Code | Check `/plugin`, the install summary, and whether reload is requested |
 | Skill not listed in Codex | Check the destination contains `<skill>/SKILL.md`; restart if needed |
 | Shared contract missing | Install the complete plugin or rerun the Codex installer into a fresh destination; copying only SKILL.md loses required files |
-| Codex installer reports a collision | Inspect the existing skill and back it up outside the discovery directory before installing; the installer will not overwrite it |
+| Codex installer reports a collision | Review `--update --dry-run`, then use `--update` for a backed-up replacement, or select a fresh destination |
 | Repeated context questions | Supply decision, CI root and permitted data scope once; the skills should reuse them |
 | No connector available | Use a pasted excerpt or export and draft mode |
 | No usable capture or timestamp | Keep the gap explicit and request evidence; do not substitute today's date |

@@ -63,10 +63,12 @@ Reuse supplied context. For a file-backed run, resolve the CI root and read
 `<CI root>/ci-portfolio.md` if present and match the source URL and competitor to a row. Record the row used, or `no match`.
 Reuse its materiality and ignore rules unless the user's current decision has changed.
 
-If needed, ask once for the affected segment, asset or deal, deadline, and owner. Continue with
-explicit assumptions when the user wants an initial assessment. Mark relevance `assumed: not
-supplied` where appropriate and state that business materiality has not been established. Do not
-invent deals, segments, owners, deadlines, revenue exposure or CRM matches.
+Use the affected segment, asset or deal, deadline, and owner when supplied. Continue an initial
+assessment with explicit unknowns; do not block it to obtain assignments or a complete intake
+form. Ask a focused question only when a missing fact changes the recommendation or permitted
+handling. Mark relevance `assumed: not supplied` where appropriate and state that business
+materiality has not been established. Do not invent deals, segments, owners, deadlines,
+revenue exposure or CRM matches.
 
 ## Assess the evidence and consequence
 
