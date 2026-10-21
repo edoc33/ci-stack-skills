@@ -1,8 +1,8 @@
 # CI Stack
 
-Seven skills for product marketers who need to turn competitor evidence into useful decisions.
+Eight skills for product marketers who need to turn competitor evidence into useful decisions.
 Start with a page change, a sales-call excerpt, or a question about a competitor. Get a sourced
-brief, a proposed battlecard edit, a pattern check, or an internal update.
+brief, a proposed battlecard edit, a pattern check, an internal update, or a cited answer for a rep.
 
 Each skill works from supplied evidence. You can try the examples without a monitoring account,
 CRM, or Slack connection. The skills run in Claude Code or Codex; connectors and scheduling are
@@ -27,20 +27,51 @@ claude plugin marketplace add edoc33/ci-stack-skills
 claude plugin install ci-stack@ci-stack
 ```
 
-For Codex, download or clone this repository, then run from its root:
+For Codex, run these commands in a terminal:
 
 ```sh
-python3 scripts/install_codex.py --dest "$HOME/.agents/skills" --dry-run
-python3 scripts/install_codex.py --dest "$HOME/.agents/skills"
+git clone https://github.com/edoc33/ci-stack-skills.git
+cd ci-stack-skills
+python3 scripts/install_codex.py --dry-run
+python3 scripts/install_codex.py
 ```
 
-The local installer copies all seven skills and their required reference files. It refuses to
-replace an existing skill. Restart Codex if the new skills do not appear. Codex supports this
+If you already have the repository, use the upgrade instructions below instead of cloning again.
+You can also [download the ZIP](https://github.com/edoc33/ci-stack-skills/archive/refs/heads/main.zip),
+extract it, and run the two Python commands from the extracted folder.
+
+The local installer copies all eight skills and their required reference files to `~/.agents/skills`.
+Use `--dest /your/skills/path` for another location, or `--skill battleagent` to install only the new
+skill. It preserves existing skills unless you explicitly use `--update`, which backs them up first.
+Restart Codex if the new skills do not appear. Codex supports this
 [user skill location](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills).
 Python 3.10 or later is required only for the installer and repository checks.
 
 Already installed? Follow [the upgrade instructions](docs/getting-started.md#update-an-existing-installation)
-to get version 0.4.0 and preserve any local customizations.
+to get version 0.5.0 with backups of existing local customizations.
+
+## Try the battleagent
+
+After installing, paste one line into your agent:
+
+Claude Code:
+
+```text
+/ci-stack:battleagent Run the bundled demo inline using only its supplied evidence. Do not browse, write files, or send anything.
+```
+
+Codex:
+
+```text
+$battleagent Run the bundled demo inline using only its supplied evidence. Do not browse, write files, or send anything.
+```
+
+You get a rep's question, evaluated against shared guidance and dated evidence, with a cited
+answer, unknowns, and the next discovery question. The fictional demo includes an outdated card
+so you can see how the skill handles a claim that needs review.
+
+For real work, supply your question plus a permitted card, source excerpt, or shared knowledge
+location. A database is optional. See [how to connect shared knowledge](plugins/ci-stack/skills/battleagent/references/knowledge-sources.md).
 
 ## Run your first skill
 
@@ -70,15 +101,16 @@ pending. A usable result may recommend checking the claim before editing the bat
 | Does this change matter? | `ci-triage` | A decision brief with evidence, uncertainty, and a recommended response |
 | Can we support this claim? | `ci-corroborate` | A source comparison, verification verdict, and supportable draft wording |
 | Which battlecard lines need changing? | `battlecard-patch` | A proposed diff against the current card, including stale claims and reversals |
+| What can our rep conclude for this deal? | `battleagent` | A concise answer from shared guidance and dated evidence, with citations, gaps, and the next question |
 | Is this one deal or a recurring issue? | `ci-pattern-check` | A count over a defined cohort, coverage limits, and a scoped conclusion |
 | Who needs this reviewed guidance? | `battlecard-patch` in deal-brief mode | An owner-specific draft linked to approved guidance and a verified active evaluation |
 | What should the team know this period? | `ci-weekly` | A weekly, twice-monthly, monthly, or custom-period update and decision views |
 | What did the buyer say about a competitor? | `ci-call-mentions` | A contextual Slack draft or a proposed CRM tag matched to an exact opportunity |
 
 Start with the skill that fits the input you already have. There is no required sequence through
-all seven. For a new CI program, the usual loop is portfolio → triage → period update.
+all eight. For a new CI program, the usual loop is portfolio → triage → period update.
 
-- [First runs for all seven skills](docs/getting-started.md)
+- [First runs for all eight skills](docs/getting-started.md)
 - [How the workshop workflows fit together](docs/workflows.md)
 - [Where Clef and Clairic could help](docs/cloudflare-models.md) (optional assessment; no model integration required)
 - [Evidence and file contract](plugins/ci-stack/reference/decision-brief.md)
@@ -112,7 +144,8 @@ newsletter delivery service. `ci-call-mentions` documents optional authorized Sl
 requires a connector and a durable delivery record. The other skills produce drafts and proposals.
 See the [workflow guide](docs/workflows.md) for the pieces each example needs.
 
-The eight workshop workflows map to the existing seven skills. Optional output modes cover
+The eight workshop workflows map to the original seven skills. The new `battleagent` adds a
+rep-question workflow over the same evidence. Optional output modes cover
 CRM tag proposals, competitor timelines, affected-deal briefs, and review-based discovery questions.
 These modes create local drafts from supplied evidence; they do not add live integrations.
 

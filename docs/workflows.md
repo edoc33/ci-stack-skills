@@ -57,6 +57,30 @@ That node uses its own configured model and tools. To use this method there, pro
 skill instructions and shared contract, map the inputs and outputs, and test the adapted workflow.
 See [n8n's AI Agent documentation](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent).
 
+## Rep question to a sourced answer
+
+```mermaid
+flowchart LR
+    Q[Rep question and deal criterion] --> A[Agent with battleagent skill]
+    G[Shared guidance and dated evidence] --> A
+    P[Permitted deal context] --> A
+    A --> R[Cited answer, unknowns, next question]
+    A --> C[Proposed knowledge correction when needed]
+```
+
+The `battleagent` skill standardizes how a rep's question is answered. The runtime retrieves
+permitted evidence and applies the skill. The source store holds product facts, source dates,
+and reviewed guidance. A local document folder can fill that role initially. Glean can be an
+enterprise-search choice; PostgreSQL, Supabase, or an existing Snowflake warehouse can hold
+ingested structured evidence when a working connector and access controls exist.
+
+These are optional architecture choices. The repository includes a self-contained demo and
+source-setup instructions, not a hosted chatbot, data ingestion service, or database connector.
+See the [battleagent setup](../plugins/ci-stack/skills/battleagent/references/knowledge-sources.md).
+The query workflow reads evidence and returns an internal draft. Updates to the canonical card
+use `battlecard-patch` and the existing review process. A generated answer never becomes a
+source fact merely because it was saved.
+
 ## Call mention to a useful briefing
 
 ```mermaid

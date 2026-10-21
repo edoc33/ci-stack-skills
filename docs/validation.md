@@ -1,3 +1,45 @@
+# Validation for 0.5.0
+
+Reviewed October 21, 2026. This release adds `battleagent`, makes the existing seven skills easier
+to run from pasted evidence, and adds a selective Codex installer with backed-up updates.
+The repository now contains eight skills.
+
+## Package and setup checks
+
+- All 32 package and installer tests passed with `python3 -m unittest discover -s tests -v`.
+  Coverage includes selective installation, write-free previews, legacy customization backups,
+  failed-install rollback, malformed packages, symlinks, and paths containing spaces.
+- All eight skill entrypoints passed the skill-creator structural validator.
+- The installed Claude CLI validated both the marketplace and individual plugin manifests.
+- A fresh isolated Codex export contained all eight skills; every source file and copied shared
+  contract matched the package byte for byte. No live account or connector was required.
+- Current Claude installation/update documentation, Codex skill-location documentation, and the
+  Clef and Clairic model documentation were rechecked. The optional model adapters remain unbuilt.
+
+## Independent behavior checks
+
+An independent Codex agent executed the three new battleagent requests in
+[the regression suite](../tests/behavioral/README.md), using only the skill and raw fictional
+inputs. It received no expected answers. These were separate responses in one agent context,
+not isolated model sessions. The observed outputs:
+
+- Held stale approved wording when later applicable evidence conflicted, while preserving its
+  historical approval metadata.
+- Kept UK and US terms distinct, withheld unsupported superiority, and ignored source-embedded
+  instructions.
+- Left current product support and speed unresolved when evidence was missing, respected the
+  inaccessible-source boundary, and still proposed a useful buyer question.
+
+A separate independent Codex review exercised the two changed standalone paths from their raw
+requests, without expected outputs. The card-plus-receipts request produced a scoped inline edit
+without a prepared brief. The weekly request assessed the usable raw evidence without ci-triage,
+deduplicated the event, and held the unsupported summary. Both preserved draft status. This was
+one run per request in a shared reviewer context; model repeatability remains unmeasured.
+
+These are supplied-evidence exercises, not tests of live retrieval or repeatability. The skill
+provides instructions and a demo, not a deployed sales assistant, database, or ingestion system.
+The older release evidence below remains dated historical evidence.
+
 # Validation for 0.4.0
 
 Reviewed October 19, 2026. The seven skills retain their existing evidence and draft controls.

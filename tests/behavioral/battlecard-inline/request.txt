@@ -1,0 +1,10 @@
+Use battlecard-patch. All data is fictional. Return an inline proposed edit, no files or live tools. No separate decision brief exists and no other CI skill is installed.
+
+Current card: "AcmeFlow Team lacks SSO. Lead with our SSO advantage. Ask who owns their identity rollout."
+
+Supplied preserved capture A, 2026-10-19, US signed-out Team pricing, https://acmeflow.example/pricing:
+"Team: SSO on Enterprise only."
+Supplied preserved capture B, 2026-10-20, same URL and context:
+"Team includes SAML SSO."
+
+Decision: prepare for an IT buyer who requires SSO. No product test, our-product evidence, current buyer terms, or human approval is supplied. Only these captures are available. Cutoff: 2026-10-20. Propose the supported internal edit and identify limits for buyer-facing wording.

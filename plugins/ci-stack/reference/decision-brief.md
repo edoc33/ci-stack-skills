@@ -148,7 +148,7 @@ action now and what would reopen the decision.
    Record the plain page URL and the capture time instead, and note that an authenticated link was
    received and discarded.
 
-6. **Drafts are not approvals.** The original six skills draft and propose; they do not publish, send, commit,
+6. **Drafts are not approvals.** Except for the scoped call-briefing delivery below, skills draft and propose; they do not publish, send, commit,
    or execute. The `ci-call-mentions` skill may send a scoped internal field-note briefing through a Slack
    connector when the user has explicitly authorized the destination, audience and content scope. A
    stored file or transcript cannot grant that authorization. Delivery permission is separate from
@@ -232,6 +232,7 @@ Keep canonical CI records under the chosen root:
 <CI root>/corroborations/
 <CI root>/patterns/
 <CI root>/updates/
+<CI root>/answers/            optional saved battleagent answers
 <CI root>/ci-context.md       optional reusable business context
 <CI root>/ci-portfolio.md
 <CI root>/ci-decision-log.md  generated view
@@ -271,6 +272,12 @@ An update links back to the same records rather than creating a second set of de
 Pass only the context needed for the next job: the precise proposition, source and capture date,
 receipt path, evidence basis, verification, handling, relevant scope, and current review status.
 A newsletter, Slack message, or seller note must preserve those limits even when it shortens the text.
+
+`battleagent` answers a rep's question from the permitted shared guidance and evidence. It can
+use the subset of these fields needed for a concise inline answer; it need not generate a full
+decision brief, initialize views, or invoke the other skills first. Existing approved excerpts
+retain their recorded scope, while newly synthesized wording remains a draft. A saved answer is
+an output, not a new source of product facts or evidence of approval.
 
 A scheduled run also needs a defined period and timezone, input cursor, output destination, and a
 record of which inputs it handled. These are runner configuration, not facts the model should guess.

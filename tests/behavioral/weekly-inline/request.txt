@@ -1,0 +1,12 @@
+Use ci-weekly to draft an internal PMM update for October 19 through October 20, 2026, inclusive, America/Toronto. All data is fictional. Work inline, no network or file writes. ci-triage is unavailable; no briefs have been prepared. Decision: check the SSO claim our sellers use for IT buyers. No human decisions, approvals, owners, or business outcomes are recorded.
+
+Raw row R1, event E1: AcmeFlow US signed-out Team pricing https://acmeflow.example/pricing.
+Preserved before capture 2026-10-19: "Team: SSO on Enterprise only."
+Preserved after capture 2026-10-20: "Team includes SAML SSO."
+No product test is supplied.
+
+Raw row R2 is another export of event E1 with identical captures.
+
+Raw row R3: AcmeFlow doubled its customer count, says an undated report summary. No source URL, original passage, or dated capture is available.
+
+Produce what is supportable, and report coverage.
